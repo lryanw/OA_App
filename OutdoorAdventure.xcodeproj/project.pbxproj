@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D01A3381E241790009E2243 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01A3371E241790009E2243 /* MainViewController.swift */; };
+		2D4BF0921E255057001710AD /* Climbing Graphic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF08C1E255057001710AD /* Climbing Graphic.png */; };
+		2D4BF0931E255057001710AD /* ic_event.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF08D1E255057001710AD /* ic_event.png */; };
+		2D4BF0941E255057001710AD /* ic_photo_library.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF08E1E255057001710AD /* ic_photo_library.png */; };
+		2D4BF0951E255057001710AD /* information.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF08F1E255057001710AD /* information.png */; };
+		2D4BF0961E255057001710AD /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF0901E255057001710AD /* menu.png */; };
+		2D4BF0971E255057001710AD /* newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF0911E255057001710AD /* newspaper.png */; };
+		2D4C8A9A1E29879C0004EE11 /* RockWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8A991E29879C0004EE11 /* RockWallViewController.swift */; };
+		2D4C8A9C1E298C170004EE11 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8A9B1E298C170004EE11 /* GalleryViewController.swift */; };
+		2D525BFA1E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D525BF91E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift */; };
+		2D525BFF1E27299000A06B25 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFC1E27299000A06B25 /* ic_launcher.png */; };
+		2D525C001E27299000A06B25 /* background_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFD1E27299000A06B25 /* background_1.jpg */; };
+		2D525C011E27299000A06B25 /* background_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFE1E27299000A06B25 /* background_2.jpg */; };
 		2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA821E22D928003F0462 /* AppDelegate.swift */; };
 		2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA841E22D928003F0462 /* ViewController.swift */; };
 		2DA2CA881E22D928003F0462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA2CA861E22D928003F0462 /* Main.storyboard */; };
@@ -14,6 +27,7 @@
 		2DA2CA8D1E22D928003F0462 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA2CA8B1E22D928003F0462 /* LaunchScreen.storyboard */; };
 		2DA2CA981E22D928003F0462 /* OutdoorAdventureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA971E22D928003F0462 /* OutdoorAdventureTests.swift */; };
 		2DA2CAA31E22D928003F0462 /* OutdoorAdventureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CAA21E22D928003F0462 /* OutdoorAdventureUITests.swift */; };
+		2DA2CAB31E231018003F0462 /* OA_App_Background_Temp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DA2CAB21E231018003F0462 /* OA_App_Background_Temp.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +48,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D01A3371E241790009E2243 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2D4BF08C1E255057001710AD /* Climbing Graphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Climbing Graphic.png"; sourceTree = "<group>"; };
+		2D4BF08D1E255057001710AD /* ic_event.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_event.png; sourceTree = "<group>"; };
+		2D4BF08E1E255057001710AD /* ic_photo_library.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_photo_library.png; sourceTree = "<group>"; };
+		2D4BF08F1E255057001710AD /* information.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information.png; sourceTree = "<group>"; };
+		2D4BF0901E255057001710AD /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		2D4BF0911E255057001710AD /* newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newspaper.png; sourceTree = "<group>"; };
+		2D4C8A991E29879C0004EE11 /* RockWallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RockWallViewController.swift; sourceTree = "<group>"; };
+		2D4C8A9B1E298C170004EE11 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		2D525BF91E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell_NewsTableViewCell.swift; sourceTree = "<group>"; };
+		2D525BFC1E27299000A06B25 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
+		2D525BFD1E27299000A06B25 /* background_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_1.jpg; sourceTree = "<group>"; };
+		2D525BFE1E27299000A06B25 /* background_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_2.jpg; sourceTree = "<group>"; };
 		2DA2CA7F1E22D928003F0462 /* OutdoorAdventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutdoorAdventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA2CA821E22D928003F0462 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA2CA841E22D928003F0462 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +74,7 @@
 		2DA2CA9E1E22D928003F0462 /* OutdoorAdventureUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OutdoorAdventureUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA2CAA21E22D928003F0462 /* OutdoorAdventureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutdoorAdventureUITests.swift; sourceTree = "<group>"; };
 		2DA2CAA41E22D928003F0462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DA2CAB21E231018003F0462 /* OA_App_Background_Temp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OA_App_Background_Temp.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +102,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D4BF08B1E255042001710AD /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				2D4BF08C1E255057001710AD /* Climbing Graphic.png */,
+				2D4BF08D1E255057001710AD /* ic_event.png */,
+				2D4BF08E1E255057001710AD /* ic_photo_library.png */,
+				2D4BF08F1E255057001710AD /* information.png */,
+				2D4BF0901E255057001710AD /* menu.png */,
+				2D4BF0911E255057001710AD /* newspaper.png */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
+		2D525BFB1E27218900A06B25 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2D525BF91E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		2DA2CA761E22D928003F0462 = {
 			isa = PBXGroup;
 			children = (
@@ -99,10 +148,15 @@
 			children = (
 				2DA2CA821E22D928003F0462 /* AppDelegate.swift */,
 				2DA2CA841E22D928003F0462 /* ViewController.swift */,
+				2D01A3371E241790009E2243 /* MainViewController.swift */,
+				2D4C8A991E29879C0004EE11 /* RockWallViewController.swift */,
+				2D4C8A9B1E298C170004EE11 /* GalleryViewController.swift */,
+				2D525BFB1E27218900A06B25 /* Cells */,
 				2DA2CA861E22D928003F0462 /* Main.storyboard */,
 				2DA2CA891E22D928003F0462 /* Assets.xcassets */,
 				2DA2CA8B1E22D928003F0462 /* LaunchScreen.storyboard */,
 				2DA2CA8E1E22D928003F0462 /* Info.plist */,
+				2DA2CAB11E230FF9003F0462 /* Pictures */,
 			);
 			path = OutdoorAdventure;
 			sourceTree = "<group>";
@@ -123,6 +177,18 @@
 				2DA2CAA41E22D928003F0462 /* Info.plist */,
 			);
 			path = OutdoorAdventureUITests;
+			sourceTree = "<group>";
+		};
+		2DA2CAB11E230FF9003F0462 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				2D525BFC1E27299000A06B25 /* ic_launcher.png */,
+				2D525BFD1E27299000A06B25 /* background_1.jpg */,
+				2D525BFE1E27299000A06B25 /* background_2.jpg */,
+				2D4BF08B1E255042001710AD /* Icons */,
+				2DA2CAB21E231018003F0462 /* OA_App_Background_Temp.jpg */,
+			);
+			name = Pictures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +298,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4BF0951E255057001710AD /* information.png in Resources */,
 				2DA2CA8D1E22D928003F0462 /* LaunchScreen.storyboard in Resources */,
+				2D525C011E27299000A06B25 /* background_2.jpg in Resources */,
+				2D4BF0961E255057001710AD /* menu.png in Resources */,
+				2D525C001E27299000A06B25 /* background_1.jpg in Resources */,
+				2D4BF0921E255057001710AD /* Climbing Graphic.png in Resources */,
+				2D4BF0931E255057001710AD /* ic_event.png in Resources */,
+				2D4BF0971E255057001710AD /* newspaper.png in Resources */,
+				2D4BF0941E255057001710AD /* ic_photo_library.png in Resources */,
+				2D525BFF1E27299000A06B25 /* ic_launcher.png in Resources */,
+				2DA2CAB31E231018003F0462 /* OA_App_Background_Temp.jpg in Resources */,
 				2DA2CA8A1E22D928003F0462 /* Assets.xcassets in Resources */,
 				2DA2CA881E22D928003F0462 /* Main.storyboard in Resources */,
 			);
@@ -259,7 +335,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D4C8A9A1E29879C0004EE11 /* RockWallViewController.swift in Sources */,
+				2D01A3381E241790009E2243 /* MainViewController.swift in Sources */,
 				2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */,
+				2D4C8A9C1E298C170004EE11 /* GalleryViewController.swift in Sources */,
+				2D525BFA1E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift in Sources */,
 				2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,6 +583,7 @@
 				2DA2CAA91E22D928003F0462 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2DA2CAAA1E22D928003F0462 /* Build configuration list for PBXNativeTarget "OutdoorAdventureTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +592,7 @@
 				2DA2CAAC1E22D928003F0462 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2DA2CAAD1E22D928003F0462 /* Build configuration list for PBXNativeTarget "OutdoorAdventureUITests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +601,7 @@
 				2DA2CAAF1E22D928003F0462 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
