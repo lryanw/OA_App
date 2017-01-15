@@ -162,6 +162,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="va7-8C-zrE"/>
                                     <barButtonItem image="Climbing Graphic.png" id="sOJ-xJ-Tvr">
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toRockWallWithSender:" destination="LcF-v1-TBW" id="X35-8p-FDh"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Wxb-E1-sm3"/>
                                     <barButtonItem image="newspaper.png" id="KiD-mQ-knE">
@@ -170,10 +173,16 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="PCz-qw-IZb"/>
                                     <barButtonItem image="ic_event.png" id="gBq-bG-7sk">
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toCalendarWithSender:" destination="LcF-v1-TBW" id="YXY-1i-Ls0"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mqO-5t-pM2"/>
                                     <barButtonItem image="information.png" id="THT-4E-ghm">
                                         <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toInfoWithSender:" destination="LcF-v1-TBW" id="noi-5h-SKv"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -186,7 +195,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="156"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2J3-TK-PlG" id="r64-Qa-tZh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="155"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jtD-bW-7Ly">
@@ -254,16 +263,19 @@
                         <outlet property="button_RockWall" destination="sOJ-xJ-Tvr" id="wX6-KV-Onq"/>
                         <outlet property="tableView_News" destination="H49-aQ-XfM" id="qRt-WM-VnJ"/>
                         <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="NewsToGallery" animates="NO" id="YSC-na-DVT"/>
+                        <segue destination="Wo2-li-420" kind="showDetail" identifier="NewsToRockWall" animates="NO" id="fwe-mC-dHa"/>
+                        <segue destination="f1S-us-KzA" kind="showDetail" identifier="NewsToCalendar" animates="NO" id="UXN-ts-kQe"/>
+                        <segue destination="9lv-sH-F8U" kind="showDetail" identifier="NewsToInfo" animates="NO" id="rP3-eK-ncr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieN-MG-nCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="772.46376811594212" y="122.28260869565219"/>
         </scene>
-        <!--View Controller-->
+        <!--Calendar View Controller-->
         <scene sceneID="Koy-Zw-kXw">
             <objects>
-                <viewController id="f1S-us-KzA" sceneMemberID="viewController">
+                <viewController id="f1S-us-KzA" customClass="CalendarViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4Gp-07-wke"/>
                         <viewControllerLayoutGuide type="bottom" id="2fP-AA-Wgx"/>
@@ -271,17 +283,62 @@
                     <view key="view" contentMode="scaleToFill" id="3zq-RI-2e0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7w-br-hXG">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="ic_photo_library.png" id="inb-Dy-a5X">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toGalleryWithSender:" destination="f1S-us-KzA" id="FqY-68-lOn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EZu-eO-4A4"/>
+                                    <barButtonItem image="Climbing Graphic.png" id="4m4-Tp-xrd">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toRockWallWithSender:" destination="f1S-us-KzA" id="BQb-Yx-mRP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jjb-Y7-4Zc"/>
+                                    <barButtonItem image="newspaper.png" id="pvg-Yu-vOV">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toNewsWithSender:" destination="f1S-us-KzA" id="DJc-ir-AcP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="X8B-uo-jeg"/>
+                                    <barButtonItem image="ic_event.png" id="UMf-s4-jzF">
+                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ro7-N9-wSP"/>
+                                    <barButtonItem image="information.png" id="8bz-RB-bQv">
+                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toInfoWithSender:" destination="f1S-us-KzA" id="I2W-ry-12e"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="CalendarToGallery" animates="NO" id="8Ha-Va-8UO"/>
+                        <segue destination="Wo2-li-420" kind="showDetail" identifier="CalendarToRockWall" animates="NO" id="JoC-90-n0s"/>
+                        <segue destination="LcF-v1-TBW" kind="showDetail" identifier="CalendarToNews" animates="NO" id="aIf-aA-Xid"/>
+                        <segue destination="9lv-sH-F8U" kind="showDetail" identifier="CalendarToInfo" animates="NO" id="PzQ-lC-lct"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUg-MP-S8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1501" y="122"/>
         </scene>
-        <!--View Controller-->
+        <!--Info View Controller-->
         <scene sceneID="SSL-kj-bdY">
             <objects>
-                <viewController id="9lv-sH-F8U" sceneMemberID="viewController">
+                <viewController id="9lv-sH-F8U" customClass="InfoViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2gx-XU-1Sl"/>
                         <viewControllerLayoutGuide type="bottom" id="04d-S3-94I"/>
@@ -289,8 +346,53 @@
                     <view key="view" contentMode="scaleToFill" id="OLY-Rb-WrP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3D-cv-0CC">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="ic_photo_library.png" id="Bod-xu-c8x">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toGalleryWithSender:" destination="9lv-sH-F8U" id="MeE-uZ-cQQ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="m5a-Sr-ubf"/>
+                                    <barButtonItem image="Climbing Graphic.png" id="hWf-aP-KrR">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toRockWallWithSender:" destination="9lv-sH-F8U" id="j2i-3B-vXr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Au9-Vy-DiI"/>
+                                    <barButtonItem image="newspaper.png" id="Bep-eQ-LXL">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toNewsWithSender:" destination="9lv-sH-F8U" id="mIe-cm-t3Y"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yxO-sP-R7z"/>
+                                    <barButtonItem image="ic_event.png" id="2g6-vj-Ky6">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toCalendarWithSender:" destination="9lv-sH-F8U" id="45B-zm-Ot3"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="BQE-vN-vVr"/>
+                                    <barButtonItem image="information.png" id="sdi-dh-nH1">
+                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="InfoToGallary" animates="NO" id="eUu-om-iKS"/>
+                        <segue destination="Wo2-li-420" kind="showDetail" identifier="InfoToRockWall" animates="NO" id="Kx2-AW-t6t"/>
+                        <segue destination="LcF-v1-TBW" kind="showDetail" identifier="InfoToNews" animates="NO" id="hkW-r1-XD7"/>
+                        <segue destination="f1S-us-KzA" kind="showDetail" identifier="InfoToCalendar" animates="NO" id="1n5-Gq-xYQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPx-0i-8iF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -321,6 +423,9 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="HTK-V9-aAv"/>
                                     <barButtonItem image="Climbing Graphic.png" id="Mcl-TZ-xJ2">
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toRockWallWithSender:" destination="UWG-Wg-rXH" id="PHF-YW-X7n"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="c4O-VZ-deg"/>
                                     <barButtonItem image="newspaper.png" id="Ixs-qK-T2X">
@@ -332,10 +437,16 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Sz6-No-zlt"/>
                                     <barButtonItem image="ic_event.png" id="KKc-bE-da5">
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toCalendarWithSender:" destination="UWG-Wg-rXH" id="6F7-f6-t53"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jFL-bU-aqA"/>
                                     <barButtonItem image="information.png" id="D14-Pq-bvv">
                                         <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toInfoWithSender:" destination="UWG-Wg-rXH" id="0Nx-gC-9Z5"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -348,16 +459,19 @@
                         <outlet property="button_News" destination="Ixs-qK-T2X" id="m6e-Ds-jHN"/>
                         <outlet property="button_RockWall" destination="Mcl-TZ-xJ2" id="nKV-v1-ib6"/>
                         <segue destination="LcF-v1-TBW" kind="showDetail" identifier="GalleryToNews" animates="NO" id="Hyn-MK-lm4"/>
+                        <segue destination="Wo2-li-420" kind="showDetail" identifier="GallaryToRockWall" animates="NO" id="1on-5Z-1Tp"/>
+                        <segue destination="f1S-us-KzA" kind="showDetail" identifier="GallaryToCalendar" animates="NO" id="A7X-vh-B88"/>
+                        <segue destination="9lv-sH-F8U" kind="showDetail" identifier="GallaryToInfo" animates="NO" id="ote-1q-Zq9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aZ-tf-npj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-739" y="122"/>
         </scene>
-        <!--View Controller-->
+        <!--Rock Wall View Controller-->
         <scene sceneID="KRT-AA-ufV">
             <objects>
-                <viewController id="Wo2-li-420" sceneMemberID="viewController">
+                <viewController id="Wo2-li-420" customClass="RockWallViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DIs-qB-ydO"/>
                         <viewControllerLayoutGuide type="bottom" id="XYN-1H-eLT"/>
@@ -365,8 +479,53 @@
                     <view key="view" contentMode="scaleToFill" id="AKt-Hc-XJa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-fN-RFm">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="ic_photo_library.png" id="3wj-Yh-zQI">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toGallaryWithSender:" destination="Wo2-li-420" id="DNM-uM-dFb"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KfV-b6-nX0"/>
+                                    <barButtonItem image="Climbing Graphic.png" id="Dg2-yi-wgs">
+                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pjq-03-HkZ"/>
+                                    <barButtonItem image="newspaper.png" id="nO2-Qq-xx4">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toNewsWithSender:" destination="Wo2-li-420" id="Bav-77-JxO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="K7b-nu-Z0n"/>
+                                    <barButtonItem image="ic_event.png" id="xVX-ud-wJJ">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toCalendarWithSender:" destination="Wo2-li-420" id="Dcg-ES-oFj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="vYf-Vd-Yl6"/>
+                                    <barButtonItem image="information.png" id="Qt5-YB-yNa">
+                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toInfoWithSender:" destination="Wo2-li-420" id="1zH-h2-ZcH"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="RockWallToGallary" animates="NO" id="are-xu-43T"/>
+                        <segue destination="LcF-v1-TBW" kind="showDetail" identifier="RockWallToNews" animates="NO" id="xGw-S6-QZ3"/>
+                        <segue destination="f1S-us-KzA" kind="showDetail" identifier="RockWallToCalendar" animates="NO" id="g9n-PU-iyh"/>
+                        <segue destination="9lv-sH-F8U" kind="showDetail" identifier="RockWallToInfo" animates="NO" id="1TF-q2-o0D"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bII-6a-41R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -382,6 +541,10 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Hyn-MK-lm4"/>
+        <segue reference="rP3-eK-ncr"/>
+        <segue reference="xGw-S6-QZ3"/>
+        <segue reference="fwe-mC-dHa"/>
+        <segue reference="YSC-na-DVT"/>
+        <segue reference="UXN-ts-kQe"/>
     </inferredMetricsTieBreakers>
 </document>

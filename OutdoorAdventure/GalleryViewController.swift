@@ -29,8 +29,20 @@ class GalleryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func toRockWall(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "GallaryToRockWall", sender: sender);
+    }
+    
     @IBAction func toNews(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "GalleryToNews", sender: sender)
+    }
+    
+    @IBAction func toCalendar(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "GallaryToCalendar", sender: sender);
+    }
+    
+    @IBAction func toInfo(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "GallaryToInfo", sender: sender);
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

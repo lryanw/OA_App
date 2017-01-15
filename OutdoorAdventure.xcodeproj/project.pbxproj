@@ -20,6 +20,8 @@
 		2D525BFF1E27299000A06B25 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFC1E27299000A06B25 /* ic_launcher.png */; };
 		2D525C001E27299000A06B25 /* background_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFD1E27299000A06B25 /* background_1.jpg */; };
 		2D525C011E27299000A06B25 /* background_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFE1E27299000A06B25 /* background_2.jpg */; };
+		2D6066EF1E2C2797004A93B7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */; };
+		2D6066F11E2C27AE004A93B7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */; };
 		2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA821E22D928003F0462 /* AppDelegate.swift */; };
 		2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA841E22D928003F0462 /* ViewController.swift */; };
 		2DA2CA881E22D928003F0462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA2CA861E22D928003F0462 /* Main.storyboard */; };
@@ -61,6 +63,8 @@
 		2D525BFC1E27299000A06B25 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		2D525BFD1E27299000A06B25 /* background_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_1.jpg; sourceTree = "<group>"; };
 		2D525BFE1E27299000A06B25 /* background_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_2.jpg; sourceTree = "<group>"; };
+		2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		2DA2CA7F1E22D928003F0462 /* OutdoorAdventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutdoorAdventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA2CA821E22D928003F0462 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA2CA841E22D928003F0462 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -148,9 +152,11 @@
 			children = (
 				2DA2CA821E22D928003F0462 /* AppDelegate.swift */,
 				2DA2CA841E22D928003F0462 /* ViewController.swift */,
-				2D01A3371E241790009E2243 /* MainViewController.swift */,
-				2D4C8A991E29879C0004EE11 /* RockWallViewController.swift */,
 				2D4C8A9B1E298C170004EE11 /* GalleryViewController.swift */,
+				2D4C8A991E29879C0004EE11 /* RockWallViewController.swift */,
+				2D01A3371E241790009E2243 /* MainViewController.swift */,
+				2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */,
+				2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */,
 				2D525BFB1E27218900A06B25 /* Cells */,
 				2DA2CA861E22D928003F0462 /* Main.storyboard */,
 				2DA2CA891E22D928003F0462 /* Assets.xcassets */,
@@ -340,6 +346,8 @@
 				2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */,
 				2D4C8A9C1E298C170004EE11 /* GalleryViewController.swift in Sources */,
 				2D525BFA1E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift in Sources */,
+				2D6066EF1E2C2797004A93B7 /* CalendarViewController.swift in Sources */,
+				2D6066F11E2C27AE004A93B7 /* InfoViewController.swift in Sources */,
 				2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

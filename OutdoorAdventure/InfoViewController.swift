@@ -1,14 +1,14 @@
 //
-//  RockWallViewController.swift
+//  InfoViewController.swift
 //  OutdoorAdventure
 //
-//  Created by Ryan Lee on 1/13/17.
+//  Created by Ryan Lee on 1/15/17.
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
 import UIKit
 
-class RockWallViewController: UIViewController {
+class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,25 +21,27 @@ class RockWallViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func toGallary(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "RockWallToGallary", sender: sender);
+    @IBAction func toGallery(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "InfoToGallery", sender: sender);
+        
+    }
+    
+    @IBAction func toRockWall(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "InfoToRockWall", sender: sender);
     }
     
     @IBAction func toNews(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "RockWallToNews", sender: sender)
+        performSegue(withIdentifier: "InfoToNews", sender: sender);
     }
     
     @IBAction func toCalendar(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "RockWallToCalendar", sender: sender);
-    }
-    
-    @IBAction func toInfo(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "RockWallToInfo", sender: sender);
+        performSegue(withIdentifier: "InfoToCalendar", sender: sender);
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
+    
+    
 
     /*
     // MARK: - Navigation

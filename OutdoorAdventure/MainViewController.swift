@@ -85,6 +85,18 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     }
     
+    @IBAction func toRockWall(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "NewsToRockWall", sender: sender);
+    }
+    
+    @IBAction func toCalendar(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "NewsToCalendar", sender: sender);
+    }
+    
+    @IBAction func toInfo(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "NewsToInfo", sender: sender);
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
