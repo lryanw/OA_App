@@ -27,8 +27,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        //tableView_News.estimatedRowHeight = 156;
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,10 +60,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let imageHeight = items[indexPath.row].4.size.height;
         let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth;
         
-        //cell.news_Image.frame.size = CGSize(width: tableView_News.frame.width, height: newHeight);
-        //cell.news_Image.bounds.size = CGSize(width: tableView_News.frame.width, height: newHeight);
-        
-        print("\(imageWidth) \(imageHeight) \(tableView_News.frame.width) \(newHeight) \(cell.news_Image.frame.width) \(cell.news_Image.frame.height)");
+        cell.news_Image.frame.size = CGSize(width: tableView_News.frame.width, height: newHeight)
         
         return cell;
     }
@@ -77,12 +73,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let imageHeight = items[indexPath.row].4.size.height;
         let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth;
         
-        return tableView_News.rowHeight + newHeight + 45
+        return tableView_News.rowHeight + newHeight;
     }
     
+    //Segues
     @IBAction func toGallery(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "NewsToGallery", sender: sender)
-
     }
     
     @IBAction func toRockWall(sender: UIBarButtonItem) {

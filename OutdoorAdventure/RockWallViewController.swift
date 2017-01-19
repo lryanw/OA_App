@@ -8,8 +8,21 @@
 
 import UIKit
 
-class RockWallViewController: UIViewController {
+class RockWallViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    func getImageWithColor(color: UIColor) -> UIImage {
+        let size = CGSize(width: 50, height: 50);
+        let rect = CGRect(origin: .zero, size: size);
+        UIGraphicsBeginImageContextWithOptions(size, false, 0);
+        color.setFill();
+        UIRectFill(rect);
+        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
+        UIGraphicsEndImageContext();
+        return image;
+    }
+    
+    var items: [(UIColor, String, String, String)] = [(UIColor.red ,"Up Up And Away", "Ryan Lee", "I+"), (UIColor.red ,"Up Up And Away", "Ryan Lee", "I+"), (UIColor.red ,"Up Up And Away", "Ryan Lee", "I+")];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +32,21 @@ class RockWallViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count;
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell;
+
+        cell.routeImage.image = getImageWithColor(color: UIColor.black);
+        cell.routeName.text = items[indexPath.row].1;
+        cell.routeSetter.text = items[indexPath.row].2;
+        cell.routeRating.text = items[indexPath.row].3;
+        
+        return cell;
     }
     
     @IBAction func toGallary(sender: UIBarButtonItem) {
