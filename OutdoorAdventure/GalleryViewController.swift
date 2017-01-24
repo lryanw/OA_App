@@ -8,20 +8,22 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController {
+class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     //Toolbar Buttons (Navigation)
     @IBOutlet weak var button_RockWall: UIBarButtonItem!
     @IBOutlet weak var button_News: UIBarButtonItem!
     @IBOutlet weak var button_Calendar: UIBarButtonItem!
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
+    //Images in the CollectionView
+    var imageItems: [UIImage] = [UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!];
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,6 +31,30 @@ class GalleryViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Number of items in the CollectionView
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.imageItems.count;
+    }
+    
+    //Sets up the cell in the CollectionView
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell;
+        
+        //Sets the image in the CollectionView cell
+        cell.cellImage.image = self.imageItems[indexPath.item];
+        
+        return cell;
+    }
+    
+    //Sets the size of the size of the CollectionView cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        
+        let size = CGSize(width: (collectionView.frame.width / 3) - 2, height: (collectionView.frame.width / 3) - 2);
+        
+        return size;
+    }
+    
+    //Segues
     @IBAction func toRockWall(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "GallaryToRockWall", sender: sender);
     }

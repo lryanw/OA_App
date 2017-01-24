@@ -95,7 +95,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell;
     }
     
-    //Segue Methods
+    //Segues
     @IBAction func toGallery(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "CalendarToGallery", sender: sender);
     }

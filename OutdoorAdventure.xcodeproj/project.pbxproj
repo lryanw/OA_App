@@ -55,6 +55,7 @@
 		2D6066EF1E2C2797004A93B7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */; };
 		2D6066F11E2C27AE004A93B7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */; };
 		2D7390F01E303DDC00B462A5 /* edited Copy of Outdoor_adventure_black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D7390EF1E303DDC00B462A5 /* edited Copy of Outdoor_adventure_black.jpg */; };
+		2D98D8371E35892A00E525A7 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D98D8361E35892A00E525A7 /* ImageCollectionViewCell.swift */; };
 		2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA821E22D928003F0462 /* AppDelegate.swift */; };
 		2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA841E22D928003F0462 /* ViewController.swift */; };
 		2DA2CA881E22D928003F0462 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DA2CA861E22D928003F0462 /* Main.storyboard */; };
@@ -139,6 +140,7 @@
 		2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		2D7390EF1E303DDC00B462A5 /* edited Copy of Outdoor_adventure_black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "edited Copy of Outdoor_adventure_black.jpg"; path = "../Pods/CVCalendar/edited Copy of Outdoor_adventure_black.jpg"; sourceTree = "<group>"; };
+		2D98D8361E35892A00E525A7 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2DA2CA7F1E22D928003F0462 /* OutdoorAdventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutdoorAdventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA2CA821E22D928003F0462 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DA2CA841E22D928003F0462 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				2D525BF91E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift */,
 				2DF4E10A1E2EDD99009153EA /* routeTableViewCell.swift */,
 				2DF4E10C1E2EE7EB009153EA /* calendarTableViewCell.swift */,
+				2D98D8361E35892A00E525A7 /* ImageCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				2DA2CA891E22D928003F0462 /* Assets.xcassets */,
 				2DA2CA8B1E22D928003F0462 /* LaunchScreen.storyboard */,
 				2DA2CA8E1E22D928003F0462 /* Info.plist */,
+				2D43FB3E1E2D286200E56F03 /* CVCalendar */,
 				2DA2CAB11E230FF9003F0462 /* Pictures */,
 			);
 			path = OutdoorAdventure;
@@ -324,7 +328,6 @@
 		2DA2CAB11E230FF9003F0462 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
-				2D43FB3E1E2D286200E56F03 /* CVCalendar */,
 				2D525BFC1E27299000A06B25 /* ic_launcher.png */,
 				2D7390EF1E303DDC00B462A5 /* edited Copy of Outdoor_adventure_black.jpg */,
 				2D525BFD1E27299000A06B25 /* background_1.jpg */,
@@ -557,6 +560,7 @@
 				2D43FB401E2D286200E56F03 /* CVCalendarContentViewController.swift in Sources */,
 				2D01A3381E241790009E2243 /* MainViewController.swift in Sources */,
 				2D43FB4C1E2D286200E56F03 /* CVCalendarViewAppearance.swift in Sources */,
+				2D98D8371E35892A00E525A7 /* ImageCollectionViewCell.swift in Sources */,
 				2D43FB551E2D286200E56F03 /* CVRange.swift in Sources */,
 				2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */,
 				2D43FB521E2D286200E56F03 /* CVCalendarWeekView.swift in Sources */,

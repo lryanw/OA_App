@@ -25,7 +25,6 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -34,10 +33,12 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    //Number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count;
     }
     
+    //Sets up the cell in the TableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell;
 
@@ -49,6 +50,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell;
     }
     
+    //Segues
     @IBAction func toGallary(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "RockWallToGallary", sender: sender);
     }
