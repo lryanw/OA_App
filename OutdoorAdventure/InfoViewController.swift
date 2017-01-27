@@ -14,6 +14,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,7 +23,7 @@ class InfoViewController: UIViewController {
     }
     
     @IBAction func toGallery(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "InfoToGallery", sender: sender);
+        performSegue(withIdentifier: "InfoToGallary", sender: sender);
         
     }
     

@@ -19,7 +19,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
     //Images in the CollectionView
-    var imageItems: [UIImage] = [UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!];
+    var imageItems: [UIImage] = [UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!];
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     //Sets the size of the size of the CollectionView cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
-        let size = CGSize(width: (collectionView.frame.width / 3) - 2, height: (collectionView.frame.width / 3) - 2);
+        let size = CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.width / 2));
         
         return size;
     }
