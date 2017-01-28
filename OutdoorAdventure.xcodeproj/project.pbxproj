@@ -62,6 +62,11 @@
 		2D5CC6151E3ACB8400196AD8 /* OA_Image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC6141E3ACB8400196AD8 /* OA_Image_1.jpg */; };
 		2D6066EF1E2C2797004A93B7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */; };
 		2D6066F11E2C27AE004A93B7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */; };
+		2D66E38F1E3D124C00AF7D61 /* Celtic_Knot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E38E1E3D124C00AF7D61 /* Celtic_Knot.png */; };
+		2D66E3911E3D125000AF7D61 /* Camo_Overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E3901E3D125000AF7D61 /* Camo_Overlay.png */; };
+		2D66E3931E3D125700AF7D61 /* Yin_yang.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E3921E3D125700AF7D61 /* Yin_yang.png */; };
+		2D66E3951E3D125E00AF7D61 /* MoonAndStars.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E3941E3D125E00AF7D61 /* MoonAndStars.png */; };
+		2D66E3971E3D15E000AF7D61 /* ImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D66E3961E3D15E000AF7D61 /* ImageTransformer.swift */; };
 		2D98D8371E35892A00E525A7 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D98D8361E35892A00E525A7 /* ImageCollectionViewCell.swift */; };
 		2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA821E22D928003F0462 /* AppDelegate.swift */; };
 		2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CA841E22D928003F0462 /* ViewController.swift */; };
@@ -154,6 +159,11 @@
 		2D5CC6141E3ACB8400196AD8 /* OA_Image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OA_Image_1.jpg; sourceTree = "<group>"; };
 		2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		2D66E38E1E3D124C00AF7D61 /* Celtic_Knot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Celtic_Knot.png; sourceTree = "<group>"; };
+		2D66E3901E3D125000AF7D61 /* Camo_Overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camo_Overlay.png; sourceTree = "<group>"; };
+		2D66E3921E3D125700AF7D61 /* Yin_yang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yin_yang.png; sourceTree = "<group>"; };
+		2D66E3941E3D125E00AF7D61 /* MoonAndStars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoonAndStars.png; sourceTree = "<group>"; };
+		2D66E3961E3D15E000AF7D61 /* ImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransformer.swift; sourceTree = "<group>"; };
 		2D98D8361E35892A00E525A7 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2DA2CA7F1E22D928003F0462 /* OutdoorAdventure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OutdoorAdventure.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DA2CA821E22D928003F0462 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -278,6 +288,17 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		2D66E38D1E3D123A00AF7D61 /* TapeDesigns */ = {
+			isa = PBXGroup;
+			children = (
+				2D66E38E1E3D124C00AF7D61 /* Celtic_Knot.png */,
+				2D66E3901E3D125000AF7D61 /* Camo_Overlay.png */,
+				2D66E3921E3D125700AF7D61 /* Yin_yang.png */,
+				2D66E3941E3D125E00AF7D61 /* MoonAndStars.png */,
+			);
+			name = TapeDesigns;
+			sourceTree = "<group>";
+		};
 		2DA2CA761E22D928003F0462 = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +331,7 @@
 				2D01A3371E241790009E2243 /* MainViewController.swift */,
 				2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */,
 				2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */,
+				2D66E3961E3D15E000AF7D61 /* ImageTransformer.swift */,
 				2D525BFB1E27218900A06B25 /* Cells */,
 				2DA2CA861E22D928003F0462 /* Main.storyboard */,
 				2DA2CA891E22D928003F0462 /* Assets.xcassets */,
@@ -342,6 +364,7 @@
 		2DA2CAB11E230FF9003F0462 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				2D66E38D1E3D123A00AF7D61 /* TapeDesigns */,
 				2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */,
 				2D525BFC1E27299000A06B25 /* ic_launcher.png */,
 				2D525BFD1E27299000A06B25 /* background_1.jpg */,
@@ -498,18 +521,22 @@
 				2D525C001E27299000A06B25 /* background_1.jpg in Resources */,
 				2D4BF0921E255057001710AD /* Climbing Graphic.png in Resources */,
 				2D4BF0931E255057001710AD /* ic_event.png in Resources */,
+				2D66E3911E3D125000AF7D61 /* Camo_Overlay.png in Resources */,
 				2D43FB5C1E2D286200E56F03 /* CVCalendar.xcconfig in Resources */,
 				2D42AEC81E399ACB0082EF50 /* PolaroidImage_2.png in Resources */,
 				2D43FB5E1E2D286200E56F03 /* Info.plist in Resources */,
 				2D42AEC21E3991A50082EF50 /* OA_Climbing_Edit.png in Resources */,
 				2D4BF0971E255057001710AD /* newspaper.png in Resources */,
 				2D4BF0941E255057001710AD /* ic_photo_library.png in Resources */,
+				2D66E3931E3D125700AF7D61 /* Yin_yang.png in Resources */,
 				2D13EEA41E36EC5B008265FF /* OutdoorAdventureLogo.png in Resources */,
+				2D66E38F1E3D124C00AF7D61 /* Celtic_Knot.png in Resources */,
 				2D5CC6131E3AB31300196AD8 /* PolaroidImage_2_Green.png in Resources */,
 				2D5CC60D1E3AA6A100196AD8 /* CorkBoard.png in Resources */,
 				2D525BFF1E27299000A06B25 /* ic_launcher.png in Resources */,
 				2DA2CAB31E231018003F0462 /* OA_App_Background_Temp.jpg in Resources */,
 				2DA2CA8A1E22D928003F0462 /* Assets.xcassets in Resources */,
+				2D66E3951E3D125E00AF7D61 /* MoonAndStars.png in Resources */,
 				2DA2CA881E22D928003F0462 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -620,6 +647,7 @@
 				2D43FB591E2D286200E56F03 /* CVShape.swift in Sources */,
 				2D43FB481E2D286200E56F03 /* CVCalendarTouchController.swift in Sources */,
 				2DF4E10D1E2EE7EB009153EA /* calendarTableViewCell.swift in Sources */,
+				2D66E3971E3D15E000AF7D61 /* ImageTransformer.swift in Sources */,
 				2D43FB491E2D286200E56F03 /* CVCalendarView.swift in Sources */,
 				2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */,
 				2D43FB4D1E2D286200E56F03 /* CVCalendarViewAppearanceDelegate.swift in Sources */,

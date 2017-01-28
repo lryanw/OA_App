@@ -7,19 +7,9 @@
 //
 
 import UIKit
+import QuartzCore
 
 class RockWallViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
-    func getImageWithColor(color: UIColor) -> UIImage {
-        let size = CGSize(width: 50, height: 50);
-        let rect = CGRect(origin: .zero, size: size);
-        UIGraphicsBeginImageContextWithOptions(size, false, 0);
-        color.setFill();
-        UIRectFill(rect);
-        let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!;
-        UIGraphicsEndImageContext();
-        return image;
-    }
     
     var items: [(UIColor, String, String, String)] = [(UIColor.red ,"Up Up And Away", "Ryan Lee", "I+"), (UIColor.red ,"Up Up And Away", "Ryan Lee", "I+"), (UIColor.red ,"Up Up And Away", "Ryan Lee", "I+")];
     
@@ -42,11 +32,9 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell;
 
-        let colorImage = getImageWithColor(color: UIColor.black)
-        colorImage.circle
+        let colorImage = ImageTransformer.getImageWithColor(color: UIColor.black)
 
-        
-        cell.routeImage.image = colorImage
+        cell.routeImage.image = ImageTransformer.maskRoundedImage(image: colorImage, radius: Float(CGFloat(cell.routeImage.frame.width/2)))
         cell.routeName.text = items[indexPath.row].1;
         cell.routeSetter.text = items[indexPath.row].2;
         cell.routeRating.text = items[indexPath.row].3;
@@ -84,33 +72,4 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         // Pass the selected object to the new view controller.
     }
     */
-
-}
-
-extension UIImage {
-    var rounded: UIImage? {
-        let imageView = UIImageView(image: self)
-        imageView.layer.cornerRadius = min(size.height/4, size.width/4)
-        imageView.layer.masksToBounds = true
-        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        imageView.layer.render(in: context)
-        let result = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return result
-    }
-    var circle: UIImage? {
-        let square = CGSize(width: min(size.width, size.height), height: min(size.width, size.height))
-        let imageView = UIImageView(frame: CGRect(origin: .zero, size: square))
-        imageView.contentMode = .scaleAspectFill
-        imageView.image = self
-        imageView.layer.cornerRadius = square.width/2
-        imageView.layer.masksToBounds = true
-        UIGraphicsBeginImageContextWithOptions(imageView.bounds.size, false, scale)
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        imageView.layer.render(in: context)
-        let result = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return result
-    }
 }
