@@ -13,8 +13,15 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     @IBOutlet weak var routesCircleGraphic: UIImageView!
     
+    var currentRoute = 0;
+    @IBOutlet weak var leftButton: UIButton!
+    @IBOutlet weak var rightButton: UIButton!
+    @IBOutlet weak var currentRouteLabel: UILabel!
+    
     //Route Name, Setter, Difficulty, Color, Symbol
     var items: [(String, String, String, UIColor, String)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil"), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic"), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo")];
+    
+    var ropes = ["1","2","3","4","5","6","7","8","9","10","E","W"];
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +70,20 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         }
 
         return cell;
+    }
+    
+    @IBAction func leftButton(sender: UIButton) {
+        if(currentRoute > 0) {
+            currentRoute -= 1;
+            currentRouteLabel.text = ropes[currentRoute];
+        }
+    }
+    
+    @IBAction func rightButton(sender: UIButton) {
+        if(currentRoute < ropes.count - 1) {
+            currentRoute += 1;
+            currentRouteLabel.text = ropes[currentRoute];
+        }
     }
     
     //Segues
