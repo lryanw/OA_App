@@ -10,8 +10,7 @@ import Foundation
 import UIKit
 
 class ImageTransformer {
-    class func getImageWithColor(color: UIColor) -> UIImage {
-        let size = CGSize(width: 50, height: 50);
+    class func getImageWithColor(color: UIColor, size: CGSize) -> UIImage {
         let rect = CGRect(origin: .zero, size: size);
         UIGraphicsBeginImageContextWithOptions(size, false, 0);
         color.setFill();

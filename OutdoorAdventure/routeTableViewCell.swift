@@ -10,6 +10,7 @@ import UIKit
 
 class routeTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var routeOverlay: UIImageView!
     @IBOutlet weak var routeImage: UIImageView!
     @IBOutlet weak var routeName: UILabel!
     @IBOutlet weak var routeSetter: UILabel!
