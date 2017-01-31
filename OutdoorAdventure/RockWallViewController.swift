@@ -104,6 +104,10 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         performSegue(withIdentifier: "RockWallToInfo", sender: sender);
     }
     
+    @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "RockWallToCurrentlyClimbing", sender: sender);
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }

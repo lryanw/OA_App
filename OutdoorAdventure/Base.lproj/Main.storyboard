@@ -251,8 +251,11 @@
                                         </view>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="h2K-yr-auf"/>
-                                    <barButtonItem image="account-multiple.png" id="sr7-dv-TL8">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="information.png" id="THT-4E-ghm">
+                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toInfoWithSender:" destination="LcF-v1-TBW" id="noi-5h-SKv"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -285,10 +288,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="mqO-5t-pM2"/>
-                                    <barButtonItem image="information.png" id="THT-4E-ghm">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="account-multiple.png" id="sr7-dv-TL8">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="toInfoWithSender:" destination="LcF-v1-TBW" id="noi-5h-SKv"/>
+                                            <action selector="toCurrentlyClimbingWithSender:" destination="LcF-v1-TBW" id="fUA-C9-ghW"/>
+                                            <segue destination="s0P-Bi-XZD" kind="showDetail" identifier="NewsToCurrentlyClimbing" animates="NO" id="7Th-Ao-Evw"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -330,26 +334,10 @@
             </objects>
             <point key="canvasLocation" x="-739" y="825"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="RKG-j7-94b">
-            <objects>
-                <navigationController id="N61-6A-NVm" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2QN-Ku-J8w">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="s0P-Bi-XZD" kind="relationship" relationship="rootViewController" id="pod-hO-6SM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YLc-tn-osY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="771" y="824"/>
-        </scene>
-        <!--View Controller-->
+        <!--Currently Climbing View Controller-->
         <scene sceneID="bgt-OC-bas">
             <objects>
-                <viewController id="s0P-Bi-XZD" sceneMemberID="viewController">
+                <viewController id="s0P-Bi-XZD" customClass="CurrentlyClimbingViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2LN-zg-cjL"/>
                         <viewControllerLayoutGuide type="bottom" id="2Fd-5U-RVr"/>
@@ -357,13 +345,87 @@
                     <view key="view" contentMode="scaleToFill" id="e2f-DE-00p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2x-pT-qTh">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="ic_photo_library.png" id="SZ2-h9-ULE">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toGalleryWithSender:" destination="s0P-Bi-XZD" id="W7O-rz-FkR"/>
+                                            <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="CurrentlyClimbingToGallery" animates="NO" id="vRs-ER-VUP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wgy-Ts-FE3"/>
+                                    <barButtonItem image="Climbing Graphic.png" id="MgU-Z4-sRi">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toRockWallWithSender:" destination="s0P-Bi-XZD" id="gbd-dK-gHW"/>
+                                            <segue destination="Wo2-li-420" kind="showDetail" identifier="CurrentlyClimbingToRockWall" animates="NO" id="TEm-a3-fMU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="sER-we-Muv"/>
+                                    <barButtonItem image="newspaper.png" id="Hbg-re-Hpt">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toCalendarWithSender:" destination="s0P-Bi-XZD" id="NV5-Ms-xTI"/>
+                                            <segue destination="LcF-v1-TBW" kind="showDetail" identifier="CurrentlyClimbingToNews" animates="NO" id="xe6-r9-6mp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="OZ3-Ji-F7I"/>
+                                    <barButtonItem image="ic_event.png" id="UWx-xf-rFS">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toCalendarWithSender:" destination="9lv-sH-F8U" id="Fwf-NQ-Vu5"/>
+                                            <segue destination="f1S-us-KzA" kind="showDetail" identifier="CurrentlyClimbingToCalendar" animates="NO" id="kVd-uk-Teh"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KKi-zL-zdr"/>
+                                    <barButtonItem image="account-multiple.png" id="k9h-Im-hUF">
+                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zhe-6f-q9w">
+                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfj-Qw-rQK">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="9d1-rn-4D5"/>
+                                    <barButtonItem style="plain" id="jLn-ml-Rw3">
+                                        <view key="customView" contentMode="scaleToFill" id="nbP-85-ZET">
+                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNn-RC-b67">
+                                                    <rect key="frame" x="0.0" y="6" width="240" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="NL1-Hq-OE9"/>
+                                    <barButtonItem image="information.png" id="lDY-ic-oeA">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="G6f-J6-1JR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNj-vd-RgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772" y="1519"/>
+            <point key="canvasLocation" x="2250.7246376811595" y="120.65217391304348"/>
         </scene>
         <!--Calendar Appearance Delegate-->
         <scene sceneID="Koy-Zw-kXw">
@@ -387,7 +449,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UHt-bu-2OA" id="z3c-BM-V9f">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oeU-21-6HV">
@@ -398,7 +460,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red Dirt Pump Fest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTU-6i-asu">
-                                                    <rect key="frame" x="12" y="-3" width="239" height="23"/>
+                                                    <rect key="frame" x="12" y="-4" width="239" height="24"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -456,38 +518,12 @@
                                         <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ro7-N9-wSP"/>
-                                    <barButtonItem image="information.png" id="8bz-RB-bQv">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toInfoWithSender:" destination="f1S-us-KzA" id="I2W-ry-12e"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smW-0y-efm">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="asq-vp-x6N"/>
-                                    <barButtonItem style="plain" id="yHt-nc-JRZ">
-                                        <view key="customView" contentMode="scaleToFill" id="qkQ-ug-HIt">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-W7-Ivc">
-                                                    <rect key="frame" x="0.0" y="6" width="240" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="P3b-6l-47V"/>
                                     <barButtonItem image="account-multiple.png" id="F4S-ha-N2Y">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toCurrentlyClimbingWithSender:" destination="f1S-us-KzA" id="z7S-5I-T4I"/>
+                                            <segue destination="s0P-Bi-XZD" kind="showDetail" identifier="CalendarToCurrentlyClimbing" animates="NO" id="J5C-tz-tNR"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -517,6 +553,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smW-0y-efm">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="asq-vp-x6N"/>
+                                    <barButtonItem style="plain" id="yHt-nc-JRZ">
+                                        <view key="customView" contentMode="scaleToFill" id="qkQ-ug-HIt">
+                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-W7-Ivc">
+                                                    <rect key="frame" x="0.0" y="6" width="240" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="P3b-6l-47V"/>
+                                    <barButtonItem image="information.png" id="8bz-RB-bQv">
+                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toInfoWithSender:" destination="f1S-us-KzA" id="I2W-ry-12e"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -625,8 +691,8 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="BQE-vN-vVr"/>
-                                    <barButtonItem image="information.png" id="sdi-dh-nH1">
-                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="account-multiple.png" id="g2Q-Vs-a0M">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -652,8 +718,8 @@
                                         </view>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="969-qb-ZzI"/>
-                                    <barButtonItem image="account-multiple.png" id="g2Q-Vs-a0M">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="information.png" id="sdi-dh-nH1">
+                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -669,7 +735,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPx-0i-8iF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2247.826086956522" y="121.46739130434784"/>
+            <point key="canvasLocation" x="3007" y="122"/>
         </scene>
         <!--Gallery View Controller-->
         <scene sceneID="rFg-Oc-UuM">
@@ -772,10 +838,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="jFL-bU-aqA"/>
-                                    <barButtonItem image="information.png" id="D14-Pq-bvv">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="account-multiple.png" id="NWB-WU-x00">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="toInfoWithSender:" destination="UWG-Wg-rXH" id="0Nx-gC-9Z5"/>
+                                            <action selector="toCurrentlyClimbingWithSender:" destination="UWG-Wg-rXH" id="0ex-hu-g1Q"/>
+                                            <segue destination="s0P-Bi-XZD" kind="showDetail" identifier="GalleryToCurrentlyClimbing" animates="NO" id="5qi-ZR-Bea"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -802,8 +869,11 @@
                                         </view>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="AKE-OK-jXX"/>
-                                    <barButtonItem image="account-multiple.png" id="NWB-WU-x00">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="information.png" id="D14-Pq-bvv">
+                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toInfoWithSender:" destination="UWG-Wg-rXH" id="0Nx-gC-9Z5"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -879,11 +949,11 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QzI-4X-yGn">
-                                                    <rect key="frame" x="14" y="17" width="49" height="47"/>
+                                                    <rect key="frame" x="14" y="17" width="48" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-f5-Fvb">
-                                                    <rect key="frame" x="22" y="25" width="35" height="35"/>
+                                                    <rect key="frame" x="21" y="24" width="35" height="35"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
@@ -965,10 +1035,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="vYf-Vd-Yl6"/>
-                                    <barButtonItem image="information.png" id="Qt5-YB-yNa">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="account-multiple.png" id="9UE-7c-kCg">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <action selector="toInfoWithSender:" destination="Wo2-li-420" id="1zH-h2-ZcH"/>
+                                            <action selector="toCurrentlyClimbingWithSender:" destination="Wo2-li-420" id="OWB-rC-X6W"/>
+                                            <segue destination="s0P-Bi-XZD" kind="showDetail" identifier="RockWallToCurrentlyClimbing" animates="NO" id="1zQ-XG-Wt5"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -995,8 +1066,11 @@
                                         </view>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="bbV-sg-Ikm"/>
-                                    <barButtonItem image="account-multiple.png" id="9UE-7c-kCg">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <barButtonItem image="information.png" id="Qt5-YB-yNa">
+                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toInfoWithSender:" destination="Wo2-li-420" id="1zH-h2-ZcH"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -1045,10 +1119,11 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JoC-90-n0s"/>
-        <segue reference="UXN-ts-kQe"/>
-        <segue reference="aIf-aA-Xid"/>
-        <segue reference="8Ha-Va-8UO"/>
-        <segue reference="PzQ-lC-lct"/>
+        <segue reference="1zQ-XG-Wt5"/>
+        <segue reference="fwe-mC-dHa"/>
+        <segue reference="xGw-S6-QZ3"/>
+        <segue reference="are-xu-43T"/>
+        <segue reference="1TF-q2-o0D"/>
+        <segue reference="g9n-PU-iyh"/>
     </inferredMetricsTieBreakers>
 </document>

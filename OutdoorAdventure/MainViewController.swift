@@ -95,6 +95,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegue(withIdentifier: "NewsToInfo", sender: sender);
     }
     
+    @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "NewsToCurrentlyClimbing", sender: sender);
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }

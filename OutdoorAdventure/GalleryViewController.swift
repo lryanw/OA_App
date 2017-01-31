@@ -71,6 +71,10 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBAction func toInfo(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "GallaryToInfo", sender: sender);
     }
+    
+    @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "GalleryToCurrentlyClimbing", sender: sender);
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         

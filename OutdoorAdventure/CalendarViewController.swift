@@ -112,6 +112,10 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
         performSegue(withIdentifier: "CalendarToInfo", sender: sender);
     }
     
+    @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "CalendarToCurrentlyClimbing", sender: sender);
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
         
