@@ -58,7 +58,8 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         if(items[indexPath.row].4 == "nil") {
             //Dont do anything
         } else if(items[indexPath.row].4 == "Celtic") {
-            cell.routeOverlay.image = UIImage(named: "Celtic_Knot.png");
+            cell.routeOverlay.frame.origin = CGPoint(x: cell.routeOverlay.frame.origin.x, y: cell.routeOverlay.frame.origin.y - (cell.routeOverlay.frame.height/11))
+            cell.routeOverlay.image = UIImage(named: "Celtic_Knot_Edit.png");
         } else if(items[indexPath.row].4 == "YinYang") {
             cell.routeOverlay.image = UIImage(named: "Yin_yang.png")
         } else if(items[indexPath.row].4 == "MoonAndStars") {

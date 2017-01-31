@@ -55,6 +55,9 @@
 		2D525BFF1E27299000A06B25 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFC1E27299000A06B25 /* ic_launcher.png */; };
 		2D525C001E27299000A06B25 /* background_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFD1E27299000A06B25 /* background_1.jpg */; };
 		2D525C011E27299000A06B25 /* background_2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFE1E27299000A06B25 /* background_2.jpg */; };
+		2D58ABCB1E400FF900924259 /* OutdoorAdventure.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D58ABCA1E400FF900924259 /* OutdoorAdventure.jpg */; };
+		2D58ABCD1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D58ABCC1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg */; };
+		2D58ABCF1E40163800924259 /* Celtic_Knot_Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D58ABCE1E40163800924259 /* Celtic_Knot_Edit.png */; };
 		2D5CC60D1E3AA6A100196AD8 /* CorkBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC60C1E3AA6A100196AD8 /* CorkBoard.png */; };
 		2D5CC60F1E3AA8A000196AD8 /* fadeImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC60E1E3AA8A000196AD8 /* fadeImage.png */; };
 		2D5CC6111E3AB30E00196AD8 /* PolaroidImage_2_Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC6101E3AB30E00196AD8 /* PolaroidImage_2_Red.png */; };
@@ -62,7 +65,6 @@
 		2D5CC6151E3ACB8400196AD8 /* OA_Image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC6141E3ACB8400196AD8 /* OA_Image_1.jpg */; };
 		2D6066EF1E2C2797004A93B7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */; };
 		2D6066F11E2C27AE004A93B7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */; };
-		2D66E38F1E3D124C00AF7D61 /* Celtic_Knot.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E38E1E3D124C00AF7D61 /* Celtic_Knot.png */; };
 		2D66E3931E3D125700AF7D61 /* Yin_yang.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E3921E3D125700AF7D61 /* Yin_yang.png */; };
 		2D66E3951E3D125E00AF7D61 /* MoonAndStars.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E3941E3D125E00AF7D61 /* MoonAndStars.png */; };
 		2D66E3971E3D15E000AF7D61 /* ImageTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D66E3961E3D15E000AF7D61 /* ImageTransformer.swift */; };
@@ -155,6 +157,9 @@
 		2D525BFC1E27299000A06B25 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		2D525BFD1E27299000A06B25 /* background_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_1.jpg; sourceTree = "<group>"; };
 		2D525BFE1E27299000A06B25 /* background_2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_2.jpg; sourceTree = "<group>"; };
+		2D58ABCA1E400FF900924259 /* OutdoorAdventure.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OutdoorAdventure.jpg; sourceTree = "<group>"; };
+		2D58ABCC1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OutdoorAdventureWebBanner.jpg; sourceTree = "<group>"; };
+		2D58ABCE1E40163800924259 /* Celtic_Knot_Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Celtic_Knot_Edit.png; sourceTree = "<group>"; };
 		2D5CC60C1E3AA6A100196AD8 /* CorkBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CorkBoard.png; sourceTree = "<group>"; };
 		2D5CC60E1E3AA8A000196AD8 /* fadeImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fadeImage.png; sourceTree = "<group>"; };
 		2D5CC6101E3AB30E00196AD8 /* PolaroidImage_2_Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PolaroidImage_2_Red.png; sourceTree = "<group>"; };
@@ -162,7 +167,6 @@
 		2D5CC6141E3ACB8400196AD8 /* OA_Image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OA_Image_1.jpg; sourceTree = "<group>"; };
 		2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		2D66E38E1E3D124C00AF7D61 /* Celtic_Knot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Celtic_Knot.png; sourceTree = "<group>"; };
 		2D66E3921E3D125700AF7D61 /* Yin_yang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yin_yang.png; sourceTree = "<group>"; };
 		2D66E3941E3D125E00AF7D61 /* MoonAndStars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoonAndStars.png; sourceTree = "<group>"; };
 		2D66E3961E3D15E000AF7D61 /* ImageTransformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTransformer.swift; sourceTree = "<group>"; };
@@ -300,9 +304,10 @@
 		2D66E38D1E3D123A00AF7D61 /* TapeDesigns */ = {
 			isa = PBXGroup;
 			children = (
-				2D66E38E1E3D124C00AF7D61 /* Celtic_Knot.png */,
+				2D58ABCC1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg */,
 				2D66E3921E3D125700AF7D61 /* Yin_yang.png */,
 				2D66E3941E3D125E00AF7D61 /* MoonAndStars.png */,
+				2D58ABCE1E40163800924259 /* Celtic_Knot_Edit.png */,
 				2D66E3981E3D81A000AF7D61 /* Camo_Overlay_Circle.png */,
 			);
 			name = TapeDesigns;
@@ -376,6 +381,7 @@
 				2D66E38D1E3D123A00AF7D61 /* TapeDesigns */,
 				2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */,
 				2D525BFC1E27299000A06B25 /* ic_launcher.png */,
+				2D58ABCA1E400FF900924259 /* OutdoorAdventure.jpg */,
 				2D525BFD1E27299000A06B25 /* background_1.jpg */,
 				2D525BFE1E27299000A06B25 /* background_2.jpg */,
 				2D5CC6141E3ACB8400196AD8 /* OA_Image_1.jpg */,
@@ -525,6 +531,7 @@
 				2D525C011E27299000A06B25 /* background_2.jpg in Resources */,
 				2D5CC6111E3AB30E00196AD8 /* PolaroidImage_2_Red.png in Resources */,
 				2D66E3991E3D81A000AF7D61 /* Camo_Overlay_Circle.png in Resources */,
+				2D58ABCB1E400FF900924259 /* OutdoorAdventure.jpg in Resources */,
 				2D5CC60F1E3AA8A000196AD8 /* fadeImage.png in Resources */,
 				2D5CC6151E3ACB8400196AD8 /* OA_Image_1.jpg in Resources */,
 				2D4BF0961E255057001710AD /* menu.png in Resources */,
@@ -540,12 +547,13 @@
 				2D4BF0941E255057001710AD /* ic_photo_library.png in Resources */,
 				2D66E3931E3D125700AF7D61 /* Yin_yang.png in Resources */,
 				2D13EEA41E36EC5B008265FF /* OutdoorAdventureLogo.png in Resources */,
-				2D66E38F1E3D124C00AF7D61 /* Celtic_Knot.png in Resources */,
 				2D5CC6131E3AB31300196AD8 /* PolaroidImage_2_Green.png in Resources */,
 				2D5CC60D1E3AA6A100196AD8 /* CorkBoard.png in Resources */,
 				2D525BFF1E27299000A06B25 /* ic_launcher.png in Resources */,
 				2D77D46E1E3E9EC200B39C3E /* arrow-left-drop-circle (2).png in Resources */,
+				2D58ABCD1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg in Resources */,
 				2DA2CAB31E231018003F0462 /* OA_App_Background_Temp.jpg in Resources */,
+				2D58ABCF1E40163800924259 /* Celtic_Knot_Edit.png in Resources */,
 				2DA2CA8A1E22D928003F0462 /* Assets.xcassets in Resources */,
 				2D66E3951E3D125E00AF7D61 /* MoonAndStars.png in Resources */,
 				2DA2CA881E22D928003F0462 /* Main.storyboard in Resources */,
