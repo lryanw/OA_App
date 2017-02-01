@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CurrentlyClimbingViewController: UIViewController {
+class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    var items: [(UIImage, String, String)] = [(UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min")];
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +21,23 @@ class CurrentlyClimbingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //Number of items in the CollectionView
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.items.count;
+    }
+    
+    //Sets up the cell in the CollectionView
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "currentlyClimbingCell", for: indexPath) as! CurrentlyClimbingCollectionViewCell;
+        
+        //Sets the image in the CollectionView cell
+        cell.profileImage.image = ImageTransformer.maskRoundedImage(image: items[indexPath.item].0, radius: Float(cell.profileImage.frame.width/2));
+        cell.profileName.text = items[indexPath.item].1;
+        cell.timeClimbing.text = items[indexPath.item].2;
+        
+        return cell;
     }
     
     //Segues

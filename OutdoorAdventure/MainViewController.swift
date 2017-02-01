@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var button_Calendar: UIBarButtonItem!
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
+    //Profile Name, Post Date, News Text, Profile Image 
     var items: [(String, String, UIImage, String, UIImage)] = [
         ("Outdoor Adventure", "Day 1", UIImage(named:"ic_launcher.png")!, "OMG OMG OMG", UIImage(named: "background_2.jpg")!),
         ("Outdoor Adventure", "Day 2", UIImage(named:"ic_launcher.png")!, "IMNJHNSDFJHDSLFJ SDLFJHSDFJHSDLFJH", UIImage(named: "background_2.jpg")!),

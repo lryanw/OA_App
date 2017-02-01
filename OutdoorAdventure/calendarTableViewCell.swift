@@ -9,6 +9,7 @@
 import UIKit
 
 class calendarTableViewCell: UITableViewCell {
+    
     @IBOutlet weak var eventName: UILabel!
     @IBOutlet weak var eventTime: UILabel!
     @IBOutlet weak var eventLocation: UILabel!
@@ -23,5 +24,4 @@ class calendarTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

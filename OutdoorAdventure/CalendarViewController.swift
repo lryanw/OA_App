@@ -18,6 +18,9 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     var currentCalendar: Calendar?;
     var animationFinished = true;
     
+    //Event Name, Location, Time
+    var items: [(String, String, String)] = [("Red Dirt Pump Fest", "Colvin", "7:00-9:00"), ("Red Dirt Pump Fest", "Colvin", "7:00-9:00"), ("Red Dirt Pump Fest", "Colvin", "7:00-9:00")]
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -87,11 +90,17 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //UITableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0;
+        return items.count;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as! calendarTableViewCell;
+        
+        cell.eventName.text = items[indexPath.row].0;
+        cell.eventLocation.text = items[indexPath.row].1;
+        cell.eventTime.text = items[indexPath.row].2;
+        
         return cell;
     }
     
