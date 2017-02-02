@@ -14,6 +14,7 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var calendarTableView: UITableView!
     
     var currentCalendar: Calendar?;
     var animationFinished = true;
@@ -90,18 +91,31 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //UITableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count;
+        return items.count * 2;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as! calendarTableViewCell;
-        
-        cell.eventName.text = items[indexPath.row].0;
-        cell.eventLocation.text = items[indexPath.row].1;
-        cell.eventTime.text = items[indexPath.row].2;
-        
-        return cell;
+        if(indexPath.row % 2 == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as! calendarTableViewCell;
+            //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "calendarCell")
+            cell.eventName.text = items[indexPath.row/2].0;
+            cell.eventLocation.text = items[indexPath.row/2].1;
+            cell.eventTime.text = items[indexPath.row/2].2;
+            return cell;
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell;
+            return cell;
+        }
+    }
+    
+    //Change Height of Cell
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.row % 2 == 0) {
+            return calendarTableView.rowHeight;
+        } else {
+            return 10;
+        }
     }
     
     //Segues

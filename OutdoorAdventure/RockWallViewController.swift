@@ -17,6 +17,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var currentRouteLabel: UILabel!
+    @IBOutlet weak var routeTableView: UITableView!
     
     //Route Name, Setter, Difficulty, Color, Symbol
     var items: [(String, String, String, UIColor, String)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil"), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic"), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo")];
@@ -39,40 +40,55 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //Number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count;
+        return items.count * 2;
     }
     
     //Sets up the cell in the TableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell;
         
-        cell.routeName.text = items[indexPath.row].0;
-        cell.routeSetter.text = items[indexPath.row].1;
-        cell.routeRating.text = items[indexPath.row].2;
-        
-        let colorImage = ImageTransformer.getImageWithColor(color: items[indexPath.row].3, size: cell.routeImage.frame.size)
-        
-        cell.routeImage.image = ImageTransformer.maskRoundedImage(image: colorImage, radius: Float(CGFloat(cell.routeImage.frame.width/2)))
-        
-        //Choose Overlay
-        if(items[indexPath.row].4 == "nil") {
-            //Dont do anything
-        } else if(items[indexPath.row].4 == "Celtic") {
-            cell.routeOverlay.frame.origin = CGPoint(x: cell.routeOverlay.frame.origin.x, y: cell.routeOverlay.frame.origin.y - (cell.routeOverlay.frame.height/11))
-            cell.routeOverlay.image = UIImage(named: "Celtic_Knot_Edit.png");
-        } else if(items[indexPath.row].4 == "YinYang") {
-            cell.routeOverlay.image = UIImage(named: "Yin_yang.png")
-        } else if(items[indexPath.row].4 == "MoonAndStars") {
-            cell.routeOverlay.image = UIImage(named: "MoonAndStars.png");
-        } else if(items[indexPath.row].4 == "Camo") {
-            cell.routeOverlay.frame.size = cell.routeImage.frame.size;
-            cell.routeOverlay.frame.origin = cell.routeImage.frame.origin;
-            cell.routeOverlay.image = ImageTransformer.maskRoundedImage(image: UIImage(named: "Camo_Overlay_Circle.png")!, radius: Float(cell.routeOverlay.frame.width/2));
+        if(indexPath.row % 2 == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell;
+            
+            cell.routeName.text = items[indexPath.row/2].0;
+            cell.routeSetter.text = items[indexPath.row/2].1;
+            cell.routeRating.text = items[indexPath.row/2].2;
+            
+            let colorImage = ImageTransformer.getImageWithColor(color: items[indexPath.row/2].3, size: cell.routeImage.frame.size)
+            
+            cell.routeImage.image = ImageTransformer.maskRoundedImage(image: colorImage, radius: Float(CGFloat(cell.routeImage.frame.width/2)))
+            
+            //Choose Overlay
+            if(items[indexPath.row/2].4 == "nil") {
+                //Dont do anything
+            } else if(items[indexPath.row/2].4 == "Celtic") {
+                cell.routeOverlay.frame.origin = CGPoint(x: cell.routeOverlay.frame.origin.x, y: cell.routeOverlay.frame.origin.y - (cell.routeOverlay.frame.height/11))
+                cell.routeOverlay.image = UIImage(named: "Celtic_Knot_Edit.png");
+            } else if(items[indexPath.row/2].4 == "YinYang") {
+                cell.routeOverlay.image = UIImage(named: "Yin_yang.png")
+            } else if(items[indexPath.row/2].4 == "MoonAndStars") {
+                cell.routeOverlay.image = UIImage(named: "MoonAndStars.png");
+            } else if(items[indexPath.row/2].4 == "Camo") {
+                cell.routeOverlay.frame.size = cell.routeImage.frame.size;
+                cell.routeOverlay.frame.origin = cell.routeImage.frame.origin;
+                cell.routeOverlay.image = ImageTransformer.maskRoundedImage(image: UIImage(named: "Camo_Overlay_Circle.png")!, radius: Float(cell.routeOverlay.frame.width/2));
+            }
+            return cell;
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell;
+            return cell;
         }
-
-        return cell;
     }
     
+    //Change Height of Cell
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(indexPath.row % 2 == 0) {
+            return routeTableView.rowHeight;
+        } else {
+            return 10;
+        }
+    }
+    
+    //Change Rope
     @IBAction func leftButton(sender: UIButton) {
         if(currentRoute > 0) {
             currentRoute -= 1;

@@ -38,45 +38,55 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //Number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count;
+        return items.count * 2;
     }
     
     //Sets up the cell in the TableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell_NewsTableViewCell;
+        if(indexPath.row % 2 == 0) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell_NewsTableViewCell;
+            
+            //Set Cell Up
+            cell.news_Profile.text = items[indexPath.row/2].0;
+            cell.news_Date.text = items[indexPath.row/2].1;
+            cell.news_ProfileImage.image = items[indexPath.row/2].2;
+            cell.news_Text.text = items[indexPath.row/2].3;
+            cell.news_Image.image = items[indexPath.row/2].4;
+            
+            //Resize TextView Height
+            let contentSize = cell.news_Text.sizeThatFits(cell.news_Text.bounds.size);
+            var frame = cell.news_Text.frame;
+            frame.size.height = contentSize.height;
+            cell.news_Text.frame = frame;
+            
+            //Resize ImageView Height
+            let imageWidth = items[indexPath.row/2].4.size.width;
+            let imageHeight = items[indexPath.row/2].4.size.height;
+            let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth;
+            
+            cell.news_Image.frame.size = CGSize(width: tableView_News.frame.width, height: newHeight)
+            
+            return cell;
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell;
+            return cell;
+        }
         
-        //Set Cell Up
-        cell.news_Profile.text = items[indexPath.row].0;
-        cell.news_Date.text = items[indexPath.row].1;
-        cell.news_ProfileImage.image = items[indexPath.row].2;
-        cell.news_Text.text = items[indexPath.row].3;
-        cell.news_Image.image = items[indexPath.row].4;
-        
-        //Resize TextView Height
-        let contentSize = cell.news_Text.sizeThatFits(cell.news_Text.bounds.size);
-        var frame = cell.news_Text.frame;
-        frame.size.height = contentSize.height;
-        cell.news_Text.frame = frame;
-        
-        //Resize ImageView Height
-        let imageWidth = items[indexPath.row].4.size.width;
-        let imageHeight = items[indexPath.row].4.size.height;
-        let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth;
-        
-        cell.news_Image.frame.size = CGSize(width: tableView_News.frame.width, height: newHeight)
-        
-        return cell;
     }
     
     //Change Height of Cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        //Resize ImageView Height
-        let imageWidth = items[indexPath.row].4.size.width;
-        let imageHeight = items[indexPath.row].4.size.height;
-        let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth;
-        
-        return tableView_News.rowHeight + newHeight;
+        if(indexPath.row % 2 == 0) {
+            //Resize ImageView Height
+            let imageWidth = items[indexPath.row/2].4.size.width;
+            let imageHeight = items[indexPath.row/2].4.size.height;
+            let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth;
+            
+            return tableView_News.rowHeight + newHeight;
+        } else {
+            return 10;
+        }
     }
     
     //Segues

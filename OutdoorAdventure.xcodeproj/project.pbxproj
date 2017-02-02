@@ -65,6 +65,7 @@
 		2D5CC6151E3ACB8400196AD8 /* OA_Image_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC6141E3ACB8400196AD8 /* OA_Image_1.jpg */; };
 		2D6025891E4112C5008BFA5A /* CurrentlyClimbingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6025881E4112C5008BFA5A /* CurrentlyClimbingViewController.swift */; };
 		2D60258F1E418205008BFA5A /* CurrentlyClimbingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D60258E1E418205008BFA5A /* CurrentlyClimbingCollectionViewCell.swift */; };
+		2D6025931E42B956008BFA5A /* spaceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6025921E42B956008BFA5A /* spaceTableViewCell.swift */; };
 		2D6066EF1E2C2797004A93B7 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */; };
 		2D6066F11E2C27AE004A93B7 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */; };
 		2D66E3931E3D125700AF7D61 /* Yin_yang.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E3921E3D125700AF7D61 /* Yin_yang.png */; };
@@ -169,6 +170,7 @@
 		2D5CC6141E3ACB8400196AD8 /* OA_Image_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OA_Image_1.jpg; sourceTree = "<group>"; };
 		2D6025881E4112C5008BFA5A /* CurrentlyClimbingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentlyClimbingViewController.swift; sourceTree = "<group>"; };
 		2D60258E1E418205008BFA5A /* CurrentlyClimbingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentlyClimbingCollectionViewCell.swift; sourceTree = "<group>"; };
+		2D6025921E42B956008BFA5A /* spaceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = spaceTableViewCell.swift; sourceTree = "<group>"; };
 		2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		2D66E3921E3D125700AF7D61 /* Yin_yang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yin_yang.png; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				2DF4E10C1E2EE7EB009153EA /* calendarTableViewCell.swift */,
 				2D98D8361E35892A00E525A7 /* ImageCollectionViewCell.swift */,
 				2D60258E1E418205008BFA5A /* CurrentlyClimbingCollectionViewCell.swift */,
+				2D6025921E42B956008BFA5A /* spaceTableViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D6025931E42B956008BFA5A /* spaceTableViewCell.swift in Sources */,
 				2D43FB571E2D286200E56F03 /* CVSelectionType.swift in Sources */,
 				2D4C8A9A1E29879C0004EE11 /* RockWallViewController.swift in Sources */,
 				2D43FB401E2D286200E56F03 /* CVCalendarContentViewController.swift in Sources */,
