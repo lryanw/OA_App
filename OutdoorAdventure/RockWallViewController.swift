@@ -11,12 +11,19 @@ import QuartzCore
 
 class RockWallViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var routesCircleGraphic: UIImageView!
+    //Toolbars for shadows
+    @IBOutlet weak var bottomBar: UIToolbar!
+    @IBOutlet weak var topBar: UIToolbar!
     
+    //Routes Graphic
+    @IBOutlet weak var routesCircleGraphic: UIImageView!
     var currentRoute = 0;
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     @IBOutlet weak var currentRouteLabel: UILabel!
+    @IBOutlet weak var backgroundImage: UIImageView!
+    
+    //TableView
     @IBOutlet weak var routeTableView: UITableView!
     
     //Route Name, Setter, Difficulty, Color, Symbol
@@ -27,6 +34,17 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //Shadows
+        topBar.layer.shadowColor = UIColor.black.cgColor;
+        topBar.layer.shadowOpacity = 1;
+        topBar.layer.shadowOffset = CGSize.zero;
+        topBar.layer.shadowRadius = 10;
+        
+        bottomBar.layer.shadowColor = UIColor.black.cgColor;
+        bottomBar.layer.shadowOpacity = 1;
+        bottomBar.layer.shadowOffset = CGSize.zero;
+        bottomBar.layer.shadowRadius = 10;
         
         let circleColor = ImageTransformer.getImageWithColor(color: UIColor.white, size: routesCircleGraphic.frame.size)
         

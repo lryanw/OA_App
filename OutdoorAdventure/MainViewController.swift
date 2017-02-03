@@ -10,6 +10,11 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    //ToolBars for shadows
+    @IBOutlet weak var topBar: UIToolbar!
+    @IBOutlet weak var bottomBar: UIToolbar!
+    
+    //TableView
     @IBOutlet weak var tableView_News: UITableView!
     
     //Tool Bar Buttons (Navigation)
@@ -29,6 +34,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        //Shadows
+        topBar.layer.shadowColor = UIColor.black.cgColor;
+        topBar.layer.shadowOpacity = 1;
+        topBar.layer.shadowOffset = CGSize.zero;
+        topBar.layer.shadowRadius = 10;
+        
+        bottomBar.layer.shadowColor = UIColor.black.cgColor;
+        bottomBar.layer.shadowOpacity = 1;
+        bottomBar.layer.shadowOffset = CGSize.zero;
+        bottomBar.layer.shadowRadius = 10;
+        
     }
 
     override func didReceiveMemoryWarning() {

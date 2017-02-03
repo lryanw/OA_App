@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -150,7 +150,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="195" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H49-aQ-XfM">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -158,10 +158,10 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="195"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2J3-TK-PlG" id="r64-Qa-tZh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="195"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jtD-bW-7Ly">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jtD-bW-7Ly">
                                                     <rect key="frame" x="16" y="15" width="48" height="48"/>
                                                     <accessibility key="accessibilityConfiguration" label="news_ProfilePic"/>
                                                 </imageView>
@@ -233,7 +233,7 @@
                                     <outlet property="delegate" destination="LcF-v1-TBW" id="XVu-4V-UQl"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="287-Hf-e0d">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="287-Hf-e0d">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -263,7 +263,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bD-fr-Fdt">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bD-fr-Fdt">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -301,15 +301,22 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmF-Ac-cqH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148427963257" green="0.96475988626480103" blue="0.96459120512008667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="bottomBar" destination="4bD-fr-Fdt" id="ML8-fp-LtL"/>
                         <outlet property="button_Calendar" destination="gBq-bG-7sk" id="EeH-Q6-fQ6"/>
                         <outlet property="button_Gallery" destination="1Mr-kO-vuv" id="8Q9-MG-Fpx"/>
                         <outlet property="button_Info" destination="THT-4E-ghm" id="VYH-do-R2f"/>
                         <outlet property="button_RockWall" destination="sOJ-xJ-Tvr" id="wX6-KV-Onq"/>
                         <outlet property="tableView_News" destination="H49-aQ-XfM" id="g3x-Ro-KKL"/>
+                        <outlet property="topBar" destination="287-Hf-e0d" id="LwH-dX-dCd"/>
                         <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="NewsToGallery" animates="NO" id="YSC-na-DVT"/>
                         <segue destination="Wo2-li-420" kind="showDetail" identifier="NewsToRockWall" animates="NO" id="fwe-mC-dHa"/>
                         <segue destination="f1S-us-KzA" kind="showDetail" identifier="NewsToCalendar" animates="NO" id="UXN-ts-kQe"/>
@@ -411,7 +418,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfj-Qw-rQK">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfj-Qw-rQK">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -438,7 +445,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2x-pT-qTh">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2x-pT-qTh">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -479,9 +486,18 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Waq-vR-aGu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="bottomBar" destination="S2x-pT-qTh" id="4o1-wA-3pg"/>
+                        <outlet property="topBar" destination="yfj-Qw-rQK" id="tgp-5x-rHV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNj-vd-RgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -499,44 +515,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X7w-br-hXG">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem image="ic_photo_library.png" id="inb-Dy-a5X">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toGalleryWithSender:" destination="f1S-us-KzA" id="FqY-68-lOn"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EZu-eO-4A4"/>
-                                    <barButtonItem image="Climbing Graphic.png" id="4m4-Tp-xrd">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toRockWallWithSender:" destination="f1S-us-KzA" id="BQb-Yx-mRP"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jjb-Y7-4Zc"/>
-                                    <barButtonItem image="newspaper.png" id="pvg-Yu-vOV">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toNewsWithSender:" destination="f1S-us-KzA" id="DJc-ir-AcP"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="X8B-uo-jeg"/>
-                                    <barButtonItem image="ic_event.png" id="UMf-s4-jzF">
-                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ro7-N9-wSP"/>
-                                    <barButtonItem image="account-multiple.png" id="F4S-ha-N2Y">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toCurrentlyClimbingWithSender:" destination="f1S-us-KzA" id="z7S-5I-T4I"/>
-                                            <segue destination="s0P-Bi-XZD" kind="showDetail" identifier="CalendarToCurrentlyClimbing" animates="NO" id="J5C-tz-tNR"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUl-mw-xDL">
                                 <rect key="frame" x="0.0" y="64" width="414" height="372"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -621,7 +599,45 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="smW-0y-efm">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7w-br-hXG">
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem image="ic_photo_library.png" id="inb-Dy-a5X">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toGalleryWithSender:" destination="f1S-us-KzA" id="FqY-68-lOn"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EZu-eO-4A4"/>
+                                    <barButtonItem image="Climbing Graphic.png" id="4m4-Tp-xrd">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toRockWallWithSender:" destination="f1S-us-KzA" id="BQb-Yx-mRP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jjb-Y7-4Zc"/>
+                                    <barButtonItem image="newspaper.png" id="pvg-Yu-vOV">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toNewsWithSender:" destination="f1S-us-KzA" id="DJc-ir-AcP"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="X8B-uo-jeg"/>
+                                    <barButtonItem image="ic_event.png" id="UMf-s4-jzF">
+                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ro7-N9-wSP"/>
+                                    <barButtonItem image="account-multiple.png" id="F4S-ha-N2Y">
+                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="toCurrentlyClimbingWithSender:" destination="f1S-us-KzA" id="z7S-5I-T4I"/>
+                                            <segue destination="s0P-Bi-XZD" kind="showDetail" identifier="CalendarToCurrentlyClimbing" animates="NO" id="J5C-tz-tNR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smW-0y-efm">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -651,6 +667,11 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bae-Bv-tWF">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -669,10 +690,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomBar" destination="X7w-br-hXG" id="Eei-J3-Ohf"/>
                         <outlet property="calendarTableView" destination="9ZM-fN-xka" id="t58-8R-9gS"/>
                         <outlet property="calendarView" destination="8YA-vg-aWG" id="avT-qq-F1D"/>
                         <outlet property="menuView" destination="XHS-L7-izJ" id="d3e-NW-Rla"/>
                         <outlet property="monthLabel" destination="Clo-1T-PhS" id="b5I-jG-67Q"/>
+                        <outlet property="topBar" destination="smW-0y-efm" id="q3e-dY-nqI"/>
                         <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="CalendarToGallery" animates="NO" id="8Ha-Va-8UO"/>
                         <segue destination="Wo2-li-420" kind="showDetail" identifier="CalendarToRockWall" animates="NO" id="JoC-90-n0s"/>
                         <segue destination="LcF-v1-TBW" kind="showDetail" identifier="CalendarToNews" animates="NO" id="aIf-aA-Xid"/>
@@ -772,7 +795,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="UYk-XE-hpY"/>
                                     <barButtonItem style="plain" id="Vb8-XF-KLB">
                                         <view key="customView" contentMode="scaleToFill" id="3IO-7T-RF1">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="87" y="5.6666666666666679" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLy-lt-Mct">
@@ -823,7 +846,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0M8-Y8-mTe">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="22m-JB-coj">
@@ -869,7 +892,7 @@
                                     <outlet property="delegate" destination="UWG-Wg-rXH" id="h3a-Jy-UJL"/>
                                 </connections>
                             </collectionView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7L-YO-o4C">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7L-YO-o4C">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -910,7 +933,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPQ-7U-06k">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPQ-7U-06k">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -940,15 +963,22 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIc-LL-kjt">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="bottomBar" destination="f7L-YO-o4C" id="aBO-1x-89W"/>
                         <outlet property="button_Calendar" destination="KKc-bE-da5" id="QOX-pe-Qqc"/>
                         <outlet property="button_Info" destination="D14-Pq-bvv" id="Upl-ZL-dDO"/>
                         <outlet property="button_News" destination="Ixs-qK-T2X" id="m6e-Ds-jHN"/>
                         <outlet property="button_RockWall" destination="Mcl-TZ-xJ2" id="nKV-v1-ib6"/>
                         <outlet property="collectionView" destination="0M8-Y8-mTe" id="ugg-en-meu"/>
+                        <outlet property="topBar" destination="BPQ-7U-06k" id="f0k-8M-9aq"/>
                         <segue destination="LcF-v1-TBW" kind="showDetail" identifier="GalleryToNews" animates="NO" id="Hyn-MK-lm4"/>
                         <segue destination="Wo2-li-420" kind="showDetail" identifier="GallaryToRockWall" animates="NO" id="1on-5Z-1Tp"/>
                         <segue destination="f1S-us-KzA" kind="showDetail" identifier="GallaryToCalendar" animates="NO" id="A7X-vh-B88"/>
@@ -1013,7 +1043,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QzI-4X-yGn">
-                                                    <rect key="frame" x="14" y="17" width="48" height="48"/>
+                                                    <rect key="frame" x="14" y="17" width="48" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-f5-Fvb">
@@ -1076,7 +1106,7 @@
                                     <action selector="leftButtonWithSender:" destination="Wo2-li-420" eventType="touchUpInside" id="kn3-rg-GOK"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-fN-RFm">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBb-fN-RFm">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -1114,7 +1144,7 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z2c-vi-fFO">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2c-vi-fFO">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
@@ -1153,15 +1183,23 @@
                                     <action selector="rightButtonWithSender:" destination="Wo2-li-420" eventType="touchUpInside" id="t72-eO-o3o"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxg-vp-fkG">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="backgroundImage" destination="TU5-1t-x6B" id="chN-q5-ILa"/>
+                        <outlet property="bottomBar" destination="jBb-fN-RFm" id="imV-ct-Kau"/>
                         <outlet property="currentRouteLabel" destination="501-VG-Mor" id="zNg-YG-kWs"/>
                         <outlet property="leftButton" destination="iJK-f2-wgV" id="z4c-8E-v6H"/>
                         <outlet property="rightButton" destination="gW1-Wc-J64" id="65z-IS-kLJ"/>
                         <outlet property="routeTableView" destination="hv3-bS-tia" id="EVP-bQ-ZGc"/>
                         <outlet property="routesCircleGraphic" destination="xFn-Q3-agN" id="Mq6-BF-moc"/>
+                        <outlet property="topBar" destination="Z2c-vi-fFO" id="kp1-ao-Jbh"/>
                         <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="RockWallToGallary" animates="NO" id="are-xu-43T"/>
                         <segue destination="LcF-v1-TBW" kind="showDetail" identifier="RockWallToNews" animates="NO" id="xGw-S6-QZ3"/>
                         <segue destination="f1S-us-KzA" kind="showDetail" identifier="RockWallToCalendar" animates="NO" id="g9n-PU-iyh"/>
@@ -1190,11 +1228,11 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1zQ-XG-Wt5"/>
-        <segue reference="JoC-90-n0s"/>
-        <segue reference="g9n-PU-iyh"/>
-        <segue reference="xGw-S6-QZ3"/>
-        <segue reference="are-xu-43T"/>
-        <segue reference="1TF-q2-o0D"/>
+        <segue reference="kVd-uk-Teh"/>
+        <segue reference="J5C-tz-tNR"/>
+        <segue reference="vRs-ER-VUP"/>
+        <segue reference="xe6-r9-6mp"/>
+        <segue reference="TEm-a3-fMU"/>
+        <segue reference="PzQ-lC-lct"/>
     </inferredMetricsTieBreakers>
 </document>

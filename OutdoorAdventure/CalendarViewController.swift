@@ -10,6 +10,10 @@ import UIKit
 
 class CalendarViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //Toolbars for shadows
+    @IBOutlet weak var topBar: UIToolbar!
+    @IBOutlet weak var bottomBar: UIToolbar!
+    
     //UI objects
     @IBOutlet weak var menuView: CVCalendarMenuView!
     @IBOutlet weak var calendarView: CVCalendarView!
@@ -24,6 +28,17 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        //Shadows
+        topBar.layer.shadowColor = UIColor.black.cgColor;
+        topBar.layer.shadowOpacity = 1;
+        topBar.layer.shadowOffset = CGSize.zero;
+        topBar.layer.shadowRadius = 10;
+        
+        bottomBar.layer.shadowColor = UIColor.black.cgColor;
+        bottomBar.layer.shadowOpacity = 1;
+        bottomBar.layer.shadowOffset = CGSize.zero;
+        bottomBar.layer.shadowRadius = 10;
         
         if let currentCalendar = currentCalendar {
             monthLabel.text = CVDate(date: Date(), calendar: currentCalendar).globalDescription

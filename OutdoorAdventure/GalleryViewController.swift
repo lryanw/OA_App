@@ -10,6 +10,11 @@ import UIKit
 
 class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    //Toolbars for shadows
+    @IBOutlet weak var topBar: UIToolbar!
+    @IBOutlet weak var bottomBar: UIToolbar!
+    
+    //CollectionView
     @IBOutlet weak var collectionView: UICollectionView!
     
     //Toolbar Buttons (Navigation)
@@ -24,6 +29,17 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //Shadows
+        topBar.layer.shadowColor = UIColor.black.cgColor;
+        topBar.layer.shadowOpacity = 1;
+        topBar.layer.shadowOffset = CGSize.zero;
+        topBar.layer.shadowRadius = 10;
+        
+        bottomBar.layer.shadowColor = UIColor.black.cgColor;
+        bottomBar.layer.shadowOpacity = 1;
+        bottomBar.layer.shadowOffset = CGSize.zero;
+        bottomBar.layer.shadowRadius = 10;
     }
 
     override func didReceiveMemoryWarning() {

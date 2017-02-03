@@ -10,12 +10,26 @@ import UIKit
 
 class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    //Toolbar for shadows
+    @IBOutlet weak var topBar: UIToolbar!
+    @IBOutlet weak var bottomBar: UIToolbar!
+    
     var items: [(UIImage, String, String)] = [(UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min")];
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //Shadows
+        topBar.layer.shadowColor = UIColor.black.cgColor;
+        topBar.layer.shadowOpacity = 1;
+        topBar.layer.shadowOffset = CGSize.zero;
+        topBar.layer.shadowRadius = 10;
+        
+        bottomBar.layer.shadowColor = UIColor.black.cgColor;
+        bottomBar.layer.shadowOpacity = 1;
+        bottomBar.layer.shadowOffset = CGSize.zero;
+        bottomBar.layer.shadowRadius = 10;
     }
 
     override func didReceiveMemoryWarning() {
