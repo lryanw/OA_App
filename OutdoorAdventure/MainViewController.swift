@@ -90,10 +90,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+
     //Change Height of Cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if(indexPath.row % 2 == 0) {
+            
             //Resize ImageView Height
             let imageWidth = items[indexPath.row/2].4.size.width;
             let imageHeight = items[indexPath.row/2].4.size.height;

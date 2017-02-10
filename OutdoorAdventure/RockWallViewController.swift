@@ -36,6 +36,16 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
         
         //Shadows
+        leftButton.layer.shadowColor = UIColor.black.cgColor;
+        leftButton.layer.shadowOpacity = 1;
+        leftButton.layer.shadowOffset = CGSize.zero;
+        leftButton.layer.shadowRadius = 10;
+        
+        rightButton.layer.shadowColor = UIColor.black.cgColor;
+        rightButton.layer.shadowOpacity = 1;
+        rightButton.layer.shadowOffset = CGSize.zero;
+        rightButton.layer.shadowRadius = 10;
+        
         topBar.layer.shadowColor = UIColor.black.cgColor;
         topBar.layer.shadowOpacity = 1;
         topBar.layer.shadowOffset = CGSize.zero;

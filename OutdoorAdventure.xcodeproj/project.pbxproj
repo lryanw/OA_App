@@ -58,6 +58,7 @@
 		2D58ABCB1E400FF900924259 /* OutdoorAdventure.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D58ABCA1E400FF900924259 /* OutdoorAdventure.jpg */; };
 		2D58ABCD1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D58ABCC1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg */; };
 		2D58ABCF1E40163800924259 /* Celtic_Knot_Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D58ABCE1E40163800924259 /* Celtic_Knot_Edit.png */; };
+		2D5BF3CA1E4D3726009856BE /* CarabinerLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5BF3C91E4D3726009856BE /* CarabinerLogo.png */; };
 		2D5CC60D1E3AA6A100196AD8 /* CorkBoard.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC60C1E3AA6A100196AD8 /* CorkBoard.png */; };
 		2D5CC60F1E3AA8A000196AD8 /* fadeImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC60E1E3AA8A000196AD8 /* fadeImage.png */; };
 		2D5CC6111E3AB30E00196AD8 /* PolaroidImage_2_Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D5CC6101E3AB30E00196AD8 /* PolaroidImage_2_Red.png */; };
@@ -163,6 +164,7 @@
 		2D58ABCA1E400FF900924259 /* OutdoorAdventure.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OutdoorAdventure.jpg; sourceTree = "<group>"; };
 		2D58ABCC1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OutdoorAdventureWebBanner.jpg; sourceTree = "<group>"; };
 		2D58ABCE1E40163800924259 /* Celtic_Knot_Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Celtic_Knot_Edit.png; sourceTree = "<group>"; };
+		2D5BF3C91E4D3726009856BE /* CarabinerLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CarabinerLogo.png; sourceTree = "<group>"; };
 		2D5CC60C1E3AA6A100196AD8 /* CorkBoard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CorkBoard.png; sourceTree = "<group>"; };
 		2D5CC60E1E3AA8A000196AD8 /* fadeImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fadeImage.png; sourceTree = "<group>"; };
 		2D5CC6101E3AB30E00196AD8 /* PolaroidImage_2_Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PolaroidImage_2_Red.png; sourceTree = "<group>"; };
@@ -396,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				2D66E38D1E3D123A00AF7D61 /* TapeDesigns */,
+				2D5BF3C91E4D3726009856BE /* CarabinerLogo.png */,
 				2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */,
 				2D525BFC1E27299000A06B25 /* ic_launcher.png */,
 				2D58ABCA1E400FF900924259 /* OutdoorAdventure.jpg */,
@@ -544,6 +547,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D4BF0951E255057001710AD /* information.png in Resources */,
+				2D5BF3CA1E4D3726009856BE /* CarabinerLogo.png in Resources */,
 				2DA2CA8D1E22D928003F0462 /* LaunchScreen.storyboard in Resources */,
 				2D525C011E27299000A06B25 /* background_2.jpg in Resources */,
 				2D5CC6111E3AB30E00196AD8 /* PolaroidImage_2_Red.png in Resources */,

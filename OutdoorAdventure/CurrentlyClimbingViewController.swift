@@ -10,6 +10,8 @@ import UIKit
 
 class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var circleBackground: UIImageView!
+    
     //Toolbar for shadows
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var bottomBar: UIToolbar!
@@ -20,7 +22,15 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.white, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2));
+        
         //Shadows
+        circleBackground.layer.shadowColor = UIColor.black.cgColor;
+        circleBackground.layer.shadowOpacity = 1;
+        circleBackground.layer.shadowOffset = CGSize.zero;
+        circleBackground.layer.shadowRadius = 10;
+        
         topBar.layer.shadowColor = UIColor.black.cgColor;
         topBar.layer.shadowOpacity = 1;
         topBar.layer.shadowOffset = CGSize.zero;
