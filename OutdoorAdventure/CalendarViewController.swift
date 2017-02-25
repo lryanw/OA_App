@@ -20,25 +20,25 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var calendarTableView: UITableView!
     
-    var currentCalendar: Calendar?;
-    var animationFinished = true;
+    var currentCalendar: Calendar?
+    var animationFinished = true
     
     //Event Name, Location, Time
     var items: [(String, String, String)] = [("Red Dirt Pump Fest", "Colvin", "7:00-9:00"), ("Red Dirt Pump Fest", "Colvin", "7:00-9:00"), ("Red Dirt Pump Fest", "Colvin", "7:00-9:00")]
     
     override func viewDidLoad() {
-        super.viewDidLoad();
+        super.viewDidLoad()
         
         //Shadows
-        topBar.layer.shadowColor = UIColor.black.cgColor;
-        topBar.layer.shadowOpacity = 1;
-        topBar.layer.shadowOffset = CGSize.zero;
-        topBar.layer.shadowRadius = 10;
+        topBar.layer.shadowColor = UIColor.black.cgColor
+        topBar.layer.shadowOpacity = 1
+        topBar.layer.shadowOffset = CGSize.zero
+        topBar.layer.shadowRadius = 10
         
-        bottomBar.layer.shadowColor = UIColor.black.cgColor;
-        bottomBar.layer.shadowOpacity = 1;
-        bottomBar.layer.shadowOffset = CGSize.zero;
-        bottomBar.layer.shadowRadius = 10;
+        bottomBar.layer.shadowColor = UIColor.black.cgColor
+        bottomBar.layer.shadowOpacity = 1
+        bottomBar.layer.shadowOffset = CGSize.zero
+        bottomBar.layer.shadowRadius = 10
         
         if let currentCalendar = currentCalendar {
             monthLabel.text = CVDate(date: Date(), calendar: currentCalendar).globalDescription
@@ -59,10 +59,10 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews();
+        super.viewDidLayoutSubviews()
         
-        calendarView.commitCalendarViewUpdate();
-        menuView.commitMenuViewUpdate();
+        calendarView.commitCalendarViewUpdate()
+        menuView.commitMenuViewUpdate()
     }
     
     //Updates the Month Label when scrolled
@@ -106,52 +106,52 @@ class CalendarViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //UITableView methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count * 2;
+        return items.count * 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if(indexPath.row % 2 == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as! calendarTableViewCell;
+            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarCell", for: indexPath) as! calendarTableViewCell
             //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "calendarCell")
-            cell.eventName.text = items[indexPath.row/2].0;
-            cell.eventLocation.text = items[indexPath.row/2].1;
-            cell.eventTime.text = items[indexPath.row/2].2;
-            return cell;
+            cell.eventName.text = items[indexPath.row/2].0
+            cell.eventLocation.text = items[indexPath.row/2].1
+            cell.eventTime.text = items[indexPath.row/2].2
+            return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell;
-            return cell;
+            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell
+            return cell
         }
     }
     
     //Change Height of Cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if(indexPath.row % 2 == 0) {
-            return calendarTableView.rowHeight;
+            return calendarTableView.rowHeight
         } else {
-            return 10;
+            return 10
         }
     }
     
     //Segues
     @IBAction func toGallery(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "CalendarToGallery", sender: sender);
+        performSegue(withIdentifier: "CalendarToGallery", sender: sender)
     }
     
     @IBAction func toRockWall(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "CalendarToRockWall", sender: sender);
+        performSegue(withIdentifier: "CalendarToRockWall", sender: sender)
     }
     
     @IBAction func toNews(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "CalendarToNews", sender: sender);
+        performSegue(withIdentifier: "CalendarToNews", sender: sender)
     }
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "CalendarToInfo", sender: sender);
+        performSegue(withIdentifier: "CalendarToInfo", sender: sender)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "CalendarToCurrentlyClimbing", sender: sender);
+        performSegue(withIdentifier: "CalendarToCurrentlyClimbing", sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -176,11 +176,11 @@ extension CalendarViewController: CVCalendarViewDelegate, CVCalendarMenuViewDele
     
     //Required Implementation
     func presentationMode() -> CalendarMode {
-        return CalendarMode.monthView;
+        return CalendarMode.monthView
     }
     
     func firstWeekday() -> Weekday {
-        return Weekday.sunday;
+        return Weekday.sunday
     }
 }
 

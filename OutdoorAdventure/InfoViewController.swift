@@ -9,12 +9,25 @@
 import UIKit
 
 class InfoViewController: UIViewController {
+    
+    @IBOutlet weak var topBar: UIToolbar!
+    @IBOutlet weak var bottomBar: UIToolbar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
+        //Shadows
+        topBar.layer.shadowColor = UIColor.black.cgColor
+        topBar.layer.shadowOpacity = 0.5
+        topBar.layer.shadowOffset = CGSize.zero
+        topBar.layer.shadowRadius = 10
+        
+        bottomBar.layer.shadowColor = UIColor.black.cgColor
+        bottomBar.layer.shadowOpacity = 0.5
+        bottomBar.layer.shadowOffset = CGSize.zero
+        bottomBar.layer.shadowRadius = 10
     }
 
     override func didReceiveMemoryWarning() {

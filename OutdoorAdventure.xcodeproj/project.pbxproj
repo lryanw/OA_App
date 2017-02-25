@@ -50,7 +50,8 @@
 		2D4BF0961E255057001710AD /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF0901E255057001710AD /* menu.png */; };
 		2D4BF0971E255057001710AD /* newspaper.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF0911E255057001710AD /* newspaper.png */; };
 		2D4C8A9A1E29879C0004EE11 /* RockWallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8A991E29879C0004EE11 /* RockWallViewController.swift */; };
-		2D4C8A9C1E298C170004EE11 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8A9B1E298C170004EE11 /* GalleryViewController.swift */; };
+		2D4C8A9C1E298C170004EE11 /* MyGalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4C8A9B1E298C170004EE11 /* MyGalleryViewController.swift */; };
+		2D5116E11E5D0BE900E68AB0 /* ZoomedPhotoUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5116E01E5D0BE900E68AB0 /* ZoomedPhotoUIViewController.swift */; };
 		2D525BFA1E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D525BF91E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift */; };
 		2D525BFF1E27299000A06B25 /* ic_launcher.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFC1E27299000A06B25 /* ic_launcher.png */; };
 		2D525C001E27299000A06B25 /* background_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D525BFD1E27299000A06B25 /* background_1.jpg */; };
@@ -156,7 +157,8 @@
 		2D4BF0901E255057001710AD /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		2D4BF0911E255057001710AD /* newspaper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newspaper.png; sourceTree = "<group>"; };
 		2D4C8A991E29879C0004EE11 /* RockWallViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RockWallViewController.swift; sourceTree = "<group>"; };
-		2D4C8A9B1E298C170004EE11 /* GalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		2D4C8A9B1E298C170004EE11 /* MyGalleryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyGalleryViewController.swift; sourceTree = "<group>"; };
+		2D5116E01E5D0BE900E68AB0 /* ZoomedPhotoUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomedPhotoUIViewController.swift; sourceTree = "<group>"; };
 		2D525BF91E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell_NewsTableViewCell.swift; sourceTree = "<group>"; };
 		2D525BFC1E27299000A06B25 /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		2D525BFD1E27299000A06B25 /* background_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background_1.jpg; sourceTree = "<group>"; };
@@ -315,12 +317,13 @@
 			isa = PBXGroup;
 			children = (
 				2DA2CA841E22D928003F0462 /* ViewController.swift */,
-				2D4C8A9B1E298C170004EE11 /* GalleryViewController.swift */,
+				2D4C8A9B1E298C170004EE11 /* MyGalleryViewController.swift */,
 				2D4C8A991E29879C0004EE11 /* RockWallViewController.swift */,
 				2D01A3371E241790009E2243 /* MainViewController.swift */,
 				2D6066EE1E2C2797004A93B7 /* CalendarViewController.swift */,
 				2D6025881E4112C5008BFA5A /* CurrentlyClimbingViewController.swift */,
 				2D6066F01E2C27AE004A93B7 /* InfoViewController.swift */,
+				2D5116E01E5D0BE900E68AB0 /* ZoomedPhotoUIViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -662,7 +665,7 @@
 				2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */,
 				2D43FB521E2D286200E56F03 /* CVCalendarWeekView.swift in Sources */,
 				2D43FB4A1E2D286200E56F03 /* CVCalendarViewAnimator.swift in Sources */,
-				2D4C8A9C1E298C170004EE11 /* GalleryViewController.swift in Sources */,
+				2D4C8A9C1E298C170004EE11 /* MyGalleryViewController.swift in Sources */,
 				2D43FB5B1E2D286200E56F03 /* CVWeekdaySymbolType.swift in Sources */,
 				2D43FB5A1E2D286200E56F03 /* CVStatus.swift in Sources */,
 				2D43FB531E2D286200E56F03 /* CVDate.swift in Sources */,
@@ -691,6 +694,7 @@
 				2D43FB591E2D286200E56F03 /* CVShape.swift in Sources */,
 				2D43FB481E2D286200E56F03 /* CVCalendarTouchController.swift in Sources */,
 				2DF4E10D1E2EE7EB009153EA /* calendarTableViewCell.swift in Sources */,
+				2D5116E11E5D0BE900E68AB0 /* ZoomedPhotoUIViewController.swift in Sources */,
 				2D66E3971E3D15E000AF7D61 /* ImageTransformer.swift in Sources */,
 				2D43FB491E2D286200E56F03 /* CVCalendarView.swift in Sources */,
 				2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */,

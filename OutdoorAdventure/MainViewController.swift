@@ -26,24 +26,24 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Profile Name, Post Date, News Text, Profile Image 
     var items: [(String, String, UIImage, String, UIImage)] = [
         ("Outdoor Adventure", "Day 1", UIImage(named:"ic_launcher.png")!, "OMG OMG OMG", UIImage(named: "background_2.jpg")!),
-        ("Outdoor Adventure", "Day 2", UIImage(named:"ic_launcher.png")!, "IMNJHNSDFJHDSLFJ SDLFJHSDFJHSDLFJH", UIImage(named: "background_2.jpg")!),
+        ("Outdoor Adventure", "Day 2", UIImage(named:"ic_launcher.png")!, "IMNJHNSDFJHDSLFJ SDLFJHSDFJHSDLFJH", UIImage(named: "background_1.jpg")!),
         ("Outdoor Adventure", "Day 3", UIImage(named:"ic_launcher.png")!, "IMG IMSDFKJ IODMDJNSFO ISDFLKNSDFL IDMSFLS", UIImage(named: "background_2.jpg")!)
-    ];
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
         //Shadows
-        topBar.layer.shadowColor = UIColor.black.cgColor;
-        topBar.layer.shadowOpacity = 1;
-        topBar.layer.shadowOffset = CGSize.zero;
-        topBar.layer.shadowRadius = 10;
+        topBar.layer.shadowColor = UIColor.black.cgColor
+        topBar.layer.shadowOpacity = 0.5
+        topBar.layer.shadowOffset = CGSize.zero
+        topBar.layer.shadowRadius = 10
         
-        bottomBar.layer.shadowColor = UIColor.black.cgColor;
-        bottomBar.layer.shadowOpacity = 1;
-        bottomBar.layer.shadowOffset = CGSize.zero;
-        bottomBar.layer.shadowRadius = 10;
+        bottomBar.layer.shadowColor = UIColor.black.cgColor
+        bottomBar.layer.shadowOpacity = 0.5
+        bottomBar.layer.shadowOffset = CGSize.zero
+        bottomBar.layer.shadowRadius = 10
         
     }
 
@@ -54,58 +54,55 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //Number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count * 2;
+        return items.count * 2
     }
     
     //Sets up the cell in the TableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if(indexPath.row % 2 == 0) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell_NewsTableViewCell;
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell_NewsTableViewCell
             
             //Set Cell Up
-            cell.news_Profile.text = items[indexPath.row/2].0;
-            cell.news_Date.text = items[indexPath.row/2].1;
-            cell.news_ProfileImage.image = items[indexPath.row/2].2;
-            cell.news_Text.text = items[indexPath.row/2].3;
-            cell.news_Image.image = items[indexPath.row/2].4;
+            cell.news_Profile.text = items[indexPath.row/2].0
+            cell.news_Date.text = items[indexPath.row/2].1
+            cell.news_ProfileImage.image = items[indexPath.row/2].2
+            cell.news_Text.text = items[indexPath.row/2].3
+            cell.news_Image.image = items[indexPath.row/2].4
             
             //Resize TextView Height
-            let contentSize = cell.news_Text.sizeThatFits(cell.news_Text.bounds.size);
-            var frame = cell.news_Text.frame;
-            frame.size.height = contentSize.height;
-            cell.news_Text.frame = frame;
+            let contentSize = cell.news_Text.sizeThatFits(cell.news_Text.bounds.size)
+            var frame = cell.news_Text.frame
+            frame.size.height = contentSize.height
+            cell.news_Text.frame = frame
             
-            //Resize ImageView Height
-            let imageWidth = items[indexPath.row/2].4.size.width;
-            let imageHeight = items[indexPath.row/2].4.size.height;
-            let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth;
-            
-            cell.news_Image.frame.size = CGSize(width: tableView_News.frame.width, height: newHeight)
-            
-            return cell;
+            return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell;
-            return cell;
+            let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell
+            return cell
         }
-        
     }
     
-
     //Change Height of Cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if(indexPath.row % 2 == 0) {
             
             //Resize ImageView Height
-            let imageWidth = items[indexPath.row/2].4.size.width;
-            let imageHeight = items[indexPath.row/2].4.size.height;
-            let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth;
+            let imageWidth = items[indexPath.row/2].4.size.width
+            let imageHeight = items[indexPath.row/2].4.size.height
+            let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth
             
-            return tableView_News.rowHeight + newHeight;
+            let currentString = items[indexPath.row/2].3
+            
+            
+            
+            return tableView_News.rowHeight + newHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + 20
         } else {
-            return 10;
+            return 10
         }
     }
+    
+    
     
     //Segues
     @IBAction func toGallery(sender: UIBarButtonItem) {
@@ -113,19 +110,19 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func toRockWall(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "NewsToRockWall", sender: sender);
+        performSegue(withIdentifier: "NewsToRockWall", sender: sender)
     }
     
     @IBAction func toCalendar(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "NewsToCalendar", sender: sender);
+        performSegue(withIdentifier: "NewsToCalendar", sender: sender)
     }
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "NewsToInfo", sender: sender);
+        performSegue(withIdentifier: "NewsToInfo", sender: sender)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "NewsToCurrentlyClimbing", sender: sender);
+        performSegue(withIdentifier: "NewsToCurrentlyClimbing", sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -142,4 +139,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     */
 
+}
+
+extension String {
+    func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
+        let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
+        let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        
+        return boundingBox.height
+    }
 }

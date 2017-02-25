@@ -149,17 +149,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="329" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H49-aQ-XfM">
+                            <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H49-aQ-XfM">
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="101" id="2J3-TK-PlG" customClass="TableViewCell_NewsTableViewCell" customModule="OutdoorAdventure" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="101"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="151" id="2J3-TK-PlG" customClass="TableViewCell_NewsTableViewCell" customModule="OutdoorAdventure" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="151"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2J3-TK-PlG" id="r64-Qa-tZh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jtD-bW-7Ly">
@@ -172,8 +172,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qcP-Gb-K2b">
-                                                    <rect key="frame" x="0.0" y="99" width="414" height="1"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qcP-Gb-K2b">
+                                                    <rect key="frame" x="0.0" y="100" width="414" height="50"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bjq-qD-zwh">
                                                     <rect key="frame" x="79" y="15" width="317" height="48"/>
@@ -211,6 +211,9 @@
                                                 <constraint firstItem="qcP-Gb-K2b" firstAttribute="top" secondItem="3hZ-rN-bUW" secondAttribute="bottom" constant="19" id="ztw-1r-ZZe"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="qcP-Gb-K2b" secondAttribute="bottom" constant="-1" id="P4v-zz-MXm"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="news_Date" destination="jHX-lF-DvM" id="YqP-5Z-XWY"/>
                                             <outlet property="news_Image" destination="qcP-Gb-K2b" id="nkb-Ve-9b9"/>
@@ -220,10 +223,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="calendarSpace" rowHeight="10" id="3C8-gW-FzP" customClass="spaceTableViewCell" customModule="OutdoorAdventure" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="129" width="414" height="10"/>
+                                        <rect key="frame" x="0.0" y="179" width="414" height="10"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3C8-gW-FzP" id="Ata-a7-OWe">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -234,25 +237,29 @@
                                     <outlet property="delegate" destination="LcF-v1-TBW" id="XVu-4V-UQl"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="287-Hf-e0d">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="287-Hf-e0d">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cMU-Gf-as5"/>
                                     <barButtonItem style="plain" id="tfm-zh-V7Y">
                                         <view key="customView" contentMode="scaleToFill" id="RYs-iu-apw">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="87" y="5.6666666666666679" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOw-dC-KLC">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOw-dC-KLC">
                                                     <rect key="frame" x="0.0" y="6" width="240" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="BOw-dC-KLC" firstAttribute="leading" secondItem="RYs-iu-apw" secondAttribute="leading" id="Xf3-TX-DEM"/>
+                                                <constraint firstItem="BOw-dC-KLC" firstAttribute="top" secondItem="RYs-iu-apw" secondAttribute="top" constant="6" id="cgK-It-BW1"/>
+                                                <constraint firstAttribute="trailing" secondItem="BOw-dC-KLC" secondAttribute="trailing" id="d6z-6P-mPW"/>
+                                                <constraint firstAttribute="bottom" secondItem="BOw-dC-KLC" secondAttribute="bottom" constant="6" id="fjd-5H-aIK"/>
+                                            </constraints>
                                         </view>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="h2K-yr-auf"/>
@@ -263,10 +270,10 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bD-fr-Fdt">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bD-fr-Fdt">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem image="ic_photo_library.png" id="1Mr-kO-vuv">
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -301,14 +308,25 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rmF-Ac-cqH">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148427963257" green="0.96475988626480103" blue="0.96459120512008667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="4bD-fr-Fdt" firstAttribute="leading" secondItem="8ZZ-Eo-7Zs" secondAttribute="leadingMargin" constant="-20" id="8HC-vj-ga5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="287-Hf-e0d" secondAttribute="trailing" constant="-20" id="LAJ-1m-x0c"/>
+                            <constraint firstItem="4bD-fr-Fdt" firstAttribute="top" secondItem="pzI-W4-Pnw" secondAttribute="bottom" constant="672" id="Sdg-Ad-8TL"/>
+                            <constraint firstItem="QNP-Jy-C6x" firstAttribute="top" secondItem="4bD-fr-Fdt" secondAttribute="bottom" id="dXV-lp-gQA"/>
+                            <constraint firstItem="287-Hf-e0d" firstAttribute="top" secondItem="pzI-W4-Pnw" secondAttribute="bottom" id="doa-G0-n83"/>
+                            <constraint firstItem="QNP-Jy-C6x" firstAttribute="top" secondItem="287-Hf-e0d" secondAttribute="bottom" constant="672" id="pCn-Qr-7OF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4bD-fr-Fdt" secondAttribute="trailing" constant="-20" id="sca-lQ-jPI"/>
+                            <constraint firstItem="287-Hf-e0d" firstAttribute="leading" secondItem="8ZZ-Eo-7Zs" secondAttribute="leadingMargin" constant="-20" id="xIL-9S-Y32"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="bottomBar" destination="4bD-fr-Fdt" id="ML8-fp-LtL"/>
@@ -328,10 +346,10 @@
             </objects>
             <point key="canvasLocation" x="772.46376811594212" y="122.28260869565219"/>
         </scene>
-        <!--View Controller-->
+        <!--Zoomed PhotoUI View Controller-->
         <scene sceneID="Wa4-Oh-TY5">
             <objects>
-                <viewController id="4Dj-be-Cpj" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="4Dj-be-Cpj" customClass="ZoomedPhotoUIViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eFz-QJ-rhf"/>
                         <viewControllerLayoutGuide type="bottom" id="GjT-So-prz"/>
@@ -339,12 +357,51 @@
                     <view key="view" contentMode="scaleToFill" id="s1P-1R-ZlX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngg-5C-LGw">
+                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="background_1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Hf3-gk-nt7">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Hf3-gk-nt7" secondAttribute="bottom" id="4mI-16-dij"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hf3-gk-nt7" secondAttribute="trailing" constant="-844" id="MzC-9F-9ra"/>
+                                    <constraint firstItem="Hf3-gk-nt7" firstAttribute="leading" secondItem="ngg-5C-LGw" secondAttribute="leading" id="VZ0-90-ozp"/>
+                                    <constraint firstItem="Hf3-gk-nt7" firstAttribute="top" secondItem="ngg-5C-LGw" secondAttribute="top" id="npS-YM-sLr"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="4Dj-be-Cpj" id="E5A-2c-no7"/>
+                                </connections>
+                            </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHx-BM-m0l">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="ngg-5C-LGw" firstAttribute="top" secondItem="eFz-QJ-rhf" secondAttribute="bottom" id="KE7-G6-tdI"/>
+                            <constraint firstItem="ngg-5C-LGw" firstAttribute="leading" secondItem="s1P-1R-ZlX" secondAttribute="leading" id="LrG-Nd-W8m"/>
+                            <constraint firstItem="GjT-So-prz" firstAttribute="top" secondItem="ngg-5C-LGw" secondAttribute="bottom" id="WNr-Nn-xGW"/>
+                            <constraint firstAttribute="trailing" secondItem="ngg-5C-LGw" secondAttribute="trailing" id="uBI-KD-ei1"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="imageView" destination="Hf3-gk-nt7" id="WFi-8Z-s8R"/>
+                        <outlet property="imageViewBottomConstraint" destination="4mI-16-dij" id="9Df-Ti-DTx"/>
+                        <outlet property="imageViewLeadingConstraint" destination="VZ0-90-ozp" id="Yi8-8q-mTj"/>
+                        <outlet property="imageViewTopConstraint" destination="npS-YM-sLr" id="5sV-AC-UN3"/>
+                        <outlet property="imageviewTrailingConstraint" destination="MzC-9F-9ra" id="dwe-57-iwX"/>
+                        <outlet property="scrollView" destination="ngg-5C-LGw" id="bL0-c3-2hb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpT-1x-38j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-739" y="825"/>
+            <point key="canvasLocation" x="-739.13043478260875" y="820.92391304347836"/>
         </scene>
         <!--Currently Climbing View Controller-->
         <scene sceneID="bgt-OC-bas">
@@ -435,7 +492,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9d1-rn-4D5"/>
                                     <barButtonItem style="plain" id="jLn-ml-Rw3">
                                         <view key="customView" contentMode="scaleToFill" id="nbP-85-ZET">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="87" y="5.6666666666666679" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNn-RC-b67">
@@ -454,6 +511,7 @@
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2x-pT-qTh">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
@@ -495,11 +553,12 @@
                                         <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Waq-vR-aGu">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -536,7 +595,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uJV-5g-OVD" id="87N-rx-OxC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D37-GV-iBP">
@@ -547,7 +606,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red Dirt Pump Fest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rT-vA-6cz">
-                                                    <rect key="frame" x="13" y="0.0" width="271" height="52"/>
+                                                    <rect key="frame" x="8" y="-9" width="268" height="54"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -572,7 +631,7 @@
                                         <rect key="frame" x="0.0" y="113" width="414" height="10"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="smp-HV-fVW" id="2kQ-MU-BXR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
@@ -655,7 +714,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="asq-vp-x6N"/>
                                     <barButtonItem style="plain" id="yHt-nc-JRZ">
                                         <view key="customView" contentMode="scaleToFill" id="qkQ-ug-HIt">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="87" y="5.6666666666666679" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-W7-Ivc">
@@ -677,6 +736,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bae-Bv-tWF">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
@@ -733,38 +793,37 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gh-0Y-l5Y">
-                                        <rect key="frame" x="30" y="402" width="355" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(405) 744-5581" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPI-4e-rDO">
-                                        <rect key="frame" x="30" y="431" width="355" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OutdoorAdventureWebBanner.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OxJ-pn-GMo">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifs-f6-cdo">
-                                        <rect key="frame" x="30" y="133" width="355" height="151"/>
+                                        <rect key="frame" x="30" y="183" width="355" height="151"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <string key="text">Outdoor Adventure is the place for fun and excitement at Oklahoma State University.  Wether its the challenge course, climbing wall, or even a wilderness trip, there are plenty of opportunities to find adventure with us.  Find us at the Colvin Center, where our climbing wall and rental shop are located.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ABOUT US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1H-aG-5Nw">
+                                        <rect key="frame" x="8" y="138" width="398" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rcs-J8-Rzv">
+                                        <rect key="frame" x="0.0" y="362" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.1137254902" green="0.40784313729999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3D-cv-0CC">
                                 <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem image="ic_photo_library.png" id="Bod-xu-c8x">
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -798,6 +857,7 @@
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LJd-UI-6Yq">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -806,7 +866,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="UYk-XE-hpY"/>
                                     <barButtonItem style="plain" id="Vb8-XF-KLB">
                                         <view key="customView" contentMode="scaleToFill" id="3IO-7T-RF1">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="87" y="5.6666666666666679" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLy-lt-Mct">
@@ -825,11 +885,19 @@
                                         <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a77-ch-skA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="bottomBar" destination="S3D-cv-0CC" id="a5A-HV-X8K"/>
+                        <outlet property="topBar" destination="LJd-UI-6Yq" id="c7R-q2-h6R"/>
                         <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="InfoToGallary" animates="NO" id="eUu-om-iKS"/>
                         <segue destination="Wo2-li-420" kind="showDetail" identifier="InfoToRockWall" animates="NO" id="Kx2-AW-t6t"/>
                         <segue destination="LcF-v1-TBW" kind="showDetail" identifier="InfoToNews" animates="NO" id="hkW-r1-XD7"/>
@@ -838,12 +906,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPx-0i-8iF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3007" y="122"/>
+            <point key="canvasLocation" x="3005.7971014492755" y="121.46739130434784"/>
         </scene>
-        <!--Gallery View Controller-->
+        <!--My Gallery View Controller-->
         <scene sceneID="rFg-Oc-UuM">
             <objects>
-                <viewController id="UWG-Wg-rXH" customClass="GalleryViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UWG-Wg-rXH" customClass="MyGalleryViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6KO-Kq-BaH"/>
                         <viewControllerLayoutGuide type="bottom" id="rSR-oR-oQX"/>
@@ -879,11 +947,11 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PolaroidImage_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="dYw-zE-rk2">
-                                                            <rect key="frame" x="8" y="-18" width="191" height="242"/>
+                                                            <rect key="frame" x="13" y="-22" width="181" height="229"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew8-9j-Ujo">
-                                                            <rect key="frame" x="46" y="46" width="119" height="121"/>
+                                                            <rect key="frame" x="48" y="39" width="115" height="117"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                         </imageView>
                                                     </subviews>
@@ -895,6 +963,7 @@
                                             <outlet property="cellImage" destination="ew8-9j-Ujo" id="VBu-tj-OKC"/>
                                             <outlet property="polaroidImage" destination="dYw-zE-rk2" id="oL3-kj-Ifq"/>
                                             <outlet property="viewForImages" destination="fYj-Ir-EuX" id="2vb-4w-rVY"/>
+                                            <segue destination="4Dj-be-Cpj" kind="show" identifier="GallaryToImageViewer" id="AhG-fB-SAn"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -943,6 +1012,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BPQ-7U-06k">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -951,7 +1021,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nd6-IA-bQd"/>
                                     <barButtonItem style="plain" id="OJI-l0-mdo">
                                         <view key="customView" contentMode="scaleToFill" id="ogG-z0-8TN">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="87" y="5.6666666666666679" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwb-Ef-SuP">
@@ -973,11 +1043,12 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIc-LL-kjt">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1022,7 +1093,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wai-I3-461" id="EBJ-rM-fKW">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbe-4F-ely">
@@ -1054,7 +1125,7 @@
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QzI-4X-yGn">
-                                                    <rect key="frame" x="14" y="17" width="48" height="47"/>
+                                                    <rect key="frame" x="12" y="17" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-f5-Fvb">
@@ -1075,7 +1146,7 @@
                                         <rect key="frame" x="0.0" y="113" width="414" height="10"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6k8-l6-o37" id="eQY-Pt-Nnh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1154,6 +1225,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2c-vi-fFO">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -1162,7 +1234,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="TSY-Ey-Vk8"/>
                                     <barButtonItem style="plain" id="w8x-rm-Igg">
                                         <view key="customView" contentMode="scaleToFill" id="2Vx-dQ-C3f">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="87" y="5.6666666666666679" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U7w-6I-u2k">
@@ -1184,6 +1256,7 @@
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gW1-Wc-J64">
                                 <rect key="frame" x="290" y="64" width="124" height="197"/>
@@ -1197,7 +1270,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxg-vp-fkG">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1240,11 +1313,11 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xe6-r9-6mp"/>
-        <segue reference="1zQ-XG-Wt5"/>
-        <segue reference="TEm-a3-fMU"/>
-        <segue reference="1TF-q2-o0D"/>
-        <segue reference="vRs-ER-VUP"/>
-        <segue reference="kVd-uk-Teh"/>
+        <segue reference="Hyn-MK-lm4"/>
+        <segue reference="8Ha-Va-8UO"/>
+        <segue reference="A7X-vh-B88"/>
+        <segue reference="1on-5Z-1Tp"/>
+        <segue reference="5qi-ZR-Bea"/>
+        <segue reference="ote-1q-Zq9"/>
     </inferredMetricsTieBreakers>
 </document>

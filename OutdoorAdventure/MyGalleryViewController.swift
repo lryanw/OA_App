@@ -1,5 +1,5 @@
 //
-//  GalleryViewController.swift
+//  MyGalleryViewController.swift
 //  OutdoorAdventure
 //
 //  Created by Ryan Lee on 1/13/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     //Toolbars for shadows
     @IBOutlet weak var topBar: UIToolbar!
@@ -24,22 +24,22 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
     //Images in the CollectionView
-    var imageItems: [UIImage] = [UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!];
+    var imageItems: [UIImage] = [UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         //Shadows
-        topBar.layer.shadowColor = UIColor.black.cgColor;
-        topBar.layer.shadowOpacity = 1;
-        topBar.layer.shadowOffset = CGSize.zero;
-        topBar.layer.shadowRadius = 10;
+        topBar.layer.shadowColor = UIColor.black.cgColor
+        topBar.layer.shadowOpacity = 0.5
+        topBar.layer.shadowOffset = CGSize.zero
+        topBar.layer.shadowRadius = 10
         
-        bottomBar.layer.shadowColor = UIColor.black.cgColor;
-        bottomBar.layer.shadowOpacity = 1;
-        bottomBar.layer.shadowOffset = CGSize.zero;
-        bottomBar.layer.shadowRadius = 10;
+        bottomBar.layer.shadowColor = UIColor.black.cgColor
+        bottomBar.layer.shadowOpacity = 0.5
+        bottomBar.layer.shadowOffset = CGSize.zero
+        bottomBar.layer.shadowRadius = 10
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,30 +50,41 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     
     //Number of items in the CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.imageItems.count;
+        return self.imageItems.count
     }
     
     //Sets up the cell in the CollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell;
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
         
         //Sets the image in the CollectionView cell
-        cell.cellImage.image = self.imageItems[indexPath.item];
+        cell.cellImage.image = self.imageItems[indexPath.item]
         
-        return cell;
+        //Image Gallary
+        
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        toImageViewer(sender: collectionView)
     }
     
     //Sets the size of the size of the CollectionView cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
-        let size = CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.width / 2));
+        let size = CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.width / 2))
         
-        return size;
+        return size
+    }
+    
+    @IBAction func toImageViewer(sender: AnyObject) {
+        performSegue(withIdentifier: "GallaryToImageViewer", sender: sender)
     }
     
     //Segues
     @IBAction func toRockWall(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "GallaryToRockWall", sender: sender);
+        performSegue(withIdentifier: "GallaryToRockWall", sender: sender)
     }
     
     @IBAction func toNews(sender: UIBarButtonItem) {
@@ -81,15 +92,15 @@ class GalleryViewController: UIViewController, UICollectionViewDataSource, UICol
     }
     
     @IBAction func toCalendar(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "GallaryToCalendar", sender: sender);
+        performSegue(withIdentifier: "GallaryToCalendar", sender: sender)
     }
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "GallaryToInfo", sender: sender);
+        performSegue(withIdentifier: "GallaryToInfo", sender: sender)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "GalleryToCurrentlyClimbing", sender: sender);
+        performSegue(withIdentifier: "GalleryToCurrentlyClimbing", sender: sender)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
