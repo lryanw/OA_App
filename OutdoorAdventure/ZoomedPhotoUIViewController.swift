@@ -12,19 +12,35 @@ class ZoomedPhotoUIViewController: UIViewController {
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var picMenu: UIView!
     
     @IBOutlet weak var imageViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageviewTrailingConstraint: NSLayoutConstraint!
     
+    var currImage = UIImage(named: "background_1.jpg")!
+    var senderString : String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let currImage = imageView.image
-        imageView.frame.size = (currImage?.size)!
-        print(imageView.frame.size.height)
+        imageView.image = currImage
+        imageView.frame.size = (currImage.size)
+        
+        let tapSelector : Selector = "handleTap"
+        let tapGesture = UITapGestureRecognizer(target: self, action: tapSelector)
+        tapGesture.numberOfTapsRequired = 1
+        scrollView.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        imageView.image = currImage
+        imageView.frame.size = (currImage.size)
+    }
+    
+    func handleTap() {
+        picMenu.isHidden = !picMenu.isHidden;
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,7 +79,20 @@ class ZoomedPhotoUIViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
-
+    //Segues
+    @IBAction func toGallary(sender: UIButton) {
+        print(senderString)
+        if(senderString == "Gallary") {
+            performSegue(withIdentifier: "ImageViewerToGallary", sender: sender)
+        } else if(senderString == "News") {
+            performSegue(withIdentifier: "ImageViewerToNews", sender: sender)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

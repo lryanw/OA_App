@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var button_Add: UIButton!
+    
     //ToolBars for shadows
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var bottomBar: UIToolbar!
@@ -20,8 +22,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Tool Bar Buttons (Navigation)
     @IBOutlet weak var button_Gallery: UIBarButtonItem!
     @IBOutlet weak var button_RockWall: UIBarButtonItem!
-    @IBOutlet weak var button_Calendar: UIBarButtonItem!
     @IBOutlet weak var button_Info: UIBarButtonItem!
+    
+    var imageToPass : UIImage!
     
     //Profile Name, Post Date, News Text, Profile Image 
     var items: [(String, String, UIImage, String, UIImage)] = [
@@ -34,6 +37,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        //if(!user.isEmployee()) {
+        button_Add.isHidden = true
+        //}
+        
         //Shadows
         topBar.layer.shadowColor = UIColor.black.cgColor
         topBar.layer.shadowOpacity = 0.5
@@ -75,6 +82,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             frame.size.height = contentSize.height
             cell.news_Text.frame = frame
             
+            let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+            cell.news_Image.isUserInteractionEnabled = true
+            cell.news_Image.addGestureRecognizer(tapGestureRecognizer)
+            
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell
@@ -94,15 +105,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             let currentString = items[indexPath.row/2].3
             
-            
-            
-            return tableView_News.rowHeight + newHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + 20
+            return tableView_News.rowHeight + newHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + (20 * tableView_News.frame.width)/414 ///20
         } else {
             return 10
         }
     }
     
+    @IBAction func addToTable(sender: UIButton) {
+        
+    }
     
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        let tempView = tapGestureRecognizer.view as! UIImageView
+        imageToPass = tempView.image
+        
+        performSegue(withIdentifier: "NewsToImageViewer", sender: self)
+    }
     
     //Segues
     @IBAction func toGallery(sender: UIBarButtonItem) {
@@ -112,11 +130,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func toRockWall(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "NewsToRockWall", sender: sender)
     }
-    
-    @IBAction func toCalendar(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "NewsToCalendar", sender: sender)
-    }
-    
+
     @IBAction func toInfo(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "NewsToInfo", sender: sender)
     }
@@ -126,7 +140,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if(segue.identifier == "NewsToImageViewer") {
+            let destinationVC = segue.destination as! ZoomedPhotoUIViewController
+            destinationVC.currImage = imageToPass
+            destinationVC.senderString = "News"
+        }
     }
     
     /*

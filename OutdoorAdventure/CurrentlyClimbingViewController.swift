@@ -10,7 +10,10 @@ import UIKit
 
 class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    //Button to start climbing
+    @IBOutlet weak var climbingButton: UIButton!
     @IBOutlet weak var circleBackground: UIImageView!
+    var isClimbing = false
     
     //Toolbar for shadows
     @IBOutlet weak var topBar: UIToolbar!
@@ -23,7 +26,9 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
 
         // Do any additional setup after loading the view.
         
-        circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.white, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
+        isClimbing = false
+        
+        circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
         
         //Shadows
         circleBackground.layer.shadowColor = UIColor.black.cgColor
@@ -62,6 +67,17 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         cell.timeClimbing.text = items[indexPath.item].2
         
         return cell
+    }
+    
+    @IBAction func startClimbing(sender: UIButton) {
+        isClimbing = !isClimbing
+        if(isClimbing) {
+            circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.green, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
+            circleBackground.layer.shadowColor = UIColor.green.cgColor
+        } else {
+            circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
+            circleBackground.layer.shadowColor = UIColor.black.cgColor
+        }
     }
     
     //Segues

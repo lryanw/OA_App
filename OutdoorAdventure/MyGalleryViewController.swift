@@ -10,6 +10,8 @@ import UIKit
 
 class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
+    @IBOutlet weak var button_Add: UIButton!
+    
     //Toolbars for shadows
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var bottomBar: UIToolbar!
@@ -20,15 +22,21 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     //Toolbar Buttons (Navigation)
     @IBOutlet weak var button_RockWall: UIBarButtonItem!
     @IBOutlet weak var button_News: UIBarButtonItem!
-    @IBOutlet weak var button_Calendar: UIBarButtonItem!
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
     //Images in the CollectionView
-    var imageItems: [UIImage] = [UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!]
+    var imageItems: [UIImage] = [UIImage(named:"background_1.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!]
+    
+    
+    var imageToPass : UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        //if(!user.isEmployee()) {
+        button_Add.isHidden = true
+        //}
         
         //Shadows
         topBar.layer.shadowColor = UIColor.black.cgColor
@@ -62,13 +70,19 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         
         //Image Gallary
         
-        
         return cell
     }
     
+    //If an image is pressed
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        toImageViewer(sender: collectionView)
+        
+        //NOT WORKING
+
+        //Passes the image in a segue
+        imageToPass = imageItems[indexPath.item]
+        performSegue(withIdentifier: "GallaryToImageViewer", sender: collectionView)
     }
+
     
     //Sets the size of the size of the CollectionView cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
@@ -78,8 +92,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         return size
     }
     
-    @IBAction func toImageViewer(sender: AnyObject) {
-        performSegue(withIdentifier: "GallaryToImageViewer", sender: sender)
+    @IBAction func addNewImage(sender: UIButton) {
+        
     }
     
     //Segues
@@ -91,10 +105,6 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         performSegue(withIdentifier: "GalleryToNews", sender: sender)
     }
     
-    @IBAction func toCalendar(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "GallaryToCalendar", sender: sender)
-    }
-    
     @IBAction func toInfo(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "GallaryToInfo", sender: sender)
     }
@@ -104,7 +114,11 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if(segue.identifier == "GallaryToImageViewer") {
+            let destinationVC = segue.destination as! ZoomedPhotoUIViewController
+            destinationVC.currImage = imageToPass
+            destinationVC.senderString = "Gallary"
+        }
     }
     
     /*

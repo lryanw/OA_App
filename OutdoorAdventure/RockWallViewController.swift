@@ -11,6 +11,8 @@ import QuartzCore
 
 class RockWallViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    @IBOutlet weak var button_Add: UIButton!
+    
     //Toolbars for shadows
     @IBOutlet weak var bottomBar: UIToolbar!
     @IBOutlet weak var topBar: UIToolbar!
@@ -26,14 +28,23 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     //TableView
     @IBOutlet weak var routeTableView: UITableView!
     
-    //Route Name, Setter, Difficulty, Color, Symbol
-    var items: [(String, String, String, UIColor, String)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil"), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic"), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo")]
+    //Route Name, Setter, Difficulty, Color, Symbol, Rope #
+    var itemsAll: [(String, String, String, UIColor, String, Int)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil", 1), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic", 5), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo", 7)]
+    
+    var itemsRope: [(String, String, String, UIColor, String, Int)] = []
     
     var ropes = ["1","2","3","4","5","6","7","8","9","10","E","W"]
  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        getItemsForCurrentRope()
+        routeTableView.reloadData()
+        
+        //if(!user.isEmployee()) {
+        button_Add.isHidden = true
+        //}
         
         //Shadows
         leftButton.layer.shadowColor = UIColor.black.cgColor
@@ -68,7 +79,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //Number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count * 2
+        return itemsRope.count * 2
     }
     
     //Sets up the cell in the TableView
@@ -77,25 +88,25 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         if(indexPath.row % 2 == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell
             
-            cell.routeName.text = items[indexPath.row/2].0
-            cell.routeSetter.text = items[indexPath.row/2].1
-            cell.routeRating.text = items[indexPath.row/2].2
+            cell.routeName.text = itemsRope[indexPath.row/2].0
+            cell.routeSetter.text = itemsRope[indexPath.row/2].1
+            cell.routeRating.text = itemsRope[indexPath.row/2].2
             
-            let colorImage = ImageTransformer.getImageWithColor(color: items[indexPath.row/2].3, size: cell.routeImage.frame.size)
+            let colorImage = ImageTransformer.getImageWithColor(color: itemsRope[indexPath.row/2].3, size: cell.routeImage.frame.size)
             
             cell.routeImage.image = ImageTransformer.maskRoundedImage(image: colorImage, radius: Float(CGFloat(cell.routeImage.frame.width/2)))
             
             //Choose Overlay
-            if(items[indexPath.row/2].4 == "nil") {
+            if(itemsRope[indexPath.row/2].4 == "nil") {
                 //Dont do anything
-            } else if(items[indexPath.row/2].4 == "Celtic") {
-                cell.routeOverlay.frame.origin = CGPoint(x: cell.routeOverlay.frame.origin.x, y: cell.routeOverlay.frame.origin.y - (cell.routeOverlay.frame.height/11))
-                cell.routeOverlay.image = UIImage(named: "Celtic_Knot_Edit.png")
-            } else if(items[indexPath.row/2].4 == "YinYang") {
+                cell.routeOverlay.image = nil
+            } else if(itemsRope[indexPath.row/2].4 == "Celtic") {
+                cell.routeOverlay.image = UIImage(named: "Celtic_Knot_Edit_2.png")
+            } else if(itemsRope[indexPath.row/2].4 == "YinYang") {
                 cell.routeOverlay.image = UIImage(named: "Yin_yang.png")
-            } else if(items[indexPath.row/2].4 == "MoonAndStars") {
+            } else if(itemsRope[indexPath.row/2].4 == "MoonAndStars") {
                 cell.routeOverlay.image = UIImage(named: "MoonAndStars.png")
-            } else if(items[indexPath.row/2].4 == "Camo") {
+            } else if(itemsRope[indexPath.row/2].4 == "Camo") {
                 cell.routeOverlay.frame.size = cell.routeImage.frame.size
                 cell.routeOverlay.frame.origin = cell.routeImage.frame.origin
                 cell.routeOverlay.image = ImageTransformer.maskRoundedImage(image: UIImage(named: "Camo_Overlay_Circle.png")!, radius: Float(cell.routeOverlay.frame.width/2))
@@ -116,11 +127,17 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    @IBAction func addRoute(sender: UIButton) {
+        
+    }
+    
     //Change Rope
     @IBAction func leftButton(sender: UIButton) {
         if(currentRoute > 0) {
             currentRoute -= 1
             currentRouteLabel.text = ropes[currentRoute]
+            getItemsForCurrentRope()
+            routeTableView.reloadData()
         }
     }
     
@@ -128,7 +145,25 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         if(currentRoute < ropes.count - 1) {
             currentRoute += 1
             currentRouteLabel.text = ropes[currentRoute]
+            getItemsForCurrentRope()
+            routeTableView.reloadData()
         }
+    }
+    
+    //Switches the array to contain the items only in the correct rope
+    func getItemsForCurrentRope() {
+        
+        itemsRope.removeAll()
+        
+        var i = 0;
+        
+        while(i < itemsAll.count) {
+            if(itemsAll[i].5 == Int(ropes[currentRoute])) {
+                itemsRope.append(itemsAll[i]);
+            }
+            i += 1
+        }
+
     }
     
     //Segues
