@@ -13,6 +13,7 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
     //First Name, Last Name, Email,
     var user: [(String, String, String, UIImage, Bool)]!
     
+    //To get image from gallery
     @IBOutlet weak var imageView: UIImageView!
     var imagePicker = UIImagePickerController()
     
@@ -27,7 +28,10 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         // Dispose of any resources that can be recreated.
     }
     
+    //Adds new post to database
     @IBAction func createPost(sender: UIButton) {
+        //DATABASE SEND
+        
         performSegue(withIdentifier: "CreateNewsToNews", sender: sender)
     }
     
@@ -35,6 +39,7 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         performSegue(withIdentifier: "CreateNewsToNews", sender: sender)
     }
     
+    //Get Image from gallery
     @IBAction func pickImage(sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
             
@@ -60,6 +65,7 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         self.dismiss(animated: true, completion: nil)
     }
     
+    //Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "CreateNewsToNews") {
             let destinationVC = segue.destination as! MainViewController

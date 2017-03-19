@@ -24,10 +24,13 @@ class CreateRouteViewController: UIViewController {
     var currOverlay = 0
     var currRoute = 0
     
+    //All ratings
     var routeArray : [String] = ["B-", "B", "B+", "I-", "I", "I+", "A-", "A", "A+", "V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12"]
     
+    //All overlays
     var overlayArray : [UIImage] = [ImageTransformer.getImageWithColor(color: UIColor.white, size: CGSize(width: 150, height: 150)), UIImage(named: "Yin_yang.png")!, UIImage(named: "Celtic_Knot_Edit_2.png")!, UIImage(named: "MoonAndStars.png")!, UIImage(named: "Camo_Overlay_Circle.png")!]
     
+    //All colors
     //Red, Pink, Orange, Yellow, Green, Blue, Purple, Gray, Brown, Black, White
     var colorArray : [UIColor] = [UIColor.red, UIColor.init(red: 255/255, green: 105/255, blue: 180/255, alpha: 1), UIColor.orange, UIColor.yellow, UIColor.green, UIColor.init(red: 173/255, green: 216/255, blue: 230/255, alpha: 1), UIColor.blue, UIColor.purple, UIColor.lightGray, UIColor.brown, UIColor.black, UIColor.white]
     
@@ -58,10 +61,15 @@ class CreateRouteViewController: UIViewController {
         performSegue(withIdentifier: "CreateRouteToRockWall", sender: self)
     }
     
+    //Adds new route to database
     @IBAction func createRoute(sender: UIButton) {
+        
+        //DATABASE SEND
+        
         performSegue(withIdentifier: "CreateRouteToRockWall", sender: self)
     }
     
+    //For setting up rope
     @IBAction func changeColor(sender: UIButton) {
         if(currColor == colorArray.count - 1) { currColor = 0 }
         else { currColor += 1 }
@@ -83,6 +91,7 @@ class CreateRouteViewController: UIViewController {
         button_Rating.setTitle(routeArray[currRoute], for: UIControlState.normal)
     }
     
+    //Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "CreateRouteToRockWall") {
             let destinationVC = segue.destination as! RockWallViewController

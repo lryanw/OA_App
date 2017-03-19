@@ -162,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="771.01449275362324" y="-571.46739130434787"/>
+            <point key="canvasLocation" x="769" y="-1025"/>
         </scene>
         <!--Create Profile View Controller-->
         <scene sceneID="1Cr-Yl-pBl">
@@ -376,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0g8-tE-SdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1515.9420289855075" y="-571.46739130434787"/>
+            <point key="canvasLocation" x="1516" y="-1025"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Pcr-Lp-W2A">
@@ -557,7 +557,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <state key="normal" image="AddButton.png"/>
                                 <connections>
-                                    <action selector="addToTableWithSender:" destination="LcF-v1-TBW" eventType="touchUpInside" id="pzh-4G-kwM"/>
                                     <action selector="createNewsWithSender:" destination="LcF-v1-TBW" eventType="touchUpInside" id="jb7-Zk-cj0"/>
                                     <segue destination="OyP-f3-z6a" kind="showDetail" identifier="NewsToCreateNews" id="FgU-CG-jao"/>
                                 </connections>
@@ -575,13 +574,12 @@
                         <outlet property="topBar" destination="287-Hf-e0d" id="LwH-dX-dCd"/>
                         <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="NewsToGallery" animates="NO" id="YSC-na-DVT"/>
                         <segue destination="Wo2-li-420" kind="showDetail" identifier="NewsToRockWall" animates="NO" id="fwe-mC-dHa"/>
-                        <segue destination="9lv-sH-F8U" kind="showDetail" identifier="NewsToInfo" animates="NO" id="rP3-eK-ncr"/>
                         <segue destination="4Dj-be-Cpj" kind="showDetail" identifier="NewsToImageViewer" animates="NO" id="83p-zm-uqW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieN-MG-nCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="772.46376811594212" y="122.28260869565219"/>
+            <point key="canvasLocation" x="769" y="41"/>
         </scene>
         <!--Zoomed PhotoUI View Controller-->
         <scene sceneID="Wa4-Oh-TY5">
@@ -656,7 +654,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpT-1x-38j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-739" y="831"/>
+            <point key="canvasLocation" x="-739" y="959"/>
         </scene>
         <!--Currently Climbing View Controller-->
         <scene sceneID="bgt-OC-bas">
@@ -748,6 +746,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <connections>
                                                     <action selector="startClimbingWithSender:" destination="s0P-Bi-XZD" eventType="touchUpInside" id="sGG-vb-pnU"/>
+                                                    <segue destination="xOc-8H-Ewf" kind="showDetail" identifier="CurrentlyClimbingToDatePicker" id="hIk-sU-REG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -782,7 +781,6 @@
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="toInfoWithSender:" destination="s0P-Bi-XZD" id="mdX-Lm-5DL"/>
-                                            <segue destination="9lv-sH-F8U" kind="showDetail" identifier="CurrentlyClimbingToInfo" animates="NO" id="tpb-aJ-Y2e"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -841,7 +839,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNj-vd-RgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="121"/>
+            <point key="canvasLocation" x="1516" y="41"/>
         </scene>
         <!--Calendar Appearance Delegate-->
         <scene sceneID="Koy-Zw-kXw">
@@ -876,7 +874,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red Dirt Pump Fest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rT-vA-6cz">
-                                                    <rect key="frame" x="-1" y="-15" width="269" height="51"/>
+                                                    <rect key="frame" x="-1" y="-15" width="268" height="48"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1116,7 +1114,6 @@
                                         <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="toCurrentlyClimbingWithSender:" destination="9lv-sH-F8U" id="GGl-A8-lSI"/>
-                                            <segue destination="s0P-Bi-XZD" kind="showDetail" identifier="InfoToCurrentlyClimbing" animates="NO" id="4hk-Xy-f43"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem width="26" style="plain" systemItem="fixedSpace" id="pnH-p5-F1F"/>
@@ -1162,14 +1159,11 @@
                     <connections>
                         <outlet property="bottomBar" destination="S3D-cv-0CC" id="a5A-HV-X8K"/>
                         <outlet property="topBar" destination="LJd-UI-6Yq" id="c7R-q2-h6R"/>
-                        <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="InfoToGallary" animates="NO" id="eUu-om-iKS"/>
-                        <segue destination="Wo2-li-420" kind="showDetail" identifier="InfoToRockWall" animates="NO" id="Kx2-AW-t6t"/>
-                        <segue destination="LcF-v1-TBW" kind="showDetail" identifier="InfoToNews" animates="NO" id="hkW-r1-XD7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sPx-0i-8iF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286.9565217391305" y="120.65217391304348"/>
+            <point key="canvasLocation" x="3445" y="-571"/>
         </scene>
         <!--Create Route View Controller-->
         <scene sceneID="W61-UP-GTD">
@@ -1348,7 +1342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eky-nA-fYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="831"/>
+            <point key="canvasLocation" x="-7" y="959"/>
         </scene>
         <!--Create News View Controller-->
         <scene sceneID="ve5-4P-SeR">
@@ -1440,7 +1434,95 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTg-mf-Nkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769.56521739130437" y="830.70652173913049"/>
+            <point key="canvasLocation" x="769" y="959"/>
+        </scene>
+        <!--Time Picker View Controller-->
+        <scene sceneID="lQF-Yc-kFc">
+            <objects>
+                <viewController id="xOc-8H-Ewf" customClass="TimePickerViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bgS-jO-0ml"/>
+                        <viewControllerLayoutGuide type="bottom" id="PFr-eX-zdn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DXc-Yd-zZm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4r-M2-6Uo">
+                                <rect key="frame" x="28" y="567" width="358" height="77"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.41960784309999999" green="0.56470588239999997" blue="0.59999999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="START CLIMBING">
+                                    <color key="titleColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="createPostWithSender:" destination="OyP-f3-z6a" eventType="touchUpInside" id="Ckq-mI-AGK"/>
+                                    <action selector="createProfileWithSender:" destination="P2A-xZ-khs" eventType="touchUpInside" id="gla-k7-hnd"/>
+                                    <action selector="createRouteWithSender:" destination="Cin-WO-JTY" eventType="touchUpInside" id="eFA-V4-npL"/>
+                                    <action selector="signInSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SFs-Aq-KBz"/>
+                                    <action selector="startClimbingWithSender:" destination="xOc-8H-Ewf" eventType="touchUpInside" id="40k-kT-mfA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zx9-gm-5k8">
+                                <rect key="frame" x="178" y="669" width="59" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelCreateRouteWithSender:" destination="Cin-WO-JTY" eventType="touchUpInside" id="9Ba-8F-gKJ"/>
+                                    <action selector="cancelWithSender:" destination="xOc-8H-Ewf" eventType="touchUpInside" id="Uws-p2-PPh"/>
+                                    <action selector="cancelWithSender:" destination="OyP-f3-z6a" eventType="touchUpInside" id="y1i-zP-Q0X"/>
+                                    <action selector="toLoginWithSender:" destination="P2A-xZ-khs" eventType="touchUpInside" id="Ztm-RZ-nHH"/>
+                                    <segue destination="s0P-Bi-XZD" kind="showDetail" identifier="TimePickerToCurrentlyClimbing" id="ggS-UP-PZK"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Viw-at-wBZ">
+                                <rect key="frame" x="0.0" y="348" width="414" height="197"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="511640686.29505301">
+                                    <!--2017-03-19 18:24:46 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="End" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yck-hQ-EgN">
+                                <rect key="frame" x="0.0" y="299" width="414" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbj-Ji-sYh">
+                                <rect key="frame" x="0.0" y="52" width="414" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Fxm-7A-PbF">
+                                <rect key="frame" x="0.0" y="94" width="414" height="197"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <date key="date" timeIntervalSinceReferenceDate="511640686.29505301">
+                                    <!--2017-03-19 18:24:46 +0000-->
+                                </date>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="endTime" destination="Viw-at-wBZ" id="lG6-CG-fH1"/>
+                        <outlet property="startTime" destination="Fxm-7A-PbF" id="yi0-lO-hcV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="maO-uH-swx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1515.9420289855075" y="958.69565217391312"/>
         </scene>
         <!--My Gallery View Controller-->
         <scene sceneID="rFg-Oc-UuM">
@@ -1590,13 +1672,12 @@
                         <outlet property="topBar" destination="BPQ-7U-06k" id="f0k-8M-9aq"/>
                         <segue destination="LcF-v1-TBW" kind="showDetail" identifier="GalleryToNews" animates="NO" id="Hyn-MK-lm4"/>
                         <segue destination="Wo2-li-420" kind="showDetail" identifier="GallaryToRockWall" animates="NO" id="1on-5Z-1Tp"/>
-                        <segue destination="9lv-sH-F8U" kind="showDetail" identifier="GallaryToInfo" animates="NO" id="ote-1q-Zq9"/>
                         <segue destination="4Dj-be-Cpj" kind="showDetail" identifier="GallaryToImageViewer" id="aHN-BI-BGh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aZ-tf-npj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-739.13043478260875" y="121.46739130434784"/>
+            <point key="canvasLocation" x="-739" y="41"/>
         </scene>
         <!--Rock Wall View Controller-->
         <scene sceneID="KRT-AA-ufV">
@@ -1844,13 +1925,25 @@
                         <outlet property="topBar" destination="Z2c-vi-fFO" id="kp1-ao-Jbh"/>
                         <segue destination="UWG-Wg-rXH" kind="showDetail" identifier="RockWallToGallary" animates="NO" id="are-xu-43T"/>
                         <segue destination="LcF-v1-TBW" kind="showDetail" identifier="RockWallToNews" animates="NO" id="xGw-S6-QZ3"/>
-                        <segue destination="9lv-sH-F8U" kind="showDetail" identifier="RockWallToInfo" animates="NO" id="1TF-q2-o0D"/>
                         <segue destination="Cin-WO-JTY" kind="showDetail" identifier="RockWallToCreateRoute" id="OEm-va-7Id"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bII-6a-41R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7.2463768115942031" y="121.46739130434784"/>
+            <point key="canvasLocation" x="-7" y="41"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Uxr-Qh-TJh">
+            <objects>
+                <viewController id="dsl-HH-yh8" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qj3-ZO-uBt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ceh-O0-ZbH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>
@@ -1872,11 +1965,10 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1on-5Z-1Tp"/>
-        <segue reference="are-xu-43T"/>
-        <segue reference="5qi-ZR-Bea"/>
-        <segue reference="ote-1q-Zq9"/>
-        <segue reference="Hyn-MK-lm4"/>
-        <segue reference="aHN-BI-BGh"/>
+        <segue reference="Zvh-Vd-Vco"/>
+        <segue reference="fwe-mC-dHa"/>
+        <segue reference="YSC-na-DVT"/>
+        <segue reference="7Th-Ao-Evw"/>
+        <segue reference="83p-zm-uqW"/>
     </inferredMetricsTieBreakers>
 </document>

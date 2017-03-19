@@ -10,6 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    //To add new news
     @IBOutlet weak var button_Add: UIButton!
     
     //ToolBars for shadows
@@ -24,6 +25,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var button_RockWall: UIBarButtonItem!
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
+    //For image viewer
     var imageToPass : UIImage!
     
     //Profile Name, Post Date, News Text, Profile Image 
@@ -40,6 +42,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         super.viewDidLoad()      
         // Do any additional setup after loading the view.
 
+        //DATABASE RECIEVE
+        
         if(!user[0].4) {
             button_Add.isHidden = true
         }
@@ -114,10 +118,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    @IBAction func addToTable(sender: UIButton) {
-        
-    }
-    
+    //Go to imageViewer
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let tempView = tapGestureRecognizer.view as! UIImageView
         imageToPass = tempView.image
@@ -135,7 +136,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "NewsToInfo", sender: sender)
+        UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure") as! URL, options: [:], completionHandler: nil)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
@@ -169,19 +170,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             destinationVC.user = self.user
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
+//To get size of a label based on a string
 extension String {
     func heightWithConstrainedWidth(width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)

@@ -38,6 +38,8 @@ class ViewController: UIViewController {
             user[0].2 = textField_Username.text!
         }
         
+        //DATABASE RECIEVE
+        
         /*if(CANT FIND PROFILE) {
             let alertController = UIAlertController(title: "PROFILE NOT FOUND", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
@@ -51,6 +53,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //Segues
     @IBAction func guestSignIn(sender: UIButton) {
         user[0].2 = "Guest"
         

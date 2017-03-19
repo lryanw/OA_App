@@ -38,6 +38,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //DATABASE RECIEVE
+        
         if(!user[0].4) {
             button_Add.isHidden = true
         }
@@ -92,6 +94,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         return size
     }
     
+    //Gets image from gallery
     @IBAction func pickImage(sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
             
@@ -109,8 +112,9 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            //ADD DB HERE
-            imageItems[0] = image
+            
+            //DATABASE SEND
+            
             collectionView.reloadData()
         } else{
             print("Something went wrong")
@@ -129,7 +133,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "GallaryToInfo", sender: sender)
+        UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure") as! URL, options: [:], completionHandler: nil)
+        //performSegue(withIdentifier: "GallaryToInfo", sender: sender)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {

@@ -32,7 +32,7 @@ class ZoomedPhotoUIViewController: UIViewController {
         imageView.image = currImage
         imageView.frame.size = (currImage.size)
         
-        let tapSelector : Selector = "handleTap"
+        let tapSelector : Selector = #selector(ZoomedPhotoUIViewController.handleTap)
         let tapGesture = UITapGestureRecognizer(target: self, action: tapSelector)
         tapGesture.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(tapGesture)

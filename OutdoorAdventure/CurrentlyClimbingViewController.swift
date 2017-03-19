@@ -19,6 +19,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var bottomBar: UIToolbar!
     
+    //Items from data base
     var items: [(UIImage, String, String)] = [(UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min")]
     
     //First Name, Last Name, Email,
@@ -28,9 +29,16 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        isClimbing = false
+        //DATABASE RECIEVE
         
-        circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
+        //Gets the color of the circle depending on whether the user has set a time to climb or not
+        if(isClimbing) {
+            circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.green, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
+            circleBackground.layer.shadowColor = UIColor.green.cgColor
+        } else {
+            circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
+            circleBackground.layer.shadowColor = UIColor.black.cgColor
+        }
         
         //Shadows
         circleBackground.layer.shadowColor = UIColor.black.cgColor
@@ -71,6 +79,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         return cell
     }
     
+    //Select a time to climb at
     @IBAction func startClimbing(sender: UIButton) {
         isClimbing = !isClimbing
         if(isClimbing) {
@@ -80,6 +89,8 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
             circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
             circleBackground.layer.shadowColor = UIColor.black.cgColor
         }
+        
+        performSegue(withIdentifier: "CurrentlyClimbingToDatePicker", sender: sender)
     }
     
     //Segues
@@ -96,7 +107,8 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     }
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "CurrentlyClimbingToInfo", sender: sender)
+        UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure") as! URL, options: [:], completionHandler: nil)
+        //performSegue(withIdentifier: "CurrentlyClimbingToInfo", sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -112,18 +124,9 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         } else if(segue.identifier == "CurrentlyClimbingToRockWall") {
             let destinationVC = segue.destination as! RockWallViewController
             destinationVC.user = self.user
+        } else if(segue.identifier == "CurrentlyClimbingToDatePicker") {
+            let destinationVC = segue.destination as! TimePickerViewController
+            destinationVC.user = self.user
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

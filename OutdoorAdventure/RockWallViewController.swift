@@ -42,6 +42,8 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //DATABASE RECIEVE
+        
         getItemsForCurrentRope()
         routeTableView.reloadData()
         
@@ -130,6 +132,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    //Adds new route to database
     @IBAction func addRoute(sender: UIButton) {
         performSegue(withIdentifier: "RockWallToCreateRoute", sender: self)
     }
@@ -166,7 +169,6 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             i += 1
         }
-
     }
     
     //Segues
@@ -179,7 +181,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "RockWallToInfo", sender: sender)
+        UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure") as! URL, options: [:], completionHandler: nil)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
@@ -205,14 +207,4 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         }
 
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
