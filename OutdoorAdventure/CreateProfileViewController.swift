@@ -15,15 +15,34 @@ class CreateProfileViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileImageButton: UIButton!
+    var images : [UIImage] = [UIImage(named: "1.jpg")!, UIImage(named: "2.jpg")!, UIImage(named: "3.jpg")!, UIImage(named: "4.jpg")!, UIImage(named: "5.jpg")!, UIImage(named: "6.jpg")!, UIImage(named: "7.jpg")!, UIImage(named: "8.jpg")!]
+    var currImage = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view
+        
+        profileImage = ImageTransformer.roundImageView(imageView: profileImage)
+        
+        profileImage.image = images[currImage]
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "CreateProfileToProfileImagePicker", sender: self)
+    }
+    
+    @IBAction func changeProfileImage(sender: UIButton) {
+        if(currImage == images.count - 1) { currImage = 0 }
+        else { currImage += 1 }
+        
+        profileImage.image = images[currImage]
     }
     
     @IBAction func createProfile(sender: UIButton) {

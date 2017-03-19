@@ -21,9 +21,11 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     
     var items: [(UIImage, String, String)] = [(UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min")]
     
+    //First Name, Last Name, Email,
+    var user: [(String, String, String, UIImage, Bool)]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
         isClimbing = false
@@ -93,12 +95,24 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         performSegue(withIdentifier: "CurrentlyClimbingToNews", sender: sender)
     }
     
-    @IBAction func toCalendar(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "CurrentlyClimbingToCalendar", sender: sender)
-    }
-    
     @IBAction func toInfo(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "CurrentlyClimbingToInfo", sender: sender)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "CurrentlyClimbingToGallery") {
+            let destinationVC = segue.destination as! MyGalleryViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "CurrentlyClimbingToNews") {
+            let destinationVC = segue.destination as! MainViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "CurrentlyClimbingToInfo") {
+            let destinationVC = segue.destination as! InfoViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "CurrentlyClimbingToRockWall") {
+            let destinationVC = segue.destination as! RockWallViewController
+            destinationVC.user = self.user
+        }
     }
     
 

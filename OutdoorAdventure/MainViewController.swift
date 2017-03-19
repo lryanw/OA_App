@@ -33,13 +33,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         ("Outdoor Adventure", "Day 3", UIImage(named:"ic_launcher.png")!, "IMG IMSDFKJ IODMDJNSFO ISDFLKNSDFL IDMSFLS", UIImage(named: "background_2.jpg")!)
     ]
     
+    //First Name, Last Name, Email,
+    var user: [(String, String, String, UIImage, Bool)]!
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()      
         // Do any additional setup after loading the view.
 
-        //if(!user.isEmployee()) {
-        button_Add.isHidden = true
-        //}
+        if(!user[0].4) {
+            button_Add.isHidden = true
+        }
         
         //Shadows
         topBar.layer.shadowColor = UIColor.black.cgColor
@@ -139,11 +142,31 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegue(withIdentifier: "NewsToCurrentlyClimbing", sender: sender)
     }
     
+    @IBAction func createNews(sender: UIButton) {
+        performSegue(withIdentifier: "NewsToCreateNews", sender: sender)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "NewsToImageViewer") {
             let destinationVC = segue.destination as! ZoomedPhotoUIViewController
             destinationVC.currImage = imageToPass
             destinationVC.senderString = "News"
+            destinationVC.user = self.user
+        } else if(segue.identifier == "NewsToGallery") {
+            let destinationVC = segue.destination as! MyGalleryViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "NewsToRockWall") {
+            let destinationVC = segue.destination as! RockWallViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "NewsToInfo") {
+            let destinationVC = segue.destination as! InfoViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "NewsToCurrentlyClimbing") {
+            let destinationVC = segue.destination as! CurrentlyClimbingViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "NewsToCreateNews") {
+            let destinationVC = segue.destination as! CreateNewsViewController
+            destinationVC.user = self.user
         }
     }
     

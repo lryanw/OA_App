@@ -12,10 +12,12 @@ class InfoViewController: UIViewController {
     
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var bottomBar: UIToolbar!
+    
+    //First Name, Last Name, Email,
+    var user: [(String, String, String, UIImage, Bool)]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
         //Shadows
@@ -48,11 +50,24 @@ class InfoViewController: UIViewController {
         performSegue(withIdentifier: "InfoToNews", sender: sender);
     }
     
-    @IBAction func toCalendar(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "InfoToCalendar", sender: sender);
+    @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "InfoToCurrentlyClimbing", sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "InfoToGallary") {
+            let destinationVC = segue.destination as! MyGalleryViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "InfoToNews") {
+            let destinationVC = segue.destination as! MainViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "InfoToRockWall") {
+            let destinationVC = segue.destination as! RockWallViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "InfoToCurrentlyClimbing") {
+            let destinationVC = segue.destination as! CurrentlyClimbingViewController
+            destinationVC.user = self.user
+        }
     }
     
     

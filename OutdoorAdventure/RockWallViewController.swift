@@ -34,6 +34,9 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     var itemsRope: [(String, String, String, UIColor, String, Int)] = []
     
     var ropes = ["1","2","3","4","5","6","7","8","9","10","E","W"]
+    
+    //First Name, Last Name, Email,
+    var user: [(String, String, String, UIImage, Bool)]!
  
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +45,9 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         getItemsForCurrentRope()
         routeTableView.reloadData()
         
-        //if(!user.isEmployee()) {
-        button_Add.isHidden = true
-        //}
+        if(!user[0].4) {
+            button_Add.isHidden = true
+        }
         
         //Shadows
         leftButton.layer.shadowColor = UIColor.black.cgColor
@@ -128,7 +131,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func addRoute(sender: UIButton) {
-        
+        performSegue(withIdentifier: "RockWallToCreateRoute", sender: self)
     }
     
     //Change Rope
@@ -175,10 +178,6 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         performSegue(withIdentifier: "RockWallToNews", sender: sender)
     }
     
-    @IBAction func toCalendar(sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "RockWallToCalendar", sender: sender)
-    }
-    
     @IBAction func toInfo(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "RockWallToInfo", sender: sender)
     }
@@ -188,7 +187,23 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if(segue.identifier == "RockWallToGallary") {
+            let destinationVC = segue.destination as! MyGalleryViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "RockWallToNews") {
+            let destinationVC = segue.destination as! MainViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "RockWallToInfo") {
+            let destinationVC = segue.destination as! InfoViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "RockWallToCurrentlyClimbing") {
+            let destinationVC = segue.destination as! CurrentlyClimbingViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "RockWallToCreateRoute") {
+            let destinationVC = segue.destination as! CreateRouteViewController
+            destinationVC.user = self.user
+        }
+
     }
 
     /*

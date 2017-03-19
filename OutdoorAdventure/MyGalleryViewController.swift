@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var button_Add: UIButton!
     
@@ -27,16 +27,20 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     //Images in the CollectionView
     var imageItems: [UIImage] = [UIImage(named:"background_1.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!]
     
-    
     var imageToPass : UIImage!
+    
+    //First Name, Last Name, Email,
+    var user: [(String, String, String, UIImage, Bool)]!
+    
+    var imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //if(!user.isEmployee()) {
-        button_Add.isHidden = true
-        //}
+        if(!user[0].4) {
+            button_Add.isHidden = true
+        }
         
         //Shadows
         topBar.layer.shadowColor = UIColor.black.cgColor
@@ -68,15 +72,11 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         //Sets the image in the CollectionView cell
         cell.cellImage.image = self.imageItems[indexPath.item]
         
-        //Image Gallary
-        
         return cell
     }
     
     //If an image is pressed
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        //NOT WORKING
 
         //Passes the image in a segue
         imageToPass = imageItems[indexPath.item]
@@ -92,8 +92,31 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         return size
     }
     
-    @IBAction func addNewImage(sender: UIButton) {
+    @IBAction func pickImage(sender: UIButton) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum;
+            imagePicker.allowsEditing = false
+            
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            //ADD DB HERE
+            imageItems[0] = image
+            collectionView.reloadData()
+        } else{
+            print("Something went wrong")
+        }
         
+        self.dismiss(animated: true, completion: nil)
     }
     
     //Segues
@@ -118,17 +141,20 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
             let destinationVC = segue.destination as! ZoomedPhotoUIViewController
             destinationVC.currImage = imageToPass
             destinationVC.senderString = "Gallary"
+            destinationVC.user = self.user
+        } else if(segue.identifier == "GallaryToRockWall") {
+            let destinationVC = segue.destination as! RockWallViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "GalleryToNews") {
+            let destinationVC = segue.destination as! MainViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "GallaryToInfo") {
+            let destinationVC = segue.destination as! InfoViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "GalleryToCurrentlyClimbing") {
+            let destinationVC = segue.destination as! CurrentlyClimbingViewController
+            destinationVC.user = self.user
         }
-    }
-    
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }

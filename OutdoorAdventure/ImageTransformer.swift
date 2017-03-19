@@ -35,4 +35,14 @@ class ImageTransformer {
         
         return roundedImage!
     }
+    
+    class func roundImageView(imageView: UIImageView) ->UIImageView {
+        imageView.layer.borderWidth = 1
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.clear.cgColor
+        imageView.layer.cornerRadius = imageView.frame.size.width/2
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
 }

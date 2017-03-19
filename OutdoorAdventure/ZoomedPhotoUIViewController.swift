@@ -22,9 +22,13 @@ class ZoomedPhotoUIViewController: UIViewController {
     var currImage = UIImage(named: "background_1.jpg")!
     var senderString : String!
     
+    //First Name, Last Name, Email,
+    var user: [(String, String, String, UIImage, Bool)]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         imageView.image = currImage
         imageView.frame.size = (currImage.size)
         
@@ -81,7 +85,6 @@ class ZoomedPhotoUIViewController: UIViewController {
     
     //Segues
     @IBAction func toGallary(sender: UIButton) {
-        print(senderString)
         if(senderString == "Gallary") {
             performSegue(withIdentifier: "ImageViewerToGallary", sender: sender)
         } else if(senderString == "News") {
@@ -90,7 +93,13 @@ class ZoomedPhotoUIViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if(segue.identifier == "ImageViewerToGallary") {
+            let destinationVC = segue.destination as! MyGalleryViewController
+            destinationVC.user = self.user
+        } else if(segue.identifier == "ImageViewerToNews") {
+            let destinationVC = segue.destination as! MainViewController
+            destinationVC.user = self.user
+        }
     }
     
     /*
