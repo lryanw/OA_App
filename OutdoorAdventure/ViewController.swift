@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var textField_Username: UITextField!
     @IBOutlet weak var textField_Password: UITextField!
@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        textField_Username.delegate = self
+        textField_Password.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +53,11 @@ class ViewController: UIViewController {
         
             performSegue(withIdentifier: "LoginToMain", sender: sender)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
     
     //Segues

@@ -8,10 +8,12 @@
 
 import UIKit
 
-class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate  {
 
     //First Name, Last Name, Email,
     var user: [(String, String, String, UIImage, Bool)]!
+    
+    @IBOutlet weak var textView: UITextView!
     
     //To get image from gallery
     @IBOutlet weak var imageView: UIImageView!
@@ -19,8 +21,8 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedAround()
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +32,7 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
     
     //Adds new post to database
     @IBAction func createPost(sender: UIButton) {
+        
         //DATABASE SEND
         
         performSegue(withIdentifier: "CreateNewsToNews", sender: sender)
@@ -71,5 +74,18 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
             let destinationVC = segue.destination as! MainViewController
             destinationVC.user = self.user
         }
+    }
+}
+
+// Put this piece of code anywhere you like
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

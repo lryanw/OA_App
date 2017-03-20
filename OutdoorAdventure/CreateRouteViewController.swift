@@ -8,8 +8,11 @@
 
 import UIKit
 
-class CreateRouteViewController: UIViewController {
+class CreateRouteViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var routeName: UITextField!
+    @IBOutlet weak var setterName: UITextField!
+    
     @IBOutlet weak var button_Rating: UIButton!
     @IBOutlet weak var button_Overlay: UIButton!
     @IBOutlet weak var button_Color: UIButton!
@@ -39,6 +42,9 @@ class CreateRouteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        routeName.delegate = self
+        setterName.delegate = self
+        
         //Background circle
         background_WhiteCircle_1 = ImageTransformer.roundImageView(imageView: background_WhiteCircle_1)
         background_WhiteColor_2 = ImageTransformer.roundImageView(imageView: background_WhiteColor_2)
@@ -52,6 +58,11 @@ class CreateRouteViewController: UIViewController {
         colorImage = ImageTransformer.roundImageView(imageView: colorImage)
     }
 
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

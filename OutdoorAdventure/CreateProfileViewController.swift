@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateProfileViewController: UIViewController {
+class CreateProfileViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -17,7 +17,9 @@ class CreateProfileViewController: UIViewController {
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileImageButton: UIButton!
+    
     var images : [UIImage] = [UIImage(named: "1.jpg")!, UIImage(named: "2.jpg")!, UIImage(named: "3.jpg")!, UIImage(named: "4.jpg")!, UIImage(named: "5.jpg")!, UIImage(named: "6.jpg")!, UIImage(named: "7.jpg")!, UIImage(named: "8.jpg")!]
+    
     var currImage = 0
     
     override func viewDidLoad() {
@@ -25,8 +27,12 @@ class CreateProfileViewController: UIViewController {
         // Do any additional setup after loading the view
         
         profileImage = ImageTransformer.roundImageView(imageView: profileImage)
-        
         profileImage.image = images[currImage]
+        
+        firstNameTextField.delegate = self
+        lastNameTextField.delegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,10 +40,16 @@ class CreateProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         performSegue(withIdentifier: "CreateProfileToProfileImagePicker", sender: self)
     }
     
+    //Changes the image on tap
     @IBAction func changeProfileImage(sender: UIButton) {
         if(currImage == images.count - 1) { currImage = 0 }
         else { currImage += 1 }
@@ -61,6 +73,8 @@ class CreateProfileViewController: UIViewController {
                 self.present(alertController, animated: true, completion: nil)
             }
             
+            //DATABASE SEND
+            
             let alertController = UIAlertController(title: "PROFILE CREATED", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "CreateProfileToLogin", sender: self) }))
             self.present(alertController, animated: true, completion: nil)
@@ -76,15 +90,4 @@ class CreateProfileViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
