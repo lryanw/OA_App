@@ -29,7 +29,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var routeTableView: UITableView!
     
     //Route Name, Setter, Difficulty, Color, Symbol, Rope #
-    var itemsAll: [(String, String, String, UIColor, String, Int)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil", 1), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic", 5), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo", 7)]
+    var itemsAll: [(String, String, String, UIColor, String, Int)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil", 1), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic", 5), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo", 7), ("Up Up And Away", "Ryan Lee", "V12", UIColor.blue, "Camo", 11)]
     
     var itemsRope: [(String, String, String, UIColor, String, Int)] = []
     

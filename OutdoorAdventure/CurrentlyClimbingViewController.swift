@@ -19,8 +19,10 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var topBar: UIToolbar!
     @IBOutlet weak var bottomBar: UIToolbar!
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     //Items from data base
-    var items: [(UIImage, String, String)] = [(UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min")]
+    var items: [(UIImage, String, String)] = [(UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min")]
     
     //First Name, Last Name, Email,
     var user: [(String, String, String, UIImage, Bool)]!
@@ -77,6 +79,14 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         cell.timeClimbing.text = items[indexPath.item].2
         
         return cell
+    }
+    
+    //Sets the size of the size of the CollectionView cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        
+        let size = CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.width / 2))
+        
+        return size
     }
     
     //Select a time to climb at

@@ -16,16 +16,22 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var button_Rating: UIButton!
     @IBOutlet weak var button_Overlay: UIButton!
     @IBOutlet weak var button_Color: UIButton!
+    @IBOutlet weak var button_Rope: UIButton!
     
     @IBOutlet weak var colorImage: UIImageView!
     @IBOutlet weak var overlayImage: UIImageView!
     
     @IBOutlet weak var background_WhiteCircle_1: UIImageView!
     @IBOutlet weak var background_WhiteColor_2: UIImageView!
+    @IBOutlet weak var background_WhiteColor_3: UIImageView!
     
     var currColor = 0
     var currOverlay = 0
     var currRoute = 0
+    var currRope = 0
+    
+    //All Ropes
+    var ropes : [String] = ["1","2", "3", "4", "5", "6", "7", "8", "9", "10", "E", "W"]
     
     //All ratings
     var routeArray : [String] = ["B-", "B", "B+", "I-", "I", "I+", "A-", "A", "A+", "V0", "V1", "V2", "V3", "V4", "V5", "V6", "V7", "V8", "V9", "V10", "V11", "V12"]
@@ -48,6 +54,7 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate {
         //Background circle
         background_WhiteCircle_1 = ImageTransformer.roundImageView(imageView: background_WhiteCircle_1)
         background_WhiteColor_2 = ImageTransformer.roundImageView(imageView: background_WhiteColor_2)
+        background_WhiteColor_3 = ImageTransformer.roundImageView(imageView: background_WhiteColor_3)
         
         //Overlay setup
         overlayImage.image = overlayArray[currOverlay]
@@ -67,6 +74,7 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
     
     @IBAction func cancelCreateRoute(sender: UIButton) {
         performSegue(withIdentifier: "CreateRouteToRockWall", sender: self)
@@ -81,6 +89,13 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate {
     }
     
     //For setting up rope
+    @IBAction func changeRope(sender: UIButton) {
+        if(currRope == ropes.count - 1) { currRope = 0 }
+        else { currRope += 1 }
+        
+        button_Rope.setTitle(ropes[currRope], for: UIControlState.normal)
+    }
+    
     @IBAction func changeColor(sender: UIButton) {
         if(currColor == colorArray.count - 1) { currColor = 0 }
         else { currColor += 1 }
