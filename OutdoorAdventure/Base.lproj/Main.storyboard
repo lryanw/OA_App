@@ -22,6 +22,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MountainBackground_2_Edit.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="JS8-lG-jO2">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tE1-24-2e8">
                                 <rect key="frame" x="28" y="574" width="167" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -139,7 +143,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuP-xW-JFe">
                                         <rect key="frame" x="255" y="-8" width="159" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES"/>
-                                        <state key="normal" title="Create One"/>
+                                        <state key="normal" title="Create One">
+                                            <color key="titleColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="createProfileWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O6m-Jy-Qle"/>
                                             <segue destination="P2A-xZ-khs" kind="showDetail" identifier="LoginToCreateProfile" id="DT2-UR-cMo"/>
@@ -1967,6 +1973,7 @@
         <image name="AddButton.png" width="400" height="400"/>
         <image name="CarabinerLogo.png" width="200" height="200"/>
         <image name="Climbing Graphic.png" width="24" height="24"/>
+        <image name="MountainBackground_2_Edit.jpg" width="1614" height="2564"/>
         <image name="OA_Climbing_Edit.png" width="960" height="640"/>
         <image name="OutdoorAdventureLogo.png" width="1080" height="574"/>
         <image name="OutdoorAdventureWebBanner.jpg" width="895" height="288"/>
