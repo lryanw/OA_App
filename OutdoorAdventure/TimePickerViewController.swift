@@ -32,17 +32,25 @@ class TimePickerViewController: UIViewController {
         
         //Get times from DatePicker
         let calendar = Calendar.current
-        var hour = calendar.component(.hour, from: startTime.date)
-        var min = calendar.component(.minute, from: startTime.date)
-        var startString = "\(hour) \(min)"
+        let startHour = calendar.component(.hour, from: startTime.date)
+        let startMin = calendar.component(.minute, from: startTime.date)
+        var startString = "\(startHour) \(startMin)"
         
-        hour = calendar.component(.hour, from: endTime.date)
-        min = calendar.component(.minute, from: endTime.date)
-        var endString = "\(hour) \(min)"
+        let endHour = calendar.component(.hour, from: endTime.date)
+        let endMin = calendar.component(.minute, from: endTime.date)
+        var endString = "\(endHour) \(endMin)"
         
-        //DATABASE SEND
-        
-        performSegue(withIdentifier: "TimePickerToCurrentlyClimbing", sender: sender)
+        if((endHour < startHour) || (endHour == startHour && endMin <= startMin)) {
+            let alertController = UIAlertController(title: "ALERT", message: "INVALID TIME", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            
+            //DATABASE SEND
+            
+            performSegue(withIdentifier: "TimePickerToCurrentlyClimbing", sender: sender)
+            
+        }
     }
     
     @IBAction func cancel(sender: UIButton) {

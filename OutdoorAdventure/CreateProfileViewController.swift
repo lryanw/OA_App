@@ -76,7 +76,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
             //DATABASE SEND
             
             let alertController = UIAlertController(title: "PROFILE CREATED", message: "", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "CreateProfileToLogin", sender: self) }))
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "CreateProfileToLogin", sender: self) }))
             self.present(alertController, animated: true, completion: nil)
             
             performSegue(withIdentifier: "CreateProfileToLogin", sender: sender)
