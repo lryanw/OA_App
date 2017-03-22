@@ -1218,7 +1218,7 @@
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tJ-fx-AVH">
                                 <rect key="frame" x="0.0" y="345" width="414" height="197"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Viw-at-wBZ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="197"/>
@@ -1665,9 +1665,9 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1zQ-XG-Wt5"/>
-        <segue reference="TEm-a3-fMU"/>
+        <segue reference="ggS-UP-PZK"/>
         <segue reference="vRs-ER-VUP"/>
+        <segue reference="TEm-a3-fMU"/>
         <segue reference="xe6-r9-6mp"/>
         <segue reference="83p-zm-uqW"/>
     </inferredMetricsTieBreakers>
