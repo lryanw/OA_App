@@ -1609,7 +1609,7 @@
                                 <rect key="frame" x="147" y="102" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="501-VG-Mor">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.25" translatesAutoresizingMaskIntoConstraints="NO" id="501-VG-Mor">
                                 <rect key="frame" x="147" y="102" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="78"/>
@@ -1665,10 +1665,10 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ggS-UP-PZK"/>
-        <segue reference="TEm-a3-fMU"/>
-        <segue reference="n8o-cQ-qra"/>
-        <segue reference="83p-zm-uqW"/>
-        <segue reference="6X7-5j-GXM"/>
+        <segue reference="1zQ-XG-Wt5"/>
+        <segue reference="1on-5Z-1Tp"/>
+        <segue reference="are-xu-43T"/>
+        <segue reference="aHN-BI-BGh"/>
+        <segue reference="xGw-S6-QZ3"/>
     </inferredMetricsTieBreakers>
 </document>
