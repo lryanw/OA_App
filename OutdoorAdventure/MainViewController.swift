@@ -118,6 +118,24 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    //Remove Rows from TableView
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            //DATABASE SEND
+            
+            //Refresh
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if(user[0].4) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
     //Go to imageViewer
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let tempView = tapGestureRecognizer.view as! UIImageView
@@ -158,9 +176,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             destinationVC.user = self.user
         } else if(segue.identifier == "NewsToRockWall") {
             let destinationVC = segue.destination as! RockWallViewController
-            destinationVC.user = self.user
-        } else if(segue.identifier == "NewsToInfo") {
-            let destinationVC = segue.destination as! InfoViewController
             destinationVC.user = self.user
         } else if(segue.identifier == "NewsToCurrentlyClimbing") {
             let destinationVC = segue.destination as! CurrentlyClimbingViewController

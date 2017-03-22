@@ -19,6 +19,8 @@ class TableViewCell_NewsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        news_ProfileImage = ImageTransformer.roundImageView(imageView: news_ProfileImage)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

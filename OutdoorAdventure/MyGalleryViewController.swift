@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var button_Add: UIButton!
     
@@ -134,7 +134,6 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
         UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure") as! URL, options: [:], completionHandler: nil)
-        //performSegue(withIdentifier: "GallaryToInfo", sender: sender)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
@@ -152,9 +151,6 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
             destinationVC.user = self.user
         } else if(segue.identifier == "GalleryToNews") {
             let destinationVC = segue.destination as! MainViewController
-            destinationVC.user = self.user
-        } else if(segue.identifier == "GallaryToInfo") {
-            let destinationVC = segue.destination as! InfoViewController
             destinationVC.user = self.user
         } else if(segue.identifier == "GalleryToCurrentlyClimbing") {
             let destinationVC = segue.destination as! CurrentlyClimbingViewController

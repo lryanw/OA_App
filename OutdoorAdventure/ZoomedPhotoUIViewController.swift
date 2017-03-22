@@ -9,6 +9,8 @@
 import UIKit
 
 class ZoomedPhotoUIViewController: UIViewController {
+    
+    @IBOutlet weak var deleteButton: UIButton!
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var imageView: UIImageView!
@@ -29,6 +31,11 @@ class ZoomedPhotoUIViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        //Hides the delete button if not an employee
+        if(!user[0].4) {
+            deleteButton.isHidden = true
+        }
+        
         imageView.image = currImage
         imageView.frame.size = (currImage.size)
         
@@ -45,6 +52,17 @@ class ZoomedPhotoUIViewController: UIViewController {
     
     func handleTap() {
         picMenu.isHidden = !picMenu.isHidden;
+    }
+    
+    @IBAction func deletePic() {
+        let alertController = UIAlertController(title: "Delete Picture?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { action in self.removeFromDB() }))
+        alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func removeFromDB() {
+        print("HERE")
     }
 
     override func didReceiveMemoryWarning() {

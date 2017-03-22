@@ -28,6 +28,10 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     //TableView
     @IBOutlet weak var routeTableView: UITableView!
     
+    var origionalSize : CGSize!
+    var origionalPoint : CGPoint!
+    var setOrigionalSize = false
+    
     //Route Name, Setter, Difficulty, Color, Symbol, Rope #
     var itemsAll: [(String, String, String, UIColor, String, Int)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil", 1), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic", 5), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo", 7), ("Up Up And Away", "Ryan Lee", "V12", UIColor.blue, "Camo", 11)]
     
@@ -50,6 +54,8 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         if(!user[0].4) {
             button_Add.isHidden = true
         }
+        
+        
         
         //Shadows
         leftButton.layer.shadowColor = UIColor.black.cgColor
@@ -102,6 +108,15 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             cell.routeImage.image = ImageTransformer.maskRoundedImage(image: colorImage, radius: Float(CGFloat(cell.routeImage.frame.width/2)))
             
             //Choose Overlay
+            if(!setOrigionalSize) {
+                origionalSize = cell.routeOverlay.frame.size
+                origionalPoint = cell.routeOverlay.frame.origin
+                setOrigionalSize = true
+            }
+            
+            cell.routeOverlay.frame.size = origionalSize
+            cell.routeOverlay.frame.origin = origionalPoint
+            
             if(itemsRope[indexPath.row/2].4 == "nil") {
                 //Dont do anything
                 cell.routeOverlay.image = nil
@@ -129,6 +144,24 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             return routeTableView.rowHeight
         } else {
             return 10
+        }
+    }
+    
+    //Remove Rows from TableView
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == UITableViewCellEditingStyle.delete) {
+            
+            //DATABASE SEND
+            
+            //Refresh
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if(user[0].4) {
+            return true
+        } else {
+            return false
         }
     }
     
@@ -194,9 +227,6 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             destinationVC.user = self.user
         } else if(segue.identifier == "RockWallToNews") {
             let destinationVC = segue.destination as! MainViewController
-            destinationVC.user = self.user
-        } else if(segue.identifier == "RockWallToInfo") {
-            let destinationVC = segue.destination as! InfoViewController
             destinationVC.user = self.user
         } else if(segue.identifier == "RockWallToCurrentlyClimbing") {
             let destinationVC = segue.destination as! CurrentlyClimbingViewController

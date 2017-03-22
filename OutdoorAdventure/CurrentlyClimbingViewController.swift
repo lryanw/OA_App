@@ -85,7 +85,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
         let size = CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.width / 2))
-        
+                
         return size
     }
     
@@ -127,9 +127,6 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
             destinationVC.user = self.user
         } else if(segue.identifier == "CurrentlyClimbingToNews") {
             let destinationVC = segue.destination as! MainViewController
-            destinationVC.user = self.user
-        } else if(segue.identifier == "CurrentlyClimbingToInfo") {
-            let destinationVC = segue.destination as! InfoViewController
             destinationVC.user = self.user
         } else if(segue.identifier == "CurrentlyClimbingToRockWall") {
             let destinationVC = segue.destination as! RockWallViewController

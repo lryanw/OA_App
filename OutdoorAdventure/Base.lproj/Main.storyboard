@@ -170,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.11594202898561" y="-1025.5434782608697"/>
+            <point key="canvasLocation" x="768" y="-658"/>
         </scene>
         <!--Create Profile View Controller-->
         <scene sceneID="1Cr-Yl-pBl">
@@ -384,7 +384,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0g8-tE-SdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1515.9420289855075" y="-1025.5434782608697"/>
+            <point key="canvasLocation" x="1516" y="-658"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="Pcr-Lp-W2A">
@@ -400,7 +400,7 @@
                         <subviews>
                             <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="101" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H49-aQ-XfM">
                                 <rect key="frame" x="0.0" y="64" width="414" height="628"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -408,7 +408,7 @@
                                         <rect key="frame" x="0.0" y="28" width="414" height="151"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2J3-TK-PlG" id="r64-Qa-tZh">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jtD-bW-7Ly">
@@ -475,7 +475,7 @@
                                         <rect key="frame" x="0.0" y="179" width="414" height="10"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3C8-gW-FzP" id="Ata-a7-OWe">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="9"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -583,7 +583,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ieN-MG-nCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="768.11594202898561" y="40.760869565217398"/>
+            <point key="canvasLocation" x="768" y="-12"/>
         </scene>
         <!--Zoomed PhotoUI View Controller-->
         <scene sceneID="Wa4-Oh-TY5">
@@ -631,6 +631,14 @@
                                             <action selector="toGallaryWithSender:" destination="4Dj-be-Cpj" eventType="touchUpInside" id="nOT-8K-v2n"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNL-Nt-m6a">
+                                        <rect key="frame" x="356" y="10" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="delete.png"/>
+                                        <connections>
+                                            <action selector="deletePic" destination="4Dj-be-Cpj" eventType="touchUpInside" id="ij7-pG-ePT"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.1483839897260274" colorSpace="calibratedWhite"/>
                             </view>
@@ -645,6 +653,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="deleteButton" destination="PNL-Nt-m6a" id="BdL-5G-20W"/>
                         <outlet property="imageView" destination="Hf3-gk-nt7" id="WFi-8Z-s8R"/>
                         <outlet property="imageViewBottomConstraint" destination="4mI-16-dij" id="9Df-Ti-DTx"/>
                         <outlet property="imageViewLeadingConstraint" destination="VZ0-90-ozp" id="Yi8-8q-mTj"/>
@@ -658,7 +667,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpT-1x-38j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-739" y="959"/>
+            <point key="canvasLocation" x="-739" y="629"/>
         </scene>
         <!--Currently Climbing View Controller-->
         <scene sceneID="bgt-OC-bas">
@@ -674,8 +683,8 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VhT-mK-uH6">
                                 <rect key="frame" x="0.0" y="257" width="414" height="435"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="FCg-td-pyf">
                                     <size key="itemSize" width="207" height="207"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -692,21 +701,21 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30 min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QjQ-oj-0Ya">
                                                     <rect key="frame" x="8" y="164" width="191" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ryan Lee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvZ-GT-am0">
                                                     <rect key="frame" x="8" y="127" width="191" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vP3-2M-DcK">
                                                     <rect key="frame" x="63" y="28" width="80" height="80"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -838,331 +847,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNj-vd-RgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1515.9420289855075" y="40.760869565217398"/>
-        </scene>
-        <!--Calendar Appearance Delegate-->
-        <scene sceneID="Koy-Zw-kXw">
-            <objects>
-                <viewController id="f1S-us-KzA" customClass="CalendarViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4Gp-07-wke"/>
-                        <viewControllerLayoutGuide type="bottom" id="2fP-AA-Wgx"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3zq-RI-2e0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9ZM-fN-xka">
-                                <rect key="frame" x="0.0" y="436" width="414" height="256"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="calendarCell" rowHeight="85" id="uJV-5g-OVD" customClass="calendarTableViewCell" customModule="OutdoorAdventure" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="85"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uJV-5g-OVD" id="87N-rx-OxC">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="85"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D37-GV-iBP">
-                                                    <rect key="frame" x="15" y="35" width="236" height="49"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Red Dirt Pump Fest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rT-vA-6cz">
-                                                    <rect key="frame" x="-1" y="-15" width="268" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vVz-K3-hZO">
-                                                    <rect key="frame" x="293" y="0.0" width="105" height="54"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="eventLocation" destination="D37-GV-iBP" id="6rB-ld-6sZ"/>
-                                            <outlet property="eventName" destination="3rT-vA-6cz" id="nfn-BN-zaA"/>
-                                            <outlet property="eventTime" destination="vVz-K3-hZO" id="pcx-12-LlU"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="calendarSpace" rowHeight="10" id="smp-HV-fVW" customClass="spaceTableViewCell" customModule="OutdoorAdventure" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="113" width="414" height="10"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="smp-HV-fVW" id="2kQ-MU-BXR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="10"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="f1S-us-KzA" id="vBY-PJ-haV"/>
-                                    <outlet property="delegate" destination="f1S-us-KzA" id="jpe-4X-Uhz"/>
-                                </connections>
-                            </tableView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AUl-mw-xDL">
-                                <rect key="frame" x="0.0" y="64" width="414" height="372"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.46274509803921571" green="0.4823529411764706" blue="0.47058823529411764" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHS-L7-izJ" customClass="CVCalendarMenuView" customModule="OutdoorAdventure" customModuleProvider="target">
-                                <rect key="frame" x="20" y="104" width="374" height="24"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="menuViewDelegate" destination="f1S-us-KzA" id="b8s-8P-doo"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YA-vg-aWG" customClass="CVCalendarView" customModule="OutdoorAdventure" customModuleProvider="target">
-                                <rect key="frame" x="20" y="136" width="374" height="300"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="calendarAppearanceDelegate" destination="f1S-us-KzA" id="n5Z-8Q-MHr"/>
-                                    <outlet property="calendarDelegate" destination="f1S-us-KzA" id="nAd-Qg-XR6"/>
-                                </connections>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Clo-1T-PhS">
-                                <rect key="frame" x="64" y="72" width="287" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7w-br-hXG">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem image="ic_photo_library.png" id="inb-Dy-a5X">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toGalleryWithSender:" destination="f1S-us-KzA" id="FqY-68-lOn"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="EZu-eO-4A4"/>
-                                    <barButtonItem image="Climbing Graphic.png" id="4m4-Tp-xrd">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toRockWallWithSender:" destination="f1S-us-KzA" id="BQb-Yx-mRP"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Jjb-Y7-4Zc"/>
-                                    <barButtonItem image="newspaper.png" id="pvg-Yu-vOV">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toNewsWithSender:" destination="f1S-us-KzA" id="DJc-ir-AcP"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="X8B-uo-jeg"/>
-                                    <barButtonItem image="ic_event.png" id="UMf-s4-jzF">
-                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ro7-N9-wSP"/>
-                                    <barButtonItem image="account-multiple.png" id="F4S-ha-N2Y">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toCurrentlyClimbingWithSender:" destination="f1S-us-KzA" id="z7S-5I-T4I"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smW-0y-efm">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="asq-vp-x6N"/>
-                                    <barButtonItem style="plain" id="yHt-nc-JRZ">
-                                        <view key="customView" contentMode="scaleToFill" id="qkQ-ug-HIt">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ffg-W7-Ivc">
-                                                    <rect key="frame" x="0.0" y="6" width="240" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="P3b-6l-47V"/>
-                                    <barButtonItem image="information.png" id="8bz-RB-bQv">
-                                        <color key="tintColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toInfoWithSender:" destination="f1S-us-KzA" id="I2W-ry-12e"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bae-Bv-tWF">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Clo-1T-PhS" firstAttribute="top" secondItem="4Gp-07-wke" secondAttribute="bottom" constant="52" id="1fz-HF-pMY"/>
-                            <constraint firstItem="Clo-1T-PhS" firstAttribute="leading" secondItem="3zq-RI-2e0" secondAttribute="leadingMargin" constant="44" id="5a8-Jx-96e"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="XHS-L7-izJ" secondAttribute="trailing" id="94k-6q-M8G"/>
-                            <constraint firstItem="8YA-vg-aWG" firstAttribute="top" secondItem="XHS-L7-izJ" secondAttribute="bottom" constant="8" id="HA4-bs-RsV"/>
-                            <constraint firstItem="XHS-L7-izJ" firstAttribute="top" secondItem="Clo-1T-PhS" secondAttribute="bottom" constant="8" id="IM2-Lw-szp"/>
-                            <constraint firstItem="2fP-AA-Wgx" firstAttribute="top" secondItem="8YA-vg-aWG" secondAttribute="bottom" constant="300" id="Ifc-q1-TEf"/>
-                            <constraint firstItem="XHS-L7-izJ" firstAttribute="top" secondItem="4Gp-07-wke" secondAttribute="bottom" constant="84" id="LuE-wv-RbU"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="8YA-vg-aWG" secondAttribute="leading" id="VK0-Do-AOo"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Clo-1T-PhS" secondAttribute="trailing" constant="43" id="fb2-rV-wwO"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="XHS-L7-izJ" secondAttribute="leading" id="fkz-J6-Km6"/>
-                            <constraint firstItem="8YA-vg-aWG" firstAttribute="top" secondItem="4Gp-07-wke" secondAttribute="bottom" constant="116" id="iOB-CH-T4j"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="8YA-vg-aWG" secondAttribute="trailing" id="ubw-ZL-Aix"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="bottomBar" destination="X7w-br-hXG" id="Eei-J3-Ohf"/>
-                        <outlet property="calendarTableView" destination="9ZM-fN-xka" id="t58-8R-9gS"/>
-                        <outlet property="calendarView" destination="8YA-vg-aWG" id="avT-qq-F1D"/>
-                        <outlet property="menuView" destination="XHS-L7-izJ" id="d3e-NW-Rla"/>
-                        <outlet property="monthLabel" destination="Clo-1T-PhS" id="b5I-jG-67Q"/>
-                        <outlet property="topBar" destination="smW-0y-efm" id="q3e-dY-nqI"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zUg-MP-S8U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4268" y="-571"/>
-        </scene>
-        <!--Info View Controller-->
-        <scene sceneID="SSL-kj-bdY">
-            <objects>
-                <viewController id="9lv-sH-F8U" customClass="InfoViewController" customModule="OutdoorAdventure" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2gx-XU-1Sl"/>
-                        <viewControllerLayoutGuide type="bottom" id="04d-S3-94I"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="OLY-Rb-WrP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Pd-oj-naO">
-                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OutdoorAdventureWebBanner.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="OxJ-pn-GMo">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="125"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifs-f6-cdo">
-                                        <rect key="frame" x="30" y="183" width="355" height="151"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <string key="text">Outdoor Adventure is the place for fun and excitement at Oklahoma State University.  Wether its the challenge course, climbing wall, or even a wilderness trip, there are plenty of opportunities to find adventure with us.  Find us at the Colvin Center, where our climbing wall and rental shop are located.</string>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ABOUT US" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O1H-aG-5Nw">
-                                        <rect key="frame" x="8" y="138" width="398" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rcs-J8-Rzv">
-                                        <rect key="frame" x="0.0" y="362" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.1137254902" green="0.40784313729999999" blue="0.43137254899999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3D-cv-0CC">
-                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <items>
-                                    <barButtonItem width="26" style="plain" systemItem="fixedSpace" id="IZe-oL-iVm"/>
-                                    <barButtonItem image="ic_photo_library.png" id="Bod-xu-c8x">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toGalleryWithSender:" destination="9lv-sH-F8U" id="MeE-uZ-cQQ"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="m5a-Sr-ubf"/>
-                                    <barButtonItem image="Climbing Graphic.png" id="hWf-aP-KrR">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toRockWallWithSender:" destination="9lv-sH-F8U" id="j2i-3B-vXr"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Au9-Vy-DiI"/>
-                                    <barButtonItem image="newspaper.png" id="Bep-eQ-LXL">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toNewsWithSender:" destination="9lv-sH-F8U" id="mIe-cm-t3Y"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="yxO-sP-R7z"/>
-                                    <barButtonItem image="account-multiple.png" id="g2Q-Vs-a0M">
-                                        <color key="tintColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="toCurrentlyClimbingWithSender:" destination="9lv-sH-F8U" id="GGl-A8-lSI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem width="26" style="plain" systemItem="fixedSpace" id="pnH-p5-F1F"/>
-                                </items>
-                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LJd-UI-6Yq">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="UYk-XE-hpY"/>
-                                    <barButtonItem style="plain" id="Vb8-XF-KLB">
-                                        <view key="customView" contentMode="scaleToFill" id="3IO-7T-RF1">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLy-lt-Mct">
-                                                    <rect key="frame" x="0.0" y="6" width="240" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="969-qb-ZzI"/>
-                                    <barButtonItem image="information.png" id="sdi-dh-nH1">
-                                        <color key="tintColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    </barButtonItem>
-                                </items>
-                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a77-ch-skA">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" red="0.96462148430000005" green="0.96475988629999998" blue="0.96459120509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="bottomBar" destination="S3D-cv-0CC" id="a5A-HV-X8K"/>
-                        <outlet property="topBar" destination="LJd-UI-6Yq" id="c7R-q2-h6R"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sPx-0i-8iF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3445" y="-571"/>
+            <point key="canvasLocation" x="1515.9420289855075" y="-12.228260869565219"/>
         </scene>
         <!--Create Route View Controller-->
         <scene sceneID="W61-UP-GTD">
@@ -1362,7 +1047,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eky-nA-fYF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7.2463768115942031" y="958.69565217391312"/>
+            <point key="canvasLocation" x="-7" y="629"/>
         </scene>
         <!--Create News View Controller-->
         <scene sceneID="ve5-4P-SeR">
@@ -1426,10 +1111,11 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cjm-1p-bua">
-                                <rect key="frame" x="39" y="60" width="334" height="290"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="interactive" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cjm-1p-bua">
+                                <rect key="frame" x="39" y="70" width="334" height="271"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1461,7 +1147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTg-mf-Nkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="769" y="959"/>
+            <point key="canvasLocation" x="766.66666666666674" y="628.53260869565224"/>
         </scene>
         <!--Time Picker View Controller-->
         <scene sceneID="lQF-Yc-kFc">
@@ -1510,7 +1196,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcm-63-qAr">
-                                <rect key="frame" x="0.0" y="95" width="414" height="197"/>
+                                <rect key="frame" x="0.0" y="125" width="414" height="197"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Fxm-7A-PbF">
@@ -1531,7 +1217,7 @@
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9tJ-fx-AVH">
-                                <rect key="frame" x="0.0" y="315" width="414" height="197"/>
+                                <rect key="frame" x="0.0" y="345" width="414" height="197"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="Viw-at-wBZ">
@@ -1552,7 +1238,7 @@
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TIME IM CLIMBING TODAY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zjc-Fz-MPi">
-                                <rect key="frame" x="0.0" y="47" width="414" height="40"/>
+                                <rect key="frame" x="0.0" y="77" width="414" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -1568,7 +1254,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maO-uH-swx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1515.9420289855075" y="958.69565217391312"/>
+            <point key="canvasLocation" x="1516" y="629"/>
         </scene>
         <!--My Gallery View Controller-->
         <scene sceneID="rFg-Oc-UuM">
@@ -1723,7 +1409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6aZ-tf-npj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-761" y="41"/>
+            <point key="canvasLocation" x="-739" y="-12"/>
         </scene>
         <!--Rock Wall View Controller-->
         <scene sceneID="KRT-AA-ufV">
@@ -1790,7 +1476,7 @@
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-f5-Fvb">
                                                     <rect key="frame" x="21" y="25" width="35" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -1829,10 +1515,6 @@
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="OA_Climbing_Edit.png" translatesAutoresizingMaskIntoConstraints="NO" id="TU5-1t-x6B">
                                 <rect key="frame" x="0.0" y="64" width="414" height="197"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFn-Q3-agN">
-                                <rect key="frame" x="147" y="102" width="120" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJK-f2-wgV">
@@ -1923,9 +1605,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="501-VG-Mor">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xFn-Q3-agN">
                                 <rect key="frame" x="147" y="102" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="501-VG-Mor">
+                                <rect key="frame" x="147" y="102" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="78"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1958,7 +1644,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bII-6a-41R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7.2463768115942031" y="40.760869565217398"/>
+            <point key="canvasLocation" x="-7" y="-12"/>
         </scene>
     </scenes>
     <resources>
@@ -1968,22 +1654,21 @@
         <image name="MountainBackground_2_Edit.jpg" width="1614" height="2564"/>
         <image name="OA_Climbing_Edit.png" width="960" height="640"/>
         <image name="OutdoorAdventureLogo.png" width="1080" height="574"/>
-        <image name="OutdoorAdventureWebBanner.jpg" width="895" height="288"/>
         <image name="account-multiple.png" width="24" height="24"/>
         <image name="arrow-left-drop-circle (2).png" width="48" height="48"/>
         <image name="arrow-right-drop-circle (2).png" width="48" height="48"/>
         <image name="background_1.jpg" width="621" height="1104"/>
-        <image name="ic_event.png" width="24" height="24"/>
+        <image name="delete.png" width="48" height="48"/>
         <image name="ic_photo_library.png" width="24" height="24"/>
         <image name="information.png" width="24" height="24"/>
         <image name="keyboard-backspace.png" width="24" height="24"/>
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5qi-ZR-Bea"/>
-        <segue reference="vRs-ER-VUP"/>
-        <segue reference="aHN-BI-BGh"/>
-        <segue reference="xe6-r9-6mp"/>
+        <segue reference="1zQ-XG-Wt5"/>
         <segue reference="TEm-a3-fMU"/>
+        <segue reference="vRs-ER-VUP"/>
+        <segue reference="xe6-r9-6mp"/>
+        <segue reference="83p-zm-uqW"/>
     </inferredMetricsTieBreakers>
 </document>
