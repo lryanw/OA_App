@@ -13,6 +13,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     //Button to start climbing
     @IBOutlet weak var climbingButton: UIButton!
     @IBOutlet weak var circleBackground: UIImageView!
+    //Determines color
     var isClimbing = false
     
     //Toolbar for shadows
@@ -22,24 +23,27 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var collectionView: UICollectionView!
     
     //Items from data base
-    var items: [(UIImage, String, String)] = [(UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min"), (UIImage(named: "ic_launcher.png")!, "Ryan Lee", "30 min")]
+    var items: [(Int, String, String)] = [(1, "Christian Bailey", "6:00p-7:00p")]
     
-    //First Name, Last Name, Email,
-    var user: [(String, String, String, UIImage, Bool)]!
+    //First Name, Last Name, Email, ProfileImage, IsEmployee
+    var user: [(String, String, String, Int, Bool)]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //DATABASE RECIEVE
+        //Sets color to gray
+        circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
+        circleBackground.layer.shadowColor = UIColor.black.cgColor
         
-        //Gets the color of the circle depending on whether the user has set a time to climb or not
+        //DATABASE RECIEVE
+        //Get all users who are climbing and put them "items"
+        //If your email matches a user in the DB set isClimbing = true
+        
+        //Sets color to green if user isClimbing
         if(isClimbing) {
             circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.green, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
             circleBackground.layer.shadowColor = UIColor.green.cgColor
-        } else {
-            circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
-            circleBackground.layer.shadowColor = UIColor.black.cgColor
         }
         
         //Shadows
@@ -73,8 +77,9 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "currentlyClimbingCell", for: indexPath) as! CurrentlyClimbingCollectionViewCell
         
-        //Sets the image in the CollectionView cell
-        cell.profileImage.image = ImageTransformer.maskRoundedImage(image: items[indexPath.item].0, radius: Float(cell.profileImage.frame.width/2))
+        //Sets the image in the CollectionView
+        cell.profileImage.image = UIImage(named: "\(items[indexPath.item].0).jpg")!
+        cell.profileImage = ImageTransformer.roundImageView(imageView: cell.profileImage)
         cell.profileName.text = items[indexPath.item].1
         cell.timeClimbing.text = items[indexPath.item].2
         
@@ -91,16 +96,26 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     
     //Select a time to climb at
     @IBAction func startClimbing(sender: UIButton) {
-        isClimbing = !isClimbing
+        
+        //If not a guest the button can be pressed
+        if(user[0].1 != "Guest") { isClimbing = !isClimbing }
+        
+        //Sets color to green
         if(isClimbing) {
             circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.green, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
             circleBackground.layer.shadowColor = UIColor.green.cgColor
-        } else {
-            circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
-            circleBackground.layer.shadowColor = UIColor.black.cgColor
         }
         
-        performSegue(withIdentifier: "CurrentlyClimbingToDatePicker", sender: sender)
+        //Set time to climb
+        if(user[0].1 != "Guest") {
+            performSegue(withIdentifier: "CurrentlyClimbingToDatePicker", sender: sender)
+        //Sign in warning
+        } else {
+            let alertController = UIAlertController(title: "ALERT", message: "SIGN IN", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+
+        }
     }
     
     //Segues
@@ -118,7 +133,6 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
         UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure") as! URL, options: [:], completionHandler: nil)
-        //performSegue(withIdentifier: "CurrentlyClimbingToInfo", sender: sender)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

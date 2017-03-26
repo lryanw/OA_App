@@ -14,8 +14,8 @@ class TimePickerViewController: UIViewController {
     @IBOutlet weak var startTime: UIDatePicker!
     @IBOutlet weak var endTime: UIDatePicker!
     
-    //First Name, Last Name, Email,
-    var user: [(String, String, String, UIImage, Bool)]!
+    //First Name, Last Name, Email, ProfileImage, IsEmployee
+    var user: [(String, String, String, Int, Bool)]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

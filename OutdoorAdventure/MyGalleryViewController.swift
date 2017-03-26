@@ -29,8 +29,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     
     var imageToPass : UIImage!
     
-    //First Name, Last Name, Email,
-    var user: [(String, String, String, UIImage, Bool)]!
+    //First Name, Last Name, Email, ProfileImage, IsEmployee
+    var user: [(String, String, String, Int, Bool)]!
     
     var imagePicker = UIImagePickerController()
     

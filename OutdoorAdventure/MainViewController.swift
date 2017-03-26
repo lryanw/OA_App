@@ -29,14 +29,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var imageToPass : UIImage!
     
     //Profile Name, Post Date, News Text, Profile Image 
-    var items: [(String, String, UIImage, String, UIImage)] = [
-        ("Outdoor Adventure", "Day 1", UIImage(named:"ic_launcher.png")!, "OMG OMG OMG", UIImage(named: "background_2.jpg")!),
-        ("Outdoor Adventure", "Day 2", UIImage(named:"ic_launcher.png")!, "IMNJHNSDFJHDSLFJ SDLFJHSDFJHSDLFJH", UIImage(named: "background_1.jpg")!),
-        ("Outdoor Adventure", "Day 3", UIImage(named:"ic_launcher.png")!, "IMG IMSDFKJ IODMDJNSFO ISDFLKNSDFL IDMSFLS", UIImage(named: "background_2.jpg")!)
+    var items: [(String, String, Int, String, UIImage)] = [
+        ("Outdoor Adventure", "Day 1", 0, "OMG OMG OMG", UIImage(named: "background_2.jpg")!),
+        ("Outdoor Adventure", "Day 2", 0, "IMNJHNSDFJHDSLFJ SDLFJHSDFJHSDLFJH", UIImage(named: "background_1.jpg")!),
+        ("Outdoor Adventure", "Day 3", 0, "IMG IMSDFKJ IODMDJNSFO ISDFLKNSDFL IDMSFLS", UIImage(named: "background_2.jpg")!)
     ]
     
-    //First Name, Last Name, Email,
-    var user: [(String, String, String, UIImage, Bool)]!
+    //First Name, Last Name, Email, ProfileImage, IsEmployee
+    var user: [(String, String, String, Int, Bool)]!
     
     override func viewDidLoad() {
         super.viewDidLoad()      
@@ -79,7 +79,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //Set Cell Up
             cell.news_Profile.text = items[indexPath.row/2].0
             cell.news_Date.text = items[indexPath.row/2].1
-            cell.news_ProfileImage.image = items[indexPath.row/2].2
+            cell.news_ProfileImage.image = UIImage(named: "\(items[indexPath.row/2].2).jpg")
+            if(items[idexPath.row/2].2 == 0) {
+                cell.news_ProfileImage.layer.borderWidth = 1
+                cell.news_ProfileImage.layer.borderColor = UIColor.black.cgColor
+            }
             cell.news_Text.text = items[indexPath.row/2].3
             cell.news_Image.image = items[indexPath.row/2].4
             

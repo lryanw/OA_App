@@ -13,8 +13,4 @@ class CurrentlyClimbingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileName: UILabel!
     @IBOutlet weak var timeClimbing: UILabel!
-    
-    override func awakeFromNib() {
-        profileImage = ImageTransformer.roundImageView(imageView: profileImage)
-    }
 }

@@ -10,8 +10,8 @@ import UIKit
 
 class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate  {
 
-    //First Name, Last Name, Email,
-    var user: [(String, String, String, UIImage, Bool)]!
+    //First Name, Last Name, Email, ProfileImage, IsEmployee
+    var user: [(String, String, String, Int, Bool)]!
     
     @IBOutlet weak var textView: UITextView!
     

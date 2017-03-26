@@ -39,8 +39,8 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var ropes = ["1","2","3","4","5","6","7","8","9","10","E","W"]
     
-    //First Name, Last Name, Email,
-    var user: [(String, String, String, UIImage, Bool)]!
+    //First Name, Last Name, Email, ProfileImage, IsEmployee
+    var user: [(String, String, String, Int, Bool)]!
  
     override func viewDidLoad() {
         super.viewDidLoad()

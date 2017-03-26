@@ -14,8 +14,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField_Password: UITextField!
     @IBOutlet weak var button_SignIn: UIButton!
     
-    //First Name, Last Name, Email, Profile Image
-    var user: [(String, String, String, UIImage, Bool)] = [("Guest","Guest","Guest",ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.black, size: CGSize(width: 50, height: 50)), radius: 25), true)]
+    //First Name, Last Name, Email, Profile Image, IsEmployee
+    var user: [(String, String, String, Int, Bool)] = [("Guest","Guest","Guest", 1, true)]
     
     override func viewDidLoad() {
         super.viewDidLoad()

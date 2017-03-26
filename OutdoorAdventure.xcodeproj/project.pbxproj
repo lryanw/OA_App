@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D01A3381E241790009E2243 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01A3371E241790009E2243 /* MainViewController.swift */; };
 		2D13EEA41E36EC5B008265FF /* OutdoorAdventureLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */; };
+		2D1A60121E87548F00F9A805 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A60111E87548F00F9A805 /* 0.jpg */; };
 		2D42AEC21E3991A50082EF50 /* OA_Climbing_Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D42AEC11E3991A50082EF50 /* OA_Climbing_Edit.png */; };
 		2D4BF0921E255057001710AD /* Climbing Graphic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF08C1E255057001710AD /* Climbing Graphic.png */; };
 		2D4BF0931E255057001710AD /* ic_event.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF08D1E255057001710AD /* ic_event.png */; };
@@ -65,6 +66,8 @@
 		2DA2CAA31E22D928003F0462 /* OutdoorAdventureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA2CAA21E22D928003F0462 /* OutdoorAdventureUITests.swift */; };
 		2DA2CAB31E231018003F0462 /* OA_App_Background_Temp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DA2CAB21E231018003F0462 /* OA_App_Background_Temp.jpg */; };
 		2DAF7EB61E7DA51500D3CB07 /* CreateNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAF7EB51E7DA51500D3CB07 /* CreateNewsViewController.swift */; };
+		2DD22A121E84C139005F8652 /* NewsRecieveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD22A111E84C139005F8652 /* NewsRecieveModel.swift */; };
+		2DD22A161E84C1D8005F8652 /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD22A151E84C1D8005F8652 /* NewsModel.swift */; };
 		2DF4E10B1E2EDD99009153EA /* routeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4E10A1E2EDD99009153EA /* routeTableViewCell.swift */; };
 		2DF4E10D1E2EE7EB009153EA /* calendarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4E10C1E2EE7EB009153EA /* calendarTableViewCell.swift */; };
 		BBCED5D0D23272049492367F /* Pods_OutdoorAdventure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DBA8BCFC2AFBF90C9541DCE /* Pods_OutdoorAdventure.framework */; };
@@ -92,6 +95,7 @@
 		2A2A09851DDB7F6C4F58E0A1 /* Pods-OutdoorAdventure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OutdoorAdventure.release.xcconfig"; path = "Pods/Target Support Files/Pods-OutdoorAdventure/Pods-OutdoorAdventure.release.xcconfig"; sourceTree = "<group>"; };
 		2D01A3371E241790009E2243 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OutdoorAdventureLogo.png; sourceTree = "<group>"; };
+		2D1A60111E87548F00F9A805 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
 		2D42AEC11E3991A50082EF50 /* OA_Climbing_Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OA_Climbing_Edit.png; sourceTree = "<group>"; };
 		2D4BF08C1E255057001710AD /* Climbing Graphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Climbing Graphic.png"; sourceTree = "<group>"; };
 		2D4BF08D1E255057001710AD /* ic_event.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_event.png; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 		2DA2CAA41E22D928003F0462 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DA2CAB21E231018003F0462 /* OA_App_Background_Temp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = OA_App_Background_Temp.jpg; sourceTree = "<group>"; };
 		2DAF7EB51E7DA51500D3CB07 /* CreateNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateNewsViewController.swift; sourceTree = "<group>"; };
+		2DD22A111E84C139005F8652 /* NewsRecieveModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsRecieveModel.swift; sourceTree = "<group>"; };
+		2DD22A151E84C1D8005F8652 /* NewsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		2DF4E10A1E2EDD99009153EA /* routeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = routeTableViewCell.swift; sourceTree = "<group>"; };
 		2DF4E10C1E2EE7EB009153EA /* calendarTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = calendarTableViewCell.swift; sourceTree = "<group>"; };
 		36A37E8819D1768C31B8CA26 /* Pods_OutdoorAdventureUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OutdoorAdventureUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +248,7 @@
 		2D6175DE1E78764F0062E6A1 /* ProfileImages */ = {
 			isa = PBXGroup;
 			children = (
+				2D1A60111E87548F00F9A805 /* 0.jpg */,
 				2D6175DF1E78769E0062E6A1 /* 1.jpg */,
 				2D6175E01E78769E0062E6A1 /* 2.jpg */,
 				2D6175E11E78769E0062E6A1 /* 3.jpg */,
@@ -290,6 +297,7 @@
 		2DA2CA811E22D928003F0462 /* OutdoorAdventure */ = {
 			isa = PBXGroup;
 			children = (
+				2DD22A171E84C1E1005F8652 /* Database */,
 				2D6025871E41126D008BFA5A /* ViewControllers */,
 				2D525BFB1E27218900A06B25 /* Cells */,
 				2DA2CAB11E230FF9003F0462 /* Pictures */,
@@ -339,6 +347,15 @@
 				2D4BF08B1E255042001710AD /* Icons */,
 			);
 			name = Pictures;
+			sourceTree = "<group>";
+		};
+		2DD22A171E84C1E1005F8652 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				2DD22A111E84C139005F8652 /* NewsRecieveModel.swift */,
+				2DD22A151E84C1D8005F8652 /* NewsModel.swift */,
+			);
+			name = Database;
 			sourceTree = "<group>";
 		};
 		6A5F60E20254A890DCBC6DC3 /* Frameworks */ = {
@@ -506,6 +523,7 @@
 				2D9C42F91E6242750096BF29 /* download.png in Resources */,
 				2DA2CAB31E231018003F0462 /* OA_App_Background_Temp.jpg in Resources */,
 				2DA2CA8A1E22D928003F0462 /* Assets.xcassets in Resources */,
+				2D1A60121E87548F00F9A805 /* 0.jpg in Resources */,
 				2D66E3951E3D125E00AF7D61 /* MoonAndStars.png in Resources */,
 				2DA2CA881E22D928003F0462 /* Main.storyboard in Resources */,
 				2D77D46C1E3E9EB700B39C3E /* arrow-right-drop-circle (2).png in Resources */,
@@ -581,6 +599,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DD22A161E84C1D8005F8652 /* NewsModel.swift in Sources */,
 				2D6025931E42B956008BFA5A /* spaceTableViewCell.swift in Sources */,
 				2D6175F01E7877820062E6A1 /* ProfileImagePickerViewController.swift in Sources */,
 				2D4C8A9A1E29879C0004EE11 /* RockWallViewController.swift in Sources */,
@@ -589,6 +608,7 @@
 				2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */,
 				2D4C8A9C1E298C170004EE11 /* MyGalleryViewController.swift in Sources */,
 				2DAF7EB61E7DA51500D3CB07 /* CreateNewsViewController.swift in Sources */,
+				2DD22A121E84C139005F8652 /* NewsRecieveModel.swift in Sources */,
 				2D6025891E4112C5008BFA5A /* CurrentlyClimbingViewController.swift in Sources */,
 				2D525BFA1E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift in Sources */,
 				2DF4E10B1E2EDD99009153EA /* routeTableViewCell.swift in Sources */,

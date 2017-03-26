@@ -43,7 +43,8 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate {
     //Red, Pink, Orange, Yellow, Green, Blue, Purple, Gray, Brown, Black, White
     var colorArray : [UIColor] = [UIColor.red, UIColor.init(red: 255/255, green: 105/255, blue: 180/255, alpha: 1), UIColor.orange, UIColor.yellow, UIColor.green, UIColor.init(red: 173/255, green: 216/255, blue: 230/255, alpha: 1), UIColor.blue, UIColor.purple, UIColor.lightGray, UIColor.brown, UIColor.black, UIColor.white]
     
-    var user : [(String, String, String, UIImage, Bool)]!
+    //FirstName, LastName, Email, ProfileImage, IsEmployee
+    var user : [(String, String, String, Int, Bool)]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

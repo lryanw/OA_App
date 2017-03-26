@@ -24,8 +24,8 @@ class ZoomedPhotoUIViewController: UIViewController {
     var currImage = UIImage(named: "background_1.jpg")!
     var senderString : String!
     
-    //First Name, Last Name, Email,
-    var user: [(String, String, String, UIImage, Bool)]!
+    //First Name, Last Name, Email, ProfileImage, IsEmployee
+    var user: [(String, String, String, Int, Bool)]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
