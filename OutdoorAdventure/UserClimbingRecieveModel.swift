@@ -1,20 +1,20 @@
 //
-//  NewsRecieveModel.swift
+//  UserClimbingRecieveModel.swift
 //  OutdoorAdventure
 //
-//  Created by Ryan Lee on 3/23/17.
+//  Created by Ryan Lee on 3/30/17.
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
 import Foundation
 
-protocol NewsModelProtocol: class {
-    func itemsDownloaded(newsItems: NSArray)
+protocol UserClimbingModelProtocol: class {
+    func itemsDownloaded(imageItems: NSArray)
 }
 
-class NewsRecieveModel: NSObject, URLSessionDataDelegate {
+class UserClimbingRecieveModel: NSObject, URLSessionDataDelegate {
     
-    weak var delegate : NewsModelProtocol!
+    weak var delegate : UserClimbingModelProtocol!
     
     var data : NSMutableData = NSMutableData()
     
@@ -51,35 +51,39 @@ class NewsRecieveModel: NSObject, URLSessionDataDelegate {
         }
         
         var jsonElement : NSDictionary = NSDictionary()
-        let newsArray : NSMutableArray = NSMutableArray()
+        let userClimbingArray : NSMutableArray = NSMutableArray()
         
         for i in 0 ..< jsonResult.count {
             
             jsonElement = jsonResult[i] as! NSDictionary
             
-            let news = NewsModel()
+            let user = UserClimbingModel()
             
             if let firstName = jsonElement["FirstName"] as? String,
                 let lastName = jsonElement["LastName"] as? String,
-                let date = jsonElement["PostDate"] as? String,
+                let email = jsonElement["Email"] as? String,
                 let profileImage = jsonElement["ProfileImage"] as? Int,
-                let newsText = jsonElement["NewsText"] as? String,
-                let imagePath = jsonElement["ImagePath"] as? String {
+                let startHour = jsonElement["StartHour"] as? Int,
+                let startMin = jsonElement["StartMin"] as? Int,
+                let endHour = jsonElement["EndHour"] as? Int,
+                let endMin = jsonElement["EndMin"] as? Int {
                 
-                news.firstName = firstName
-                news.lastName = lastName
-                news.date = date
-                news.profileImage = profileImage
-                news.newsText = newsText
-                news.imagePath = imagePath
+                user.firstName = firstName
+                user.lastName = lastName
+                user.email = email
+                user.profileImage = profileImage
+                user.startHour = startHour
+                user.startMin = startMin
+                user.endHour = endHour
+                user.endMin = endMin
             }
-            newsArray.add(news)
+            userClimbingArray.add(user)
         }
         
         //This may be wrong
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(newsItems: newsArray)
+                self.delegate.itemsDownloaded(imageItems: userClimbingArray)
             }
         }
     }

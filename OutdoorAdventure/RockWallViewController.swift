@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class RockWallViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class RockWallViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RouteModelProtocol {
     
     @IBOutlet weak var button_Add: UIButton!
     
@@ -33,11 +33,15 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     var setOrigionalSize = false
     
     //Route Name, Setter, Difficulty, Color, Symbol, Rope #
+    var feedItems : NSArray!
     var itemsAll: [(String, String, String, UIColor, String, Int)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil", 1), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic", 5), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo", 7), ("Up Up And Away", "Ryan Lee", "V12", UIColor.blue, "Camo", 11)]
     
     var itemsRope: [(String, String, String, UIColor, String, Int)] = []
     
     var ropes = ["1","2","3","4","5","6","7","8","9","10","E","W"]
+    
+    //Red, Pink, Orange, Yellow, Green, Light Blue, Blue, Purple, Gray, Brown, Black, White
+    var colorArray : [UIColor] = [UIColor.red, UIColor.init(red: 255/255, green: 105/255, blue: 180/255, alpha: 1), UIColor.orange, UIColor.yellow, UIColor.green, UIColor.init(red: 173/255, green: 216/255, blue: 230/255, alpha: 1), UIColor.blue, UIColor.purple, UIColor.lightGray, UIColor.brown, UIColor.black, UIColor.white]
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -47,6 +51,9 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
         
         //DATABASE RECIEVE
+        let routeModel = RouteRecieveModel()
+        routeModel.delegate = self
+        routeModel.downloadItems()
         
         getItemsForCurrentRope()
         routeTableView.reloadData()
@@ -54,8 +61,6 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         if(!user[0].4) {
             button_Add.isHidden = true
         }
-        
-        
         
         //Shadows
         leftButton.layer.shadowColor = UIColor.black.cgColor
@@ -86,6 +91,49 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func itemsDownloaded(routeItems: NSArray) {
+        feedItems = routeItems
+        itemsAll = [(String, String, String, UIColor, String, Int)]()
+        
+        for i in 0 ..< feedItems.count {
+            let route = feedItems[i] as! RouteModel
+            
+            var routeColor : UIColor
+            if(route.color == "Red") {
+                routeColor = colorArray[0]
+            } else if(route.color == "Pink") {
+                routeColor = colorArray[1]
+            } else if(route.color == "Orange") {
+                routeColor = colorArray[2]
+            } else if(route.color == "Yellow") {
+                routeColor = colorArray[3]
+            } else if(route.color == "Green") {
+                routeColor = colorArray[4]
+            } else if(route.color == "Light Blue") {
+                routeColor = colorArray[5]
+            } else if(route.color == "Blue") {
+                routeColor = colorArray[6]
+            } else if(route.color == "Purple") {
+                routeColor = colorArray[7]
+            } else if(route.color == "Gray") {
+                routeColor = colorArray[8]
+            } else if(route.color == "Brown") {
+                routeColor = colorArray[9]
+            } else if(route.color == "Black") {
+                routeColor = colorArray[10]
+            } else {
+                routeColor = colorArray[11]
+            }
+            
+            var ropeNum = 0
+            if(route.rope == "E") { ropeNum = 11 }
+            else if(route.rope == "W") { ropeNum = 12 }
+            else { ropeNum = Int(route.rope!)! }
+            
+            itemsAll.append((route.name!, route.setter!, route.rating!, routeColor, route.overlay!, ropeNum))
+        }
     }
     
     //Number of rows in the TableView

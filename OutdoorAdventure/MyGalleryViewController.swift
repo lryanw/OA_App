@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, ImageModelProtocol {
 
     @IBOutlet weak var button_Add: UIButton!
     
@@ -25,7 +25,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
     //Images in the CollectionView
-    var imageItems: [UIImage] = [UIImage(named:"background_1.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!]
+    var feedItems : NSArray!
+    var items: [UIImage] = [UIImage(named:"background_1.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!]
     
     var imageToPass : UIImage!
     
@@ -39,6 +40,9 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         // Do any additional setup after loading the view.
         
         //DATABASE RECIEVE
+        let imageModel = ImageRecieveModel()
+        imageModel.delegate = self
+        imageModel.downloadItems()
         
         if(!user[0].4) {
             button_Add.isHidden = true
@@ -60,11 +64,20 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func itemsDownloaded(imageItems: NSArray) {
+        feedItems = imageItems
+        items = [UIImage]()
+        
+        for i in 0 ..< feedItems.count {
+            
+        }
+    }
 
     
     //Number of items in the CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.imageItems.count
+        return self.items.count
     }
     
     //Sets up the cell in the CollectionView
@@ -72,7 +85,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
         
         //Sets the image in the CollectionView cell
-        cell.cellImage.image = self.imageItems[indexPath.item]
+        cell.cellImage.image = self.items[indexPath.item]
         
         return cell
     }
@@ -81,7 +94,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 
         //Passes the image in a segue
-        imageToPass = imageItems[indexPath.item]
+        imageToPass = items[indexPath.item]
         performSegue(withIdentifier: "GallaryToImageViewer", sender: collectionView)
     }
 

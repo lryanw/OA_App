@@ -708,18 +708,17 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ryan Lee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jvZ-GT-am0">
                                                     <rect key="frame" x="8" y="127" width="191" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vP3-2M-DcK">
-                                                    <rect key="frame" x="63" y="28" width="80" height="80"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vP3-2M-DcK">
+                                                    <rect key="frame" x="63" y="31" width="80" height="80"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="customSize" width="207" height="207"/>
                                         <connections>
                                             <outlet property="profileImage" destination="vP3-2M-DcK" id="RR3-hS-2FX"/>
@@ -1567,7 +1566,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="TSY-Ey-Vk8"/>
                                     <barButtonItem style="plain" id="znq-xR-wsK">
                                         <view key="customView" contentMode="scaleToFill" id="t7C-Fq-yur">
-                                            <rect key="frame" x="125" y="6" width="164" height="33"/>
+                                            <rect key="frame" x="125" y="5.6666666666666679" width="164" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdG-4Y-V9D">
@@ -1665,10 +1664,10 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="83p-zm-uqW"/>
-        <segue reference="Hyn-MK-lm4"/>
-        <segue reference="YSC-na-DVT"/>
-        <segue reference="7Th-Ao-Evw"/>
-        <segue reference="fwe-mC-dHa"/>
+        <segue reference="Zvh-Vd-Vco"/>
+        <segue reference="vRs-ER-VUP"/>
+        <segue reference="5qi-ZR-Bea"/>
+        <segue reference="TEm-a3-fMU"/>
+        <segue reference="aHN-BI-BGh"/>
     </inferredMetricsTieBreakers>
 </document>

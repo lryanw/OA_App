@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewsModelProtocol {
 
     //To add new news
     @IBOutlet weak var button_Add: UIButton!
@@ -28,7 +28,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //For image viewer
     var imageToPass : UIImage!
     
-    //Profile Name, Post Date, News Text, Profile Image 
+    //Profile Name, Post Date, ProfileImage, News Text, News Image
     var items: [(String, String, Int, String, UIImage)] = [
         ("Outdoor Adventure", "Day 1", 0, "OMG OMG OMG", UIImage(named: "background_2.jpg")!),
         ("Outdoor Adventure", "Day 2", 0, "IMNJHNSDFJHDSLFJ SDLFJHSDFJHSDLFJH", UIImage(named: "background_1.jpg")!),
@@ -43,6 +43,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Do any additional setup after loading the view.
 
         //DATABASE RECIEVE
+        let newsModel = NewsRecieveModel()
+        newsModel.delegate = self
+        newsModel.downloadItems()
         
         if(!user[0].4) {
             button_Add.isHidden = true
@@ -66,6 +69,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    func itemsDownloaded(newsItems userItems: NSArray) {
+        let feedItems : NSArray = userItems
+        items = [(String, String, Int, String, UIImage)]()
+        
+        //Change NSArray to items Tuple
+        for i in 0 ..< feedItems.count {
+            let news = feedItems[i] as! NewsModel
+            //items.append((news.firstName! + " " + news.lastName!, news.date!, news.profileImage!, news.newsText!, news.imagePath))
+        }
+    }
+    
     //Number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count * 2
@@ -80,7 +94,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.news_Profile.text = items[indexPath.row/2].0
             cell.news_Date.text = items[indexPath.row/2].1
             cell.news_ProfileImage.image = UIImage(named: "\(items[indexPath.row/2].2).jpg")
-            if(items[idexPath.row/2].2 == 0) {
+            if(items[indexPath.row/2].2 == 0) {
                 cell.news_ProfileImage.layer.borderWidth = 1
                 cell.news_ProfileImage.layer.borderColor = UIColor.black.cgColor
             }

@@ -1,20 +1,20 @@
 //
-//  NewsRecieveModel.swift
+//  RouteRecieveModel.swift
 //  OutdoorAdventure
 //
-//  Created by Ryan Lee on 3/23/17.
+//  Created by Ryan Lee on 3/30/17.
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
 import Foundation
 
-protocol NewsModelProtocol: class {
-    func itemsDownloaded(newsItems: NSArray)
+protocol RouteModelProtocol: class {
+    func itemsDownloaded(routeItems: NSArray)
 }
 
-class NewsRecieveModel: NSObject, URLSessionDataDelegate {
+class RouteRecieveModel: NSObject, URLSessionDataDelegate {
     
-    weak var delegate : NewsModelProtocol!
+    weak var delegate : RouteModelProtocol!
     
     var data : NSMutableData = NSMutableData()
     
@@ -51,35 +51,35 @@ class NewsRecieveModel: NSObject, URLSessionDataDelegate {
         }
         
         var jsonElement : NSDictionary = NSDictionary()
-        let newsArray : NSMutableArray = NSMutableArray()
+        let routeArray : NSMutableArray = NSMutableArray()
         
         for i in 0 ..< jsonResult.count {
             
             jsonElement = jsonResult[i] as! NSDictionary
             
-            let news = NewsModel()
+            let route = RouteModel()
             
-            if let firstName = jsonElement["FirstName"] as? String,
-                let lastName = jsonElement["LastName"] as? String,
-                let date = jsonElement["PostDate"] as? String,
-                let profileImage = jsonElement["ProfileImage"] as? Int,
-                let newsText = jsonElement["NewsText"] as? String,
-                let imagePath = jsonElement["ImagePath"] as? String {
+            if let name = jsonElement["Name"] as? String,
+                let setter = jsonElement["Setter"] as? String,
+                let color = jsonElement["Color"] as? String,
+                let rating = jsonElement["Rating"] as? String,
+                let overlay = jsonElement["Overlay"] as? String,
+                let rope = jsonElement["Rope"] as? String{
                 
-                news.firstName = firstName
-                news.lastName = lastName
-                news.date = date
-                news.profileImage = profileImage
-                news.newsText = newsText
-                news.imagePath = imagePath
+                route.name = name
+                route.setter = setter
+                route.color = color
+                route.rating = rating
+                route.overlay = overlay
+                route.rope = rope
             }
-            newsArray.add(news)
+            routeArray.add(route)
         }
         
         //This may be wrong
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(newsItems: newsArray)
+                self.delegate.itemsDownloaded(routeItems: routeArray)
             }
         }
     }

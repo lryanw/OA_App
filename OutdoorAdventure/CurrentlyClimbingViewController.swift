@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UserClimbingModelProtocol {
 
     //Button to start climbing
     @IBOutlet weak var climbingButton: UIButton!
@@ -23,6 +23,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var collectionView: UICollectionView!
     
     //Items from data base
+    var feedItems: NSArray = NSArray()
     var items: [(Int, String, String)] = [(1, "Christian Bailey", "6:00p-7:00p")]
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
@@ -37,8 +38,9 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         circleBackground.layer.shadowColor = UIColor.black.cgColor
         
         //DATABASE RECIEVE
-        //Get all users who are climbing and put them "items"
-        //If your email matches a user in the DB set isClimbing = true
+        let userClimbingModel = UserClimbingRecieveModel()
+        userClimbingModel.delegate = self
+        userClimbingModel.downloadItems()
         
         //Sets color to green if user isClimbing
         if(isClimbing) {
@@ -68,6 +70,37 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         // Dispose of any resources that can be recreated.
     }
     
+    func itemsDownloaded(imageItems: NSArray) {
+        feedItems = imageItems
+        
+        //Change NSArray to items Tuple
+        for i in 0 ..< feedItems.count {
+            let userClimbing = feedItems[i] as! UserClimbingModel
+            items[i].0 = userClimbing.profileImage!
+            items[i].1 = "\(userClimbing.firstName) \(userClimbing.lastName)"
+            
+            //Set up time
+            var sH = userClimbing.startHour!
+            var eH = userClimbing.endHour!
+            var sTime = "a"
+            var eTime = "a"
+            if(sH > 12) {
+                sH = sH - 12
+                sTime = "p"
+            }
+            if(eH > 12) {
+                eH = eH - 12
+                eTime = "p"
+            }
+            items[i].2 = "\(sH):\(userClimbing.startMin)" + sTime + "-" + "\(eH):\(userClimbing.endMin)" + eTime
+            
+            //If your email matches a user in the DB set isClimbing = true
+            if(userClimbing.email == user[0].2) {
+                isClimbing = true
+            }
+        }
+    }
+    
     //Number of items in the CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -79,7 +112,9 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         
         //Sets the image in the CollectionView
         cell.profileImage.image = UIImage(named: "\(items[indexPath.item].0).jpg")!
-        cell.profileImage = ImageTransformer.roundImageView(imageView: cell.profileImage)
+        cell.profileImage.image = cell.profileImage.image?.circleMasked
+        //cell.profileImage = ImageTransformer.roundImageView(imageView: cell.profileImage)
+        
         cell.profileName.text = items[indexPath.item].1
         cell.timeClimbing.text = items[indexPath.item].2
         
@@ -149,5 +184,21 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
             let destinationVC = segue.destination as! TimePickerViewController
             destinationVC.user = self.user
         }
+    }
+}
+
+extension UIImage {
+    var isPortrait:  Bool    { return size.height > size.width }
+    var isLandscape: Bool    { return size.width > size.height }
+    var breadth:     CGFloat { return min(size.width, size.height) }
+    var breadthSize: CGSize  { return CGSize(width: breadth, height: breadth) }
+    var breadthRect: CGRect  { return CGRect(origin: .zero, size: breadthSize) }
+    var circleMasked: UIImage? {
+        UIGraphicsBeginImageContextWithOptions(breadthSize, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        guard let cgImage = cgImage?.cropping(to: CGRect(origin: CGPoint(x: isLandscape ? floor((size.width - size.height) / 2) : 0, y: isPortrait  ? floor((size.height - size.width) / 2) : 0), size: breadthSize)) else { return nil }
+        UIBezierPath(ovalIn: breadthRect).addClip()
+        UIImage(cgImage: cgImage).draw(in: breadthRect)
+        return UIGraphicsGetImageFromCurrentImageContext()
     }
 }

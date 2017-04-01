@@ -1,20 +1,20 @@
 //
-//  NewsRecieveModel.swift
+//  ImageRecieveModel.swift
 //  OutdoorAdventure
 //
-//  Created by Ryan Lee on 3/23/17.
+//  Created by Ryan Lee on 3/30/17.
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
 import Foundation
 
-protocol NewsModelProtocol: class {
-    func itemsDownloaded(newsItems: NSArray)
+protocol ImageModelProtocol: class {
+    func itemsDownloaded(imageItems: NSArray)
 }
 
-class NewsRecieveModel: NSObject, URLSessionDataDelegate {
+class ImageRecieveModel: NSObject, URLSessionDataDelegate {
     
-    weak var delegate : NewsModelProtocol!
+    weak var delegate : ImageModelProtocol!
     
     var data : NSMutableData = NSMutableData()
     
@@ -51,35 +51,25 @@ class NewsRecieveModel: NSObject, URLSessionDataDelegate {
         }
         
         var jsonElement : NSDictionary = NSDictionary()
-        let newsArray : NSMutableArray = NSMutableArray()
+        let imageArray : NSMutableArray = NSMutableArray()
         
         for i in 0 ..< jsonResult.count {
             
             jsonElement = jsonResult[i] as! NSDictionary
             
-            let news = NewsModel()
+            let image = ImageModel()
             
-            if let firstName = jsonElement["FirstName"] as? String,
-                let lastName = jsonElement["LastName"] as? String,
-                let date = jsonElement["PostDate"] as? String,
-                let profileImage = jsonElement["ProfileImage"] as? Int,
-                let newsText = jsonElement["NewsText"] as? String,
-                let imagePath = jsonElement["ImagePath"] as? String {
+            if let imagePath = jsonElement["ImagePath"] as? String {
                 
-                news.firstName = firstName
-                news.lastName = lastName
-                news.date = date
-                news.profileImage = profileImage
-                news.newsText = newsText
-                news.imagePath = imagePath
+                image.imagePath = imagePath
             }
-            newsArray.add(news)
+            imageArray.add(image)
         }
         
         //This may be wrong
         DispatchQueue.global(qos: .userInitiated).async {
             DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(newsItems: newsArray)
+                self.delegate.itemsDownloaded(imageItems: imageArray)
             }
         }
     }

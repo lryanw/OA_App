@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
     
     @IBOutlet weak var textField_Username: UITextField!
     @IBOutlet weak var textField_Password: UITextField!
@@ -16,6 +16,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     //First Name, Last Name, Email, Profile Image, IsEmployee
     var user: [(String, String, String, Int, Bool)] = [("Guest","Guest","Guest", 1, true)]
+    
+    var foundUser = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func itemsDownloaded(userItems: NSArray) {
+        let feedItems : NSArray = userItems
+        
+        //Change NSArray to items Tuple
+        for i in 0 ..< feedItems.count {
+            let userModel = feedItems[i] as! UserModel
+            if(userModel.email == textField_Username.text) {
+                user[0].0 = userModel.firstName!
+                user[0].1 = userModel.lastName!
+                user[0].2 = userModel.email!
+                user[0].3 = userModel.profileImage!
+                user[0].4 = (userModel.isEmployee != nil)
+                foundUser = true
+                break
+            }
+        }
     }
 
     //On Sign In button click
@@ -41,17 +61,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
         
         //DATABASE RECIEVE
+        let userModel = UserRecieveModel(pEmail: textField_Username.text!, pPassword: textField_Password.text!)
+        userModel.delegate = self
+        userModel.downloadItems()
         
-        /*if(CANT FIND PROFILE) {
+        //If the user is no found
+        if(!foundUser) {
             let alertController = UIAlertController(title: "PROFILE NOT FOUND", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
-        }*/
-        
-        //Get Information from data base
-        if(textField_Username.text == "guest" && textField_Password.text == "guest") {
-        
-            performSegue(withIdentifier: "LoginToMain", sender: sender)
         }
     }
     
