@@ -10,6 +10,11 @@
 		2D01A3381E241790009E2243 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01A3371E241790009E2243 /* MainViewController.swift */; };
 		2D13EEA41E36EC5B008265FF /* OutdoorAdventureLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */; };
 		2D1A60121E87548F00F9A805 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A60111E87548F00F9A805 /* 0.jpg */; };
+		2D25FFBB1E908D0B00136DEC /* NewsAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFBA1E908D0B00136DEC /* NewsAddRequest.swift */; };
+		2D25FFBD1E90917500136DEC /* UserAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFBC1E90917500136DEC /* UserAddRequest.swift */; };
+		2D25FFC11E90936C00136DEC /* UserClimbingAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFC01E90936C00136DEC /* UserClimbingAddRequest.swift */; };
+		2D25FFC31E90959600136DEC /* RouteAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFC21E90959600136DEC /* RouteAddRequest.swift */; };
+		2D25FFC51E909A3F00136DEC /* ImageAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFC41E909A3F00136DEC /* ImageAddRequest.swift */; };
 		2D42AEC21E3991A50082EF50 /* OA_Climbing_Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D42AEC11E3991A50082EF50 /* OA_Climbing_Edit.png */; };
 		2D4BF0921E255057001710AD /* Climbing Graphic.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF08C1E255057001710AD /* Climbing Graphic.png */; };
 		2D4BF0931E255057001710AD /* ic_event.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D4BF08D1E255057001710AD /* ic_event.png */; };
@@ -104,6 +109,11 @@
 		2D01A3371E241790009E2243 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OutdoorAdventureLogo.png; sourceTree = "<group>"; };
 		2D1A60111E87548F00F9A805 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
+		2D25FFBA1E908D0B00136DEC /* NewsAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsAddRequest.swift; sourceTree = "<group>"; };
+		2D25FFBC1E90917500136DEC /* UserAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAddRequest.swift; sourceTree = "<group>"; };
+		2D25FFC01E90936C00136DEC /* UserClimbingAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserClimbingAddRequest.swift; sourceTree = "<group>"; };
+		2D25FFC21E90959600136DEC /* RouteAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteAddRequest.swift; sourceTree = "<group>"; };
+		2D25FFC41E909A3F00136DEC /* ImageAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAddRequest.swift; sourceTree = "<group>"; };
 		2D42AEC11E3991A50082EF50 /* OA_Climbing_Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OA_Climbing_Edit.png; sourceTree = "<group>"; };
 		2D4BF08C1E255057001710AD /* Climbing Graphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Climbing Graphic.png"; sourceTree = "<group>"; };
 		2D4BF08D1E255057001710AD /* ic_event.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_event.png; sourceTree = "<group>"; };
@@ -370,14 +380,19 @@
 			children = (
 				2DD22A151E84C1D8005F8652 /* NewsModel.swift */,
 				2DD22A111E84C139005F8652 /* NewsRecieveModel.swift */,
+				2D25FFBA1E908D0B00136DEC /* NewsAddRequest.swift */,
 				2D7475251E8DF3B90037A3EE /* UserModel.swift */,
 				2D7475271E8DF4D50037A3EE /* UserRecieveModel.swift */,
+				2D25FFBC1E90917500136DEC /* UserAddRequest.swift */,
 				2D7475291E8DF75D0037A3EE /* UserClimbing.swift */,
 				2D74752B1E8DF8380037A3EE /* UserClimbingRecieveModel.swift */,
+				2D25FFC01E90936C00136DEC /* UserClimbingAddRequest.swift */,
 				2D74752E1E8DF93A0037A3EE /* RouteModel.swift */,
 				2D7475301E8DFA640037A3EE /* RouteRecieveModel.swift */,
+				2D25FFC21E90959600136DEC /* RouteAddRequest.swift */,
 				2D7475321E8DFBE10037A3EE /* ImageModel.swift */,
 				2D7475341E8DFC400037A3EE /* ImageRecieveModel.swift */,
+				2D25FFC41E909A3F00136DEC /* ImageAddRequest.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -627,6 +642,7 @@
 				2D6025931E42B956008BFA5A /* spaceTableViewCell.swift in Sources */,
 				2D6175F01E7877820062E6A1 /* ProfileImagePickerViewController.swift in Sources */,
 				2D74752F1E8DF93A0037A3EE /* RouteModel.swift in Sources */,
+				2D25FFBB1E908D0B00136DEC /* NewsAddRequest.swift in Sources */,
 				2D4C8A9A1E29879C0004EE11 /* RockWallViewController.swift in Sources */,
 				2D01A3381E241790009E2243 /* MainViewController.swift in Sources */,
 				2D98D8371E35892A00E525A7 /* ImageCollectionViewCell.swift in Sources */,
@@ -635,6 +651,7 @@
 				2D74752C1E8DF8380037A3EE /* UserClimbingRecieveModel.swift in Sources */,
 				2D4C8A9C1E298C170004EE11 /* MyGalleryViewController.swift in Sources */,
 				2DAF7EB61E7DA51500D3CB07 /* CreateNewsViewController.swift in Sources */,
+				2D25FFC11E90936C00136DEC /* UserClimbingAddRequest.swift in Sources */,
 				2D7475281E8DF4D50037A3EE /* UserRecieveModel.swift in Sources */,
 				2DD22A121E84C139005F8652 /* NewsRecieveModel.swift in Sources */,
 				2D7475261E8DF3B90037A3EE /* UserModel.swift in Sources */,
@@ -642,10 +659,13 @@
 				2D6025891E4112C5008BFA5A /* CurrentlyClimbingViewController.swift in Sources */,
 				2D525BFA1E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift in Sources */,
 				2DF4E10B1E2EDD99009153EA /* routeTableViewCell.swift in Sources */,
+				2D25FFBD1E90917500136DEC /* UserAddRequest.swift in Sources */,
 				2D6175F21E78D4680062E6A1 /* CreateRouteViewController.swift in Sources */,
 				2D67EBD71E6F9B020014FC36 /* CreateProfileViewController.swift in Sources */,
 				2D74752A1E8DF75D0037A3EE /* UserClimbing.swift in Sources */,
+				2D25FFC31E90959600136DEC /* RouteAddRequest.swift in Sources */,
 				2D60258F1E418205008BFA5A /* CurrentlyClimbingCollectionViewCell.swift in Sources */,
+				2D25FFC51E909A3F00136DEC /* ImageAddRequest.swift in Sources */,
 				2D69D1611E7EFD1500559FE4 /* TimePickerViewController.swift in Sources */,
 				2DF4E10D1E2EE7EB009153EA /* calendarTableViewCell.swift in Sources */,
 				2D5116E11E5D0BE900E68AB0 /* ZoomedPhotoUIViewController.swift in Sources */,
