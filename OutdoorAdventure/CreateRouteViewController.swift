@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateRouteViewController: UIViewController, UITextFieldDelegate {
+class CreateRouteViewController: UIViewController, UITextFieldDelegate, RouteAddProtocol {
 
     @IBOutlet weak var routeName: UITextField!
     @IBOutlet weak var setterName: UITextField!
@@ -38,10 +38,12 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate {
     
     //All overlays
     var overlayArray : [UIImage] = [ImageTransformer.getImageWithColor(color: UIColor.white, size: CGSize(width: 150, height: 150)), UIImage(named: "Yin_yang.png")!, UIImage(named: "Celtic_Knot_Edit_2.png")!, UIImage(named: "MoonAndStars.png")!, UIImage(named: "Camo_Overlay_Circle.png")!]
+    var overlayNameArray : [String] = ["nil", "YinYang", "Celtic", "MoonAndStars", "Camo"]
     
     //All colors
     //Red, Pink, Orange, Yellow, Green, Blue, Purple, Gray, Brown, Black, White
     var colorArray : [UIColor] = [UIColor.red, UIColor.init(red: 255/255, green: 105/255, blue: 180/255, alpha: 1), UIColor.orange, UIColor.yellow, UIColor.green, UIColor.init(red: 173/255, green: 216/255, blue: 230/255, alpha: 1), UIColor.blue, UIColor.purple, UIColor.lightGray, UIColor.brown, UIColor.black, UIColor.white]
+    var colorNameArray : [String] = ["Red", "Pink", "Orange", "Yellow", "Green", "Light Blue", "Blue", "Purple", "Gray", "Brown", "Black", "White"]
     
     //FirstName, LastName, Email, ProfileImage, IsEmployee
     var user : [(String, String, String, Int, Bool)]!
@@ -65,6 +67,10 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate {
         colorImage.image = ImageTransformer.getImageWithColor(color: colorArray[currColor], size: colorImage.frame.size)
         colorImage = ImageTransformer.roundImageView(imageView: colorImage)
     }
+    
+    func itemsDownloaded(routeItems: NSArray) {
+        //
+    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
@@ -85,6 +91,9 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate {
     @IBAction func createRoute(sender: UIButton) {
         
         //DATABASE SEND
+        let routeModel = RouteAddRequest(color: colorNameArray[currColor], overlay: overlayNameArray[currOverlay], name: routeName.text!, rating: routeArray[currRoute], setter: setterName.text!, rope: ropes[currRope])
+        routeModel.delegate = self
+        routeModel.downloadItems()
         
         performSegue(withIdentifier: "CreateRouteToRockWall", sender: self)
     }

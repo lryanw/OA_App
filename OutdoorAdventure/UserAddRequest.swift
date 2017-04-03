@@ -12,7 +12,7 @@ protocol UserAddModelProtocol: class {
     func itemsDownloaded(userItems: NSArray)
 }
 
-class UserAddModel: NSObject, URLSessionDataDelegate {
+class UserAddRequest: NSObject, URLSessionDataDelegate {
     
     weak var delegate : UserAddModelProtocol!
     
@@ -21,8 +21,8 @@ class UserAddModel: NSObject, URLSessionDataDelegate {
     //This points to the PHP service
     var urlPath : String = ""
     
-    init(firstName: String, lastName: String, email: String, password: String, profileImage: Int, isEmployee: String) {
-        urlPath = urlPath + "?FirstName=" + firstName + "&LastName=" + lastName + "&Email=" + email + "&Password=" + password + "&ProfileImage=" + profileImage + "&IsEmployee=" + isEmployee
+    init(firstName: String, lastName: String, email: String, password: String, profileImage: Int, isEmployee: Bool) {
+        urlPath = urlPath + "?FirstName=" + firstName + "&LastName=" + lastName + "&Email=" + email + "&Password=" + password + "&ProfileImage=\(profileImage)&IsEmployee= \(isEmployee)"
     }
     
     func downloadItems() {

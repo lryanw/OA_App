@@ -1664,10 +1664,10 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Zvh-Vd-Vco"/>
+        <segue reference="83p-zm-uqW"/>
+        <segue reference="TEm-a3-fMU"/>
+        <segue reference="ggS-UP-PZK"/>
         <segue reference="vRs-ER-VUP"/>
-        <segue reference="5qi-ZR-Bea"/>
-        <segue reference="Hyn-MK-lm4"/>
-        <segue reference="aHN-BI-BGh"/>
-        <segue reference="1wt-S4-YFq"/>
     </inferredMetricsTieBreakers>
 </document>

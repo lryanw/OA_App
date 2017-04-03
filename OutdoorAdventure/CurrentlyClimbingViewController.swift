@@ -40,7 +40,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         //DATABASE RECIEVE
         let userClimbingModel = UserClimbingRecieveModel()
         userClimbingModel.delegate = self
-        userClimbingModel.downloadItems()
+        //userClimbingModel.downloadItems()
         
         //Sets color to green if user isClimbing
         if(isClimbing) {

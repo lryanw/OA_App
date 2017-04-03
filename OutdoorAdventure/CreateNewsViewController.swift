@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate  {
+class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, NewsAddModelProtocol  {
 
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -32,10 +32,23 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
     
     //Adds new post to database
     @IBAction func createPost(sender: UIButton) {
+        //Get Date
+        let date = Date()
+        let calendar = Calendar.current
+        let month = calendar.component(.month, from: date)
+        let day = calendar.component(.day, from: date)
+        let postDate = "\(month)/\(day)"
         
         //DATABASE SEND
+        //let newsModel = NewsAddRequest(email: user[0].2, newsDate: postDate, newsText: textView.text, imagePath: )
+        //newsModel.delegate = self
+        //newsModel.downloadItems()
         
         performSegue(withIdentifier: "CreateNewsToNews", sender: sender)
+    }
+    
+    func itemsDownloaded(newsItems: NSArray) {
+        //
     }
     
     @IBAction func cancel(sender: UIButton) {

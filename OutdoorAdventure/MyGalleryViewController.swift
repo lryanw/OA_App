@@ -42,7 +42,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         //DATABASE RECIEVE
         let imageModel = ImageRecieveModel()
         imageModel.delegate = self
-        imageModel.downloadItems()
+        //imageModel.downloadItems()
         
         if(!user[0].4) {
             button_Add.isHidden = true
@@ -70,7 +70,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         items = [UIImage]()
         
         for i in 0 ..< feedItems.count {
-            
+            //Download images from Strings
         }
     }
 

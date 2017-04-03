@@ -32,6 +32,7 @@ class RouteRecieveModel: NSObject, URLSessionDataDelegate {
         task.resume()
     }
     
+    //THIS IS NOT GETTING CALLED
     func urlSession(_ session: URLSession, didCompleteWithError error: Error?) {
         if error != nil {
             print("Failed To Download Data")
@@ -75,6 +76,8 @@ class RouteRecieveModel: NSObject, URLSessionDataDelegate {
             }
             routeArray.add(route)
         }
+        
+        print(routeArray.count)
         
         //This may be wrong
         DispatchQueue.global(qos: .userInitiated).async {

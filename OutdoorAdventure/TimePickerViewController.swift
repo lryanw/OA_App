@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimePickerViewController: UIViewController {
+class TimePickerViewController: UIViewController,UserClimbingAddModelProtocol {
 
     //DatePickers
     @IBOutlet weak var startTime: UIDatePicker!
@@ -34,11 +34,9 @@ class TimePickerViewController: UIViewController {
         let calendar = Calendar.current
         let startHour = calendar.component(.hour, from: startTime.date)
         let startMin = calendar.component(.minute, from: startTime.date)
-        var startString = "\(startHour) \(startMin)"
         
         let endHour = calendar.component(.hour, from: endTime.date)
         let endMin = calendar.component(.minute, from: endTime.date)
-        var endString = "\(endHour) \(endMin)"
         
         if((endHour < startHour) || (endHour == startHour && endMin <= startMin)) {
             let alertController = UIAlertController(title: "ALERT", message: "INVALID TIME", preferredStyle: UIAlertControllerStyle.alert)
@@ -47,10 +45,16 @@ class TimePickerViewController: UIViewController {
         } else {
             
             //DATABASE SEND
+            //let userClimbingModel = UserClimbingAddRequest(email: user[0].2, startHour: startHour, startMin: startMin, endHour: endHour, endMin: endMin)
+            //userClimbingModel.delegate = self
+            //userClimbingModel.downloadItems()
             
             performSegue(withIdentifier: "TimePickerToCurrentlyClimbing", sender: sender)
-            
         }
+    }
+    
+    func itemsDownloaded(imageItems: NSArray) {
+        //
     }
     
     @IBAction func cancel(sender: UIButton) {

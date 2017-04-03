@@ -45,7 +45,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //DATABASE RECIEVE
         let newsModel = NewsRecieveModel()
         newsModel.delegate = self
-        newsModel.downloadItems()
+        //newsModel.downloadItems()
         
         if(!user[0].4) {
             button_Add.isHidden = true

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateProfileViewController: UIViewController, UITextFieldDelegate {
+class CreateProfileViewController: UIViewController, UITextFieldDelegate, UserAddModelProtocol {
 
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -74,6 +74,9 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
             }
             
             //DATABASE SEND
+            let userModel = UserAddRequest(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, profileImage: (currImage + 1), isEmployee: false)
+            userModel.delegate = self
+            userModel.downloadItems()
             
             let alertController = UIAlertController(title: "PROFILE CREATED", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { action in self.performSegue(withIdentifier: "CreateProfileToLogin", sender: self) }))
@@ -81,6 +84,10 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate {
             
             performSegue(withIdentifier: "CreateProfileToLogin", sender: sender)
         }
+    }
+    
+    func itemsDownloaded(userItems: NSArray) {
+        //
     }
     
     @IBAction func toLogin(sender: UIButton) {
