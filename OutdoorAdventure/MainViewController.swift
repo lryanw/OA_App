@@ -76,7 +76,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         //Change NSArray to items Tuple
         for i in 0 ..< feedItems.count {
             let news = feedItems[i] as! NewsModel
-            //items.append((news.firstName! + " " + news.lastName!, news.date!, news.profileImage!, news.newsText!, news.imagePath))
+            
+            let userName = news.firstName! + " " + news.lastName!
+            
+            //Get Image from Image Path
+            if let url = NSURL(string: news.imagePath!) {
+                if let data = NSData(contentsOf: url as URL) {
+                    let currImage = UIImage(data: data as Data)
+                    
+                    items.append((userName, news.date!, news.profileImage!, news.newsText!, currImage!))
+                }        
+            }
         }
     }
     
@@ -212,5 +222,26 @@ extension String {
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         
         return boundingBox.height
+    }
+}
+
+extension UIImageView {
+    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { () -> Void in
+                self.image = image
+            }
+            }.resume()
+    }
+    func downloadedFromLink(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloadedFrom(url: url, contentMode: mode)
     }
 }

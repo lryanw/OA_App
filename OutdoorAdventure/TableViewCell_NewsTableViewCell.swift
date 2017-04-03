@@ -16,9 +16,12 @@ class TableViewCell_NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var news_Text: UILabel!
     @IBOutlet weak var news_Image: UIImageView!
     
+    var imagePath : String!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        news_Image.downloadedFromLink(link: imagePath!)
         
         news_ProfileImage = ImageTransformer.roundImageView(imageView: news_ProfileImage)
     }
