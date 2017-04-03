@@ -13,9 +13,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var viewForImages: UIView!
     @IBOutlet weak var cellImage: UIImageView!
     
-    var imagePath : String!
-    
     override func awakeFromNib() {
-        cellImage.downloadedFromLink(link: imagePath!)
+        
     }
 }

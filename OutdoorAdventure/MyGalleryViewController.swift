@@ -70,10 +70,20 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         items = [UIImage]()
         
         for i in 0 ..< feedItems.count {
-            //Download images from Strings
+            let imageModel = feedItems[i] as! ImageModel
+            
+            //Get Image from Image Path
+            if let url = NSURL(string: imageModel.imagePath!) {
+                if let data = NSData(contentsOf: url as URL) {
+                    let currImage = UIImage(data: data as Data)
+                    
+                    items.append(currImage!)
+                }
+            }
         }
     }
 
+    //-----------------------------------------Set up CollectionView------------------------------------------------
     
     //Number of items in the CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -107,7 +117,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         return size
     }
     
-    //Gets image from gallery
+    //--------------------------------------Gets image from gallery-------------------------------------------------
+    
     @IBAction func pickImage(sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
             
@@ -136,7 +147,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         self.dismiss(animated: true, completion: nil)
     }
     
-    //Segues
+    //----------------------------------------------SEGUE----------------------------------------------------------
+    
     @IBAction func toRockWall(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "GallaryToRockWall", sender: sender)
     }
