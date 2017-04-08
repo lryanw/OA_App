@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
     @IBOutlet weak var button_SignIn: UIButton!
     
     //First Name, Last Name, Email, Profile Image, IsEmployee
-    var user: [(String, String, String, Int, Bool)] = [("Guest","Guest","Guest", 1, true)]
+    var user: [(String, String, String, Int, Bool)] = [("Guest","Guest","Guest", 1, false)]
     
     var foundUser = false
     
@@ -37,15 +37,24 @@ class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
         //Change NSArray to items Tuple
         for i in 0 ..< feedItems.count {
             let userModel = feedItems[i] as! UserModel
-            if(userModel.email == textField_Username.text) {
+            if(userModel.email.caseInsensitiveCompare(textField_Username.text!) == .orderedSame) {
                 user[0].0 = userModel.firstName!
                 user[0].1 = userModel.lastName!
                 user[0].2 = userModel.email!
                 user[0].3 = userModel.profileImage!
-                user[0].4 = (userModel.isEmployee != nil)
+                user[0].4 = userModel.isEmployee!
                 foundUser = true
                 break
             }
+        }
+        
+        //If the user is no found
+        if(foundUser == false) {
+            let alertController = UIAlertController(title: "PROFILE NOT FOUND", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "LoginToMain", sender: self)
         }
     }
 
@@ -64,13 +73,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
         let userModel = UserRecieveModel(pEmail: textField_Username.text!, pPassword: textField_Password.text!)
         userModel.delegate = self
         userModel.downloadItems()
-        
-        //If the user is no found
-        if(!foundUser) {
-            let alertController = UIAlertController(title: "PROFILE NOT FOUND", message: "", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -80,8 +82,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
     
     //Segues
     @IBAction func guestSignIn(sender: UIButton) {
-        user[0].2 = "Guest"
-        
         performSegue(withIdentifier: "LoginToMain", sender: sender)
     }
     

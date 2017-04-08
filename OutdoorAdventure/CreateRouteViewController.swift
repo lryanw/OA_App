@@ -90,6 +90,16 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate, RouteAdd
     //Adds new route to database
     @IBAction func createRoute(sender: UIButton) {
         
+        //Prevents Error with special characters
+        if((routeName.text!.contains("'") || setterName.text!.contains("'"))) {
+            
+            let alertController = UIAlertController(title: "DATABASE DOES NOT SUPPORT SPECIAL CHARACTERS", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
         //DATABASE SEND
         let routeModel = RouteAddRequest(color: colorNameArray[currColor], overlay: overlayNameArray[currOverlay], name: routeName.text!, rating: routeArray[currRoute], setter: setterName.text!, rope: ropes[currRope])
         routeModel.delegate = self

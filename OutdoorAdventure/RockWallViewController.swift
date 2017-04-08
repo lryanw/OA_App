@@ -34,11 +34,12 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //Route Name, Setter, Difficulty, Color, Symbol, Rope #
     var feedItems : NSArray!
-    var itemsAll: [(String, String, String, UIColor, String, Int)] = [("Up Up And Away", "Ryan Lee", "I+", UIColor.red, "nil", 1), ("Up Up And Away", "Ryan Lee", "B", UIColor.yellow, "Celtic", 5), ("Up Up And Away", "Ryan Lee", "A-", UIColor.blue, "Camo", 7), ("Up Up And Away", "Ryan Lee", "V12", UIColor.blue, "Camo", 11)]
+    var itemsAll: [(String, String, String, UIColor, String, Int)] = []
     
     var itemsRope: [(String, String, String, UIColor, String, Int)] = []
     
-    var ropes = ["1","2","3","4","5","6","7","8","9","10","E","W"]
+    //11 and 12 are E and 12 respectively
+    var ropes = ["1","2","3","4","5","6","7","8","9","10","11","12"]
     
     //Red, Pink, Orange, Yellow, Green, Light Blue, Blue, Purple, Gray, Brown, Black, White
     var colorArray : [UIColor] = [UIColor.red, UIColor.init(red: 255/255, green: 105/255, blue: 180/255, alpha: 1), UIColor.orange, UIColor.yellow, UIColor.green, UIColor.init(red: 173/255, green: 216/255, blue: 230/255, alpha: 1), UIColor.blue, UIColor.purple, UIColor.lightGray, UIColor.brown, UIColor.black, UIColor.white]
@@ -128,12 +129,17 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             }
             
             var ropeNum = 0
-            if(route.rope == "E") { ropeNum = 11 }
-            else if(route.rope == "W") { ropeNum = 12 }
+            if(route.rope?.caseInsensitiveCompare("E") == .orderedSame) { ropeNum = 11 }
+            else if(route.rope?.caseInsensitiveCompare("W") == .orderedSame) { ropeNum = 12 }
             else { ropeNum = Int(route.rope!)! }
+            
+            print(ropeNum)
             
             itemsAll.append((route.name!, route.setter!, route.rating!, routeColor, route.overlay!, ropeNum))
         }
+        
+        getItemsForCurrentRope()
+        routeTableView.reloadData()
     }
     
     //Number of rows in the TableView
@@ -197,11 +203,16 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //Remove Rows from TableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if(editingStyle == UITableViewCellEditingStyle.delete) {
+        if(editingStyle == UITableViewCellEditingStyle.delete && user[0].4 == true) {
             
             //DATABASE SEND
             
             //Refresh
+            let routeModel = RouteRecieveModel()
+            routeModel.delegate = self
+            routeModel.downloadItems()
+            
+            tableView.reloadData()
         }
     }
     

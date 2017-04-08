@@ -19,41 +19,20 @@ class UserAddRequest: NSObject, URLSessionDataDelegate {
     var data : NSMutableData = NSMutableData()
     
     //This points to the PHP service
-    var urlPath : String = ""
+    var urlPath : String = "http://dasnr58.dasnr.okstate.edu/UserAddRequest.php"
     
     init(firstName: String, lastName: String, email: String, password: String, profileImage: Int, isEmployee: Bool) {
-        urlPath = urlPath + "?FirstName=" + firstName + "&LastName=" + lastName + "&Email=" + email + "&Password=" + password + "&ProfileImage=\(profileImage)&IsEmployee= \(isEmployee)"
+        urlPath = urlPath + "?FirstName=" + firstName + "&LastName=" + lastName + "&Email=" + email + "&Password=" + password + "&ProfileImage=\(profileImage)&IsEmployee=0"
     }
     
     func downloadItems() {
         let url : URL = URL(string: urlPath)!
+        print(url)
         var session : URLSession!
         let configuration = URLSessionConfiguration.default
-        
         session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
         let task = session.dataTask(with: url)
         
         task.resume()
-    }
-    
-    func urlSession(_ session: URLSession, didCompleteWithError error: Error?) {
-        if error != nil {
-            print("Failed To Download Data")
-        } else {
-            print("Data Downloaded")
-            self.parseJSON()
-        }
-    }
-    
-    func parseJSON() {
-        
-        let userArray : NSMutableArray = NSMutableArray()
-        
-        //This may be wrong
-        DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(userItems: userArray)
-            }
-        }
     }
 }

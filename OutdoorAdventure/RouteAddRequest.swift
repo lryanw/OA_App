@@ -16,16 +16,20 @@ class RouteAddRequest: NSObject, URLSessionDataDelegate {
     
     weak var delegate : RouteAddProtocol!
     
-    var data : NSMutableData = NSMutableData()
-    
     //This points to the PHP service
-    var urlPath : String = ""
+    var urlPath : String = "http://dasnr58.dasnr.okstate.edu/RouteAddRequest.php"
     
     init(color: String, overlay: String, name: String, rating: String, setter: String, rope: String) {
-        urlPath = urlPath + "?Color=" + color + "&Overlay=" + overlay + "&Name=" + name + "&Rating=" + "&Setter=" + "&Rope=" + rope
+        
+        //Fixes Issues with Naming
+        let tempSetter = setter.replacingOccurrences(of: " ", with: "_")
+        let tempName = name.replacingOccurrences(of: " ", with: "_")
+        
+        urlPath = urlPath + "?Color=" + color + "&Overlay=" + overlay + "&Name=" + tempName + "&Rating=" + rating + "&Setter=" + tempSetter + "&Rope=" + rope
     }
     
     func downloadItems() {
+        print(urlPath)
         let url : URL = URL(string: urlPath)!
         var session : URLSession!
         let configuration = URLSessionConfiguration.default
@@ -34,26 +38,5 @@ class RouteAddRequest: NSObject, URLSessionDataDelegate {
         let task = session.dataTask(with: url)
         
         task.resume()
-    }
-    
-    func urlSession(_ session: URLSession, didCompleteWithError error: Error?) {
-        if error != nil {
-            print("Failed To Download Data")
-        } else {
-            print("Data Downloaded")
-            self.parseJSON()
-        }
-    }
-    
-    func parseJSON() {
-        
-        let routeArray : NSMutableArray = NSMutableArray()
-        
-        //This may be wrong
-        DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(routeItems: routeArray)
-            }
-        }
     }
 }

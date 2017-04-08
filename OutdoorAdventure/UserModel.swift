@@ -10,17 +10,17 @@ import Foundation
 
 class UserModel: NSObject {
     
-    var firstName : String?
-    var lastName : String?
-    var profileImage : Int?
-    var email : String?
-    var isEmployee : String?
+    var firstName : String!
+    var lastName : String!
+    var profileImage : Int!
+    var email : String!
+    var isEmployee : Bool!
     
     override init() {
         
     }
     
-    init(fN: String, lN: String, pI: Int, e: String, iE: String) {
+    init(fN: String, lN: String, pI: Int, e: String, iE: Bool) {
         firstName = fN
         lastName = lN
         profileImage = pI

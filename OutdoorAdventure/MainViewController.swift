@@ -148,11 +148,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //Remove Rows from TableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if(editingStyle == UITableViewCellEditingStyle.delete) {
+        if(editingStyle == UITableViewCellEditingStyle.delete && user[0].4 == true) {
             
             //DATABASE SEND
             
             //Refresh
+            let newsModel = NewsRecieveModel()
+            newsModel.delegate = self
+            //newsModel.downloadItems()
+            
+            tableView.reloadData()
         }
     }
     
