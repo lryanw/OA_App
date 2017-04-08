@@ -18,7 +18,6 @@ class UserClimbingRemoveRequest: NSObject, URLSessionDataDelegate {
     }
     
     func downloadItems() {
-        print(urlPath)
         let url : URL = URL(string: urlPath)!
         var session : URLSession!
         let configuration = URLSessionConfiguration.default

@@ -51,12 +51,6 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         userClimbingModel.delegate = self
         userClimbingModel.downloadItems()
         
-        //Sets color to green if user isClimbing
-        if(isClimbing) {
-            circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.green, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
-            circleBackground.layer.shadowColor = UIColor.green.cgColor
-        }
-        
         //Shadows
         circleBackground.layer.shadowColor = UIColor.black.cgColor
         circleBackground.layer.shadowOpacity = 0.5
@@ -125,6 +119,12 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         }
         
         collectionView.reloadData()
+        
+        //Sets color to green if user isClimbing
+        if(isClimbing) {
+            circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.green, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
+            circleBackground.layer.shadowColor = UIColor.green.cgColor
+        }
     }
     
     //Number of items in the CollectionView
@@ -174,7 +174,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
             performSegue(withIdentifier: "CurrentlyClimbingToDatePicker", sender: sender)
         //Sign in warning
         } else {
-            let alertController = UIAlertController(title: "ALERT", message: "SIGN IN", preferredStyle: UIAlertControllerStyle.alert)
+            let alertController = UIAlertController(title: "", message: "SIGN IN TO SET TIME", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }

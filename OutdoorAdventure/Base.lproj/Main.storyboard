@@ -755,7 +755,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <connections>
                                             <action selector="startClimbingWithSender:" destination="s0P-Bi-XZD" eventType="touchUpInside" id="rZ4-57-oFi"/>
-                                            <segue destination="xOc-8H-Ewf" kind="showDetail" identifier="CurrentlyClimbingToDatePicker" id="GNl-PQ-5Mi"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1254,7 +1253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="maO-uH-swx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="629"/>
+            <point key="canvasLocation" x="1516" y="892"/>
         </scene>
         <!--My Gallery View Controller-->
         <scene sceneID="rFg-Oc-UuM">
@@ -1666,10 +1665,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TEm-a3-fMU"/>
-        <segue reference="7Th-Ao-Evw"/>
+        <segue reference="ggS-UP-PZK"/>
         <segue reference="xe6-r9-6mp"/>
-        <segue reference="83p-zm-uqW"/>
-        <segue reference="m6f-oa-dIh"/>
         <segue reference="vRs-ER-VUP"/>
+        <segue reference="aHN-BI-BGh"/>
     </inferredMetricsTieBreakers>
 </document>
