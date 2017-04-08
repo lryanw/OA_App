@@ -1,20 +1,20 @@
 //
-//  UserClimbingAddRequest.swift
+//  UserClimbingRemoveRequest.swift
 //  OutdoorAdventure
 //
-//  Created by Ryan Lee on 4/1/17.
+//  Created by Ryan Lee on 4/8/17.
 //  Copyright © 2017 Ryan Lee. All rights reserved.
 //
 
 import Foundation
 
-class UserClimbingAddRequest: NSObject, URLSessionDataDelegate {
-        
-    //This points to the PHP service
-    var urlPath : String = "http://dasnr58.dasnr.okstate.edu/UserClimbingAddRequest.php"
+class UserClimbingRemoveRequest: NSObject, URLSessionDataDelegate {
     
-    init(email: String, startHour: Int, startMin: Int, endHour: Int, endMin: Int) {
-        urlPath = urlPath + "?Email=\(email)&StartHour=\(startHour)&StartMin=\(startMin)&EndHour=\(endHour)&EndMin=\(endMin)"
+    //This points to the PHP service
+    var urlPath : String = "http://dasnr58.dasnr.okstate.edu/UserClimbingRemoveRequest.php"
+    
+    init(endHour: Int, endMin: Int) {
+        urlPath = urlPath + "?EndHour=\(endHour)&EndMin=\(endMin)"
     }
     
     func downloadItems() {

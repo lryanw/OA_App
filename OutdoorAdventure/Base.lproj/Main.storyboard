@@ -148,7 +148,7 @@
                                         </state>
                                         <connections>
                                             <action selector="createProfileWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O6m-Jy-Qle"/>
-                                            <segue destination="P2A-xZ-khs" kind="showDetail" identifier="LoginToCreateProfile" id="DT2-UR-cMo"/>
+                                            <segue destination="P2A-xZ-khs" kind="showDetail" identifier="LoginToCreateProfile" id="ykR-iC-rqU"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -306,7 +306,6 @@
                                 <connections>
                                     <action selector="createProfileWithSender:" destination="P2A-xZ-khs" eventType="touchUpInside" id="RPr-JD-4u0"/>
                                     <action selector="signInSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KRe-jM-Cg2"/>
-                                    <segue destination="BYZ-38-t0r" kind="showDetail" identifier="CreateProfileToLogin" id="yVr-h5-k7s"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apl-9L-DlE">
@@ -380,6 +379,7 @@
                         <outlet property="passwordTextField" destination="TLq-EQ-onB" id="BfM-EJ-5X9"/>
                         <outlet property="profileImage" destination="kfh-mH-Jge" id="KQx-5c-8q4"/>
                         <outlet property="profileImageButton" destination="cqB-a3-Mmz" id="b2r-oa-ado"/>
+                        <segue destination="BYZ-38-t0r" kind="showDetail" identifier="CreateProfileToLogin" id="tBS-fJ-TvD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0g8-tE-SdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -842,6 +842,7 @@
                         <outlet property="climbingButton" destination="8Ig-q4-hVT" id="9r4-U0-Fgb"/>
                         <outlet property="collectionView" destination="VhT-mK-uH6" id="CxA-4V-YT5"/>
                         <outlet property="topBar" destination="yfj-Qw-rQK" id="tgp-5x-rHV"/>
+                        <segue destination="xOc-8H-Ewf" kind="showDetail" identifier="CurrentlyClimbingToDatePicker" id="m6f-oa-dIh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FNj-vd-RgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1664,10 +1665,11 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1zQ-XG-Wt5"/>
-        <segue reference="1wt-S4-YFq"/>
-        <segue reference="xGw-S6-QZ3"/>
-        <segue reference="are-xu-43T"/>
+        <segue reference="TEm-a3-fMU"/>
+        <segue reference="7Th-Ao-Evw"/>
+        <segue reference="xe6-r9-6mp"/>
         <segue reference="83p-zm-uqW"/>
+        <segue reference="m6f-oa-dIh"/>
+        <segue reference="vRs-ER-VUP"/>
     </inferredMetricsTieBreakers>
 </document>

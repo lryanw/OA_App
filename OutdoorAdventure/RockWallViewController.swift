@@ -205,7 +205,13 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == UITableViewCellEditingStyle.delete && user[0].4 == true) {
             
+            let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell
+            
             //DATABASE SEND
+            let alertController = UIAlertController(title: "Delete Route?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { action in self.removeFromDB(rN: cell.routeName.text!) }))
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
             
             //Refresh
             let routeModel = RouteRecieveModel()
@@ -214,6 +220,18 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             
             tableView.reloadData()
         }
+    }
+    
+    func removeFromDB(rN: String) {
+        let routeRemoveModel = RouteRemoveRequest(name: rN)
+        routeRemoveModel.downloadItems()
+        
+        //Refresh
+        let routeModel = RouteRecieveModel()
+        routeModel.delegate = self
+        routeModel.downloadItems()
+        
+        routeTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

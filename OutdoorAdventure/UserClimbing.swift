@@ -10,14 +10,14 @@ import Foundation
 
 class UserClimbingModel: NSObject {
     
-    var firstName : String?
-    var lastName : String?
-    var profileImage : Int?
-    var email : String?
-    var startHour : Int?
-    var startMin : Int?
-    var endHour : Int?
-    var endMin : Int?
+    var firstName : String!
+    var lastName : String!
+    var profileImage : Int!
+    var email : String!
+    var startHour : Int!
+    var startMin : Int!
+    var endHour : Int!
+    var endMin : Int!
     
     override init() {
         

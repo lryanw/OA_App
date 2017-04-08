@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimePickerViewController: UIViewController,UserClimbingAddModelProtocol {
+class TimePickerViewController: UIViewController {
 
     //DatePickers
     @IBOutlet weak var startTime: UIDatePicker!
@@ -43,18 +43,13 @@ class TimePickerViewController: UIViewController,UserClimbingAddModelProtocol {
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         } else {
-            
+            print("Heere")
             //DATABASE SEND
-            //let userClimbingModel = UserClimbingAddRequest(email: user[0].2, startHour: startHour, startMin: startMin, endHour: endHour, endMin: endMin)
-            //userClimbingModel.delegate = self
-            //userClimbingModel.downloadItems()
+            let userClimbingModel = UserClimbingAddRequest(email: user[0].2, startHour: startHour, startMin: startMin, endHour: endHour, endMin: endMin)
+            userClimbingModel.downloadItems()
             
             performSegue(withIdentifier: "TimePickerToCurrentlyClimbing", sender: sender)
         }
-    }
-    
-    func itemsDownloaded(imageItems: NSArray) {
-        //
     }
     
     @IBAction func cancel(sender: UIButton) {

@@ -14,7 +14,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     @IBOutlet weak var climbingButton: UIButton!
     @IBOutlet weak var circleBackground: UIImageView!
     //Determines color
-    var isClimbing = false
+    var isClimbing : Bool = false
     
     //Toolbar for shadows
     @IBOutlet weak var topBar: UIToolbar!
@@ -24,7 +24,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     
     //Items from data base
     var feedItems: NSArray = NSArray()
-    var items: [(Int, String, String)] = [(1, "Christian Bailey", "6:00p-7:00p")]
+    var items: [(Int, String, String)] = []
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -37,10 +37,19 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
         circleBackground.layer.shadowColor = UIColor.black.cgColor
         
+        //REMOVE OLD TIMES FROM DATABASE
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        let min = calendar.component(.minute, from: date)
+        
+        let userClimbingDeleteModel = UserClimbingRemoveRequest(endHour: hour, endMin: min)
+        userClimbingDeleteModel.downloadItems()
+        
         //DATABASE RECIEVE
         let userClimbingModel = UserClimbingRecieveModel()
         userClimbingModel.delegate = self
-        //userClimbingModel.downloadItems()
+        userClimbingModel.downloadItems()
         
         //Sets color to green if user isClimbing
         if(isClimbing) {
@@ -70,14 +79,17 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         // Dispose of any resources that can be recreated.
     }
     
-    func itemsDownloaded(imageItems: NSArray) {
-        feedItems = imageItems
+    func itemsDownloaded(userClimbingItems: NSArray) {
+        feedItems = userClimbingItems
+        
+        items.removeAll()
         
         //Change NSArray to items Tuple
         for i in 0 ..< feedItems.count {
             let userClimbing = feedItems[i] as! UserClimbingModel
-            items[i].0 = userClimbing.profileImage!
-            items[i].1 = "\(userClimbing.firstName) \(userClimbing.lastName)"
+            
+            let profileImage = userClimbing.profileImage!
+            let name = "\(userClimbing.firstName!) \(userClimbing.lastName!)"
             
             //Set up time
             var sH = userClimbing.startHour!
@@ -92,13 +104,27 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
                 eH = eH - 12
                 eTime = "p"
             }
-            items[i].2 = "\(sH):\(userClimbing.startMin)" + sTime + "-" + "\(eH):\(userClimbing.endMin)" + eTime
+            
+            var sM : String!
+            var eM : String!
+            
+            if(userClimbing.startMin! < 10) { sM = "0\(userClimbing.startMin!)" }
+            else { sM = "\(userClimbing.startMin!)" }
+            
+            if(userClimbing.endMin! < 10) { eM = "0\(userClimbing.endMin!)" }
+            else { eM = "\(userClimbing.endMin!)" }
+            
+            let time = "\(sH):\(sM!)" + sTime + "-" + "\(eH):\(eM!)" + eTime
+            
+            items.append((profileImage, name, time))
             
             //If your email matches a user in the DB set isClimbing = true
-            if(userClimbing.email == user[0].2) {
+            if(userClimbing.email?.caseInsensitiveCompare(user[0].2) == .orderedSame) {
                 isClimbing = true
             }
         }
+        
+        collectionView.reloadData()
     }
     
     //Number of items in the CollectionView
@@ -133,7 +159,9 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     @IBAction func startClimbing(sender: UIButton) {
         
         //If not a guest the button can be pressed
-        if(user[0].1 != "Guest") { isClimbing = !isClimbing }
+        if(!(user[0].2.caseInsensitiveCompare("Guest") == .orderedSame) == true) {
+            isClimbing = !isClimbing
+        }
         
         //Sets color to green
         if(isClimbing) {
@@ -142,14 +170,13 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         }
         
         //Set time to climb
-        if(user[0].1 != "Guest") {
+        if(!(user[0].2.caseInsensitiveCompare("Guest") == .orderedSame) == true) {
             performSegue(withIdentifier: "CurrentlyClimbingToDatePicker", sender: sender)
         //Sign in warning
         } else {
             let alertController = UIAlertController(title: "ALERT", message: "SIGN IN", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
-
         }
     }
     

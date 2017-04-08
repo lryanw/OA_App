@@ -53,6 +53,8 @@
 		2D66E3991E3D81A000AF7D61 /* Camo_Overlay_Circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D66E3981E3D81A000AF7D61 /* Camo_Overlay_Circle.png */; };
 		2D67EBD51E6F8B9D0014FC36 /* Celtic_Knot_Edit_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D67EBD41E6F8B9D0014FC36 /* Celtic_Knot_Edit_2.png */; };
 		2D67EBD71E6F9B020014FC36 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D67EBD61E6F9B020014FC36 /* CreateProfileViewController.swift */; };
+		2D683DFC1E9929F3006C3B3D /* RouteRemoveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D683DFB1E9929F3006C3B3D /* RouteRemoveRequest.swift */; };
+		2D683DFE1E994758006C3B3D /* UserClimbingRemoveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D683DFD1E994758006C3B3D /* UserClimbingRemoveRequest.swift */; };
 		2D69D1611E7EFD1500559FE4 /* TimePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D69D1601E7EFD1500559FE4 /* TimePickerViewController.swift */; };
 		2D7475261E8DF3B90037A3EE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7475251E8DF3B90037A3EE /* UserModel.swift */; };
 		2D7475281E8DF4D50037A3EE /* UserRecieveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7475271E8DF4D50037A3EE /* UserRecieveModel.swift */; };
@@ -152,6 +154,8 @@
 		2D66E3981E3D81A000AF7D61 /* Camo_Overlay_Circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camo_Overlay_Circle.png; sourceTree = "<group>"; };
 		2D67EBD41E6F8B9D0014FC36 /* Celtic_Knot_Edit_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Celtic_Knot_Edit_2.png; sourceTree = "<group>"; };
 		2D67EBD61E6F9B020014FC36 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
+		2D683DFB1E9929F3006C3B3D /* RouteRemoveRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteRemoveRequest.swift; sourceTree = "<group>"; };
+		2D683DFD1E994758006C3B3D /* UserClimbingRemoveRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserClimbingRemoveRequest.swift; sourceTree = "<group>"; };
 		2D69D1601E7EFD1500559FE4 /* TimePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimePickerViewController.swift; sourceTree = "<group>"; };
 		2D7475251E8DF3B90037A3EE /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		2D7475271E8DF4D50037A3EE /* UserRecieveModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRecieveModel.swift; sourceTree = "<group>"; };
@@ -387,9 +391,11 @@
 				2D7475291E8DF75D0037A3EE /* UserClimbing.swift */,
 				2D74752B1E8DF8380037A3EE /* UserClimbingRecieveModel.swift */,
 				2D25FFC01E90936C00136DEC /* UserClimbingAddRequest.swift */,
+				2D683DFD1E994758006C3B3D /* UserClimbingRemoveRequest.swift */,
 				2D74752E1E8DF93A0037A3EE /* RouteModel.swift */,
 				2D7475301E8DFA640037A3EE /* RouteRecieveModel.swift */,
 				2D25FFC21E90959600136DEC /* RouteAddRequest.swift */,
+				2D683DFB1E9929F3006C3B3D /* RouteRemoveRequest.swift */,
 				2D7475321E8DFBE10037A3EE /* ImageModel.swift */,
 				2D7475341E8DFC400037A3EE /* ImageRecieveModel.swift */,
 				2D25FFC41E909A3F00136DEC /* ImageAddRequest.swift */,
@@ -659,6 +665,7 @@
 				2D6025891E4112C5008BFA5A /* CurrentlyClimbingViewController.swift in Sources */,
 				2D525BFA1E27211E00A06B25 /* TableViewCell_NewsTableViewCell.swift in Sources */,
 				2DF4E10B1E2EDD99009153EA /* routeTableViewCell.swift in Sources */,
+				2D683DFE1E994758006C3B3D /* UserClimbingRemoveRequest.swift in Sources */,
 				2D25FFBD1E90917500136DEC /* UserAddRequest.swift in Sources */,
 				2D6175F21E78D4680062E6A1 /* CreateRouteViewController.swift in Sources */,
 				2D67EBD71E6F9B020014FC36 /* CreateProfileViewController.swift in Sources */,
@@ -669,6 +676,7 @@
 				2D69D1611E7EFD1500559FE4 /* TimePickerViewController.swift in Sources */,
 				2DF4E10D1E2EE7EB009153EA /* calendarTableViewCell.swift in Sources */,
 				2D5116E11E5D0BE900E68AB0 /* ZoomedPhotoUIViewController.swift in Sources */,
+				2D683DFC1E9929F3006C3B3D /* RouteRemoveRequest.swift in Sources */,
 				2D66E3971E3D15E000AF7D61 /* ImageTransformer.swift in Sources */,
 				2DA2CA831E22D928003F0462 /* AppDelegate.swift in Sources */,
 				2D7475331E8DFBE10037A3EE /* ImageModel.swift in Sources */,
