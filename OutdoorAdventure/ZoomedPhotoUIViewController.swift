@@ -21,7 +21,7 @@ class ZoomedPhotoUIViewController: UIViewController {
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageviewTrailingConstraint: NSLayoutConstraint!
     
-    var currImage = UIImage(named: "background_1.jpg")!
+    var currImage : String!
     var senderString : String!
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
@@ -36,18 +36,13 @@ class ZoomedPhotoUIViewController: UIViewController {
             deleteButton.isHidden = true
         }
         
-        imageView.image = currImage
-        imageView.frame.size = (currImage.size)
+        imageView.downloadedFrom(url: URL(string: "http://dasnr58.dansr.okstate.edu/Images/" + currImage)!)
+        //imageView.frame.size = (imageView.image?.size)!
         
         let tapSelector : Selector = #selector(ZoomedPhotoUIViewController.handleTap)
         let tapGesture = UITapGestureRecognizer(target: self, action: tapSelector)
         tapGesture.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(tapGesture)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        imageView.image = currImage
-        imageView.frame.size = (currImage.size)
     }
     
     func handleTap() {
@@ -119,16 +114,6 @@ class ZoomedPhotoUIViewController: UIViewController {
             destinationVC.user = self.user
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
     //For image viewer
-    var imageToPass : UIImage!
+    var imageToPass : String!
     
     //Profile Name, Post Date, ProfileImage, News Text, News Image
     var items: [(String, String, Int, String, UIImage)] = [
@@ -172,7 +172,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Go to imageViewer
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let tempView = tapGestureRecognizer.view as! UIImageView
-        imageToPass = tempView.image
+        imageToPass = "Images/3-29-2017_001.png"
         
         performSegue(withIdentifier: "NewsToImageViewer", sender: self)
     }

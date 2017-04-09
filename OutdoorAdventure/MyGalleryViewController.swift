@@ -26,9 +26,10 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     
     //Images in the CollectionView
     var feedItems : NSArray!
-    var items: [UIImage] = [UIImage(named:"background_1.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!, UIImage(named:"background_2.jpg")!]
+    var items: [UIImage] = []
+    var itemsPath : [String] = []
     
-    var imageToPass : UIImage!
+    var imageToPass : String!
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -42,7 +43,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         //DATABASE RECIEVE
         let imageModel = ImageRecieveModel()
         imageModel.delegate = self
-        //imageModel.downloadItems()
+        imageModel.downloadItems()
         
         if(!user[0].4) {
             button_Add.isHidden = true
@@ -65,29 +66,26 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         // Dispose of any resources that can be recreated.
     }
     
+
     func itemsDownloaded(imageItems: NSArray) {
         feedItems = imageItems
-        items = [UIImage]()
+        
+        items.removeAll()
         
         for i in 0 ..< feedItems.count {
             let imageModel = feedItems[i] as! ImageModel
             
-            //Get Image from Image Path
-            if let url = NSURL(string: imageModel.imagePath!) {
-                if let data = NSData(contentsOf: url as URL) {
-                    let currImage = UIImage(data: data as Data)
-                    
-                    items.append(currImage!)
-                }
-            }
+            itemsPath.append(imageModel.imagePath!)
         }
+        
+        collectionView.reloadData()
     }
 
     //-----------------------------------------Set up CollectionView------------------------------------------------
     
     //Number of items in the CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.items.count
+        return self.itemsPath.count
     }
     
     //Sets up the cell in the CollectionView
@@ -95,16 +93,18 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
         
         //Sets the image in the CollectionView cell
-        cell.cellImage.image = self.items[indexPath.item]
+        //cell.cellImage.image = self.items[indexPath.item]
+        cell.getImage(path: self.itemsPath[indexPath.item])
         
         return cell
     }
     
     //If an image is pressed
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
         //Passes the image in a segue
-        imageToPass = items[indexPath.item]
+        imageToPass = itemsPath[indexPath.item]
+        
         performSegue(withIdentifier: "GallaryToImageViewer", sender: collectionView)
     }
 

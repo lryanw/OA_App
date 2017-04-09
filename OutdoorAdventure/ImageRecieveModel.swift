@@ -16,61 +16,47 @@ class ImageRecieveModel: NSObject, URLSessionDataDelegate {
     
     weak var delegate : ImageModelProtocol!
     
-    var data : NSMutableData = NSMutableData()
+    var listData : [[String: AnyObject]]!
     
     //This points to the PHP service
-    let urlPath : String = ""
+    let urlPath : String = "http://dasnr58.dasnr.okstate.edu/ImageRequest.php"
     
     func downloadItems() {
-        let url : URL = URL(string: urlPath)!
-        var session : URLSession!
-        let configuration = URLSessionConfiguration.default
+        let urlRequest = URL(string: urlPath)
         
-        session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-        let task = session.dataTask(with: url)
-        
-        task.resume()
-    }
-    
-    func urlSession(_ session: URLSession, didCompleteWithError error: Error?) {
-        if error != nil {
-            print("Failed To Download Data")
-        } else {
-            print("Data Downloaded")
-            self.parseJSON()
-        }
-    }
-    
-    func parseJSON() {
-        var jsonResult : NSMutableArray = NSMutableArray()
-        
-        do {
-            jsonResult = try JSONSerialization.jsonObject(with: self.data as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSMutableArray
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        var jsonElement : NSDictionary = NSDictionary()
-        let imageArray : NSMutableArray = NSMutableArray()
-        
-        for i in 0 ..< jsonResult.count {
-            
-            jsonElement = jsonResult[i] as! NSDictionary
-            
-            let image = ImageModel()
-            
-            if let imagePath = jsonElement["ImagePath"] as? String {
+        URLSession.shared.dataTask(with: urlRequest!, completionHandler: {
+            (data, response, error) in
+            if(error != nil) {
+                print(error.debugDescription)
+            } else {
+                let imageArray : NSMutableArray = NSMutableArray()
                 
-                image.imagePath = imagePath
+                do {
+                    self.listData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [[String: AnyObject]]
+                    OperationQueue.main.addOperation {
+                        for i in 0 ..< self.listData.count {
+                            
+                            let imageModel = ImageModel()
+                            
+                            let jsonElement = self.listData[i]
+                            
+                            let imagePath = jsonElement["ImagePath"] as! String
+                            
+                            imageModel.imagePath = imagePath
+                            
+                            imageArray.add(imageModel)
+                        }
+                    }
+                    
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        DispatchQueue.main.async {
+                            self.delegate.itemsDownloaded(imageItems: imageArray)
+                        }
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }
             }
-            imageArray.add(image)
-        }
-        
-        //This may be wrong
-        DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(imageItems: imageArray)
-            }
-        }
+        }).resume()
     }
 }
