@@ -21,7 +21,8 @@ class ZoomedPhotoUIViewController: UIViewController {
     @IBOutlet weak var imageViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var imageviewTrailingConstraint: NSLayoutConstraint!
     
-    var currImage : String!
+    var currImage : UIImage!
+    var currImageSize : CGSize!
     var senderString : String!
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
@@ -36,8 +37,9 @@ class ZoomedPhotoUIViewController: UIViewController {
             deleteButton.isHidden = true
         }
         
-        imageView.downloadedFrom(url: URL(string: "http://dasnr58.dansr.okstate.edu/Images/" + currImage)!)
-        //imageView.frame.size = (imageView.image?.size)!
+        //imageView.downloadedFrom(url: URL(string: "http://dasnr58.dansr.okstate.edu/Images/" + currImage)!)
+        imageView.image = currImage
+        imageView.frame.size = (currImageSize)!
         
         let tapSelector : Selector = #selector(ZoomedPhotoUIViewController.handleTap)
         let tapGesture = UITapGestureRecognizer(target: self, action: tapSelector)

@@ -16,71 +16,57 @@ class NewsRecieveModel: NSObject, URLSessionDataDelegate {
     
     weak var delegate : NewsModelProtocol!
     
-    var data : NSMutableData = NSMutableData()
+    var listData : [[String: AnyObject]]!
     
     //This points to the PHP service
-    let urlPath : String = ""
+    let urlPath : String = "http://dasnr58.dasnr.okstate.edu/NewsRequest.php"
     
     func downloadItems() {
-        let url : URL = URL(string: urlPath)!
-        var session : URLSession!
-        let configuration = URLSessionConfiguration.default
+        let urlRequest = URL(string: urlPath)
         
-        session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
-        let task = session.dataTask(with: url)
-        
-        task.resume()
-    }
-    
-    func urlSession(_ session: URLSession, didCompleteWithError error: Error?) {
-        if error != nil {
-            print("Failed To Download Data")
-        } else {
-            print("Data Downloaded")
-            self.parseJSON()
-        }
-    }
-    
-    func parseJSON() {
-        var jsonResult : NSMutableArray = NSMutableArray()
-        
-        do {
-            jsonResult = try JSONSerialization.jsonObject(with: self.data as Data, options: JSONSerialization.ReadingOptions.allowFragments) as! NSMutableArray
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        var jsonElement : NSDictionary = NSDictionary()
-        let newsArray : NSMutableArray = NSMutableArray()
-        
-        for i in 0 ..< jsonResult.count {
-            
-            jsonElement = jsonResult[i] as! NSDictionary
-            
-            let news = NewsModel()
-            
-            if let firstName = jsonElement["FirstName"] as? String,
-                let lastName = jsonElement["LastName"] as? String,
-                let date = jsonElement["PostDate"] as? String,
-                let profileImage = jsonElement["ProfileImage"] as? Int,
-                let newsText = jsonElement["NewsText"] as? String,
-                let imagePath = jsonElement["ImagePath"] as? String {
+        URLSession.shared.dataTask(with: urlRequest!, completionHandler: {
+            (data, response, error) in
+            if(error != nil) {
+                print(error.debugDescription)
+            } else {
+                let newsArray : NSMutableArray = NSMutableArray()
                 
-                news.firstName = firstName
-                news.lastName = lastName
-                news.date = date
-                news.profileImage = profileImage
-                news.newsText = newsText
-                news.imagePath = imagePath
+                do {
+                    self.listData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [[String: AnyObject]]
+                    OperationQueue.main.addOperation {
+                        for i in 0 ..< self.listData.count {
+                            
+                            let news = NewsModel()
+                            
+                            let jsonElement = self.listData[i]
+                            
+                            let firstName = jsonElement["FirstName"] as! String
+                            let lastName = jsonElement["LastName"] as! String
+                            let date = jsonElement["PostDate"] as! String
+                            let profileImage = Int(jsonElement["ProfileImage"] as! String)
+                            let newsText = jsonElement["NewsText"] as! String
+                            let imagePath = jsonElement["ImagePath"] as! String
+                                
+                            news.firstName = firstName
+                            news.lastName = lastName
+                            news.date = date
+                            news.profileImage = profileImage
+                            news.newsText = newsText
+                            news.imagePath = imagePath
+                                                            
+                            newsArray.add(news)
+                        }
+                    }
+                    
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        DispatchQueue.main.async {
+                            self.delegate.itemsDownloaded(newsItems: newsArray)
+                        }
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }
             }
-            newsArray.add(news)
-        }
-        
-        //This may be wrong
-        DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(newsItems: newsArray)
-            }
-        }
+        }).resume()
     }
 }

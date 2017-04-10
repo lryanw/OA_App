@@ -29,7 +29,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     var items: [UIImage] = []
     var itemsPath : [String] = []
     
-    var imageToPass : String!
+    var imageToPass : UIImage!
+    var imageSizeToPass : CGSize!
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -103,7 +104,10 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         //Passes the image in a segue
-        imageToPass = itemsPath[indexPath.item]
+        let cell = collectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
+        imageToPass = cell.cellImage.image
+        imageSizeToPass = cell.imageSize
+        print(imageSizeToPass)
         
         performSegue(withIdentifier: "GallaryToImageViewer", sender: collectionView)
     }
@@ -169,6 +173,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         if(segue.identifier == "GallaryToImageViewer") {
             let destinationVC = segue.destination as! ZoomedPhotoUIViewController
             destinationVC.currImage = imageToPass
+            destinationVC.currImageSize = imageSizeToPass
             destinationVC.senderString = "Gallary"
             destinationVC.user = self.user
         } else if(segue.identifier == "GallaryToRockWall") {

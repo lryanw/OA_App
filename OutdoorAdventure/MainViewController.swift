@@ -26,14 +26,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
     //For image viewer
-    var imageToPass : String!
+    var imageToPass : UIImage!
+    var imageSizeToPass : CGSize!
     
     //Profile Name, Post Date, ProfileImage, News Text, News Image
-    var items: [(String, String, Int, String, UIImage)] = [
-        ("Outdoor Adventure", "Day 1", 0, "OMG OMG OMG", UIImage(named: "background_2.jpg")!),
-        ("Outdoor Adventure", "Day 2", 0, "IMNJHNSDFJHDSLFJ SDLFJHSDFJHSDLFJH", UIImage(named: "background_1.jpg")!),
-        ("Outdoor Adventure", "Day 3", 0, "IMG IMSDFKJ IODMDJNSFO ISDFLKNSDFL IDMSFLS", UIImage(named: "background_2.jpg")!)
-    ]
+    var items: [(String, String, Int, String, String)] = []
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -41,11 +38,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()      
         // Do any additional setup after loading the view.
-
+        
         //DATABASE RECIEVE
         let newsModel = NewsRecieveModel()
         newsModel.delegate = self
-        //newsModel.downloadItems()
+        newsModel.downloadItems()
         
         if(!user[0].4) {
             button_Add.isHidden = true
@@ -71,7 +68,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func itemsDownloaded(newsItems userItems: NSArray) {
         let feedItems : NSArray = userItems
-        items = [(String, String, Int, String, UIImage)]()
+        
+        items.removeAll()
         
         //Change NSArray to items Tuple
         for i in 0 ..< feedItems.count {
@@ -80,14 +78,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let userName = news.firstName! + " " + news.lastName!
             
             //Get Image from Image Path
-            if let url = NSURL(string: news.imagePath!) {
-                if let data = NSData(contentsOf: url as URL) {
-                    let currImage = UIImage(data: data as Data)
-                    
-                    items.append((userName, news.date!, news.profileImage!, news.newsText!, currImage!))
-                }        
-            }
+            items.append((userName, news.date!, news.profileImage!, news.newsText!, news.imagePath!))
         }
+        
+        tableView_News.reloadData()
     }
     
     //Number of rows in the TableView
@@ -108,8 +102,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 cell.news_ProfileImage.layer.borderWidth = 1
                 cell.news_ProfileImage.layer.borderColor = UIColor.black.cgColor
             }
+            
             cell.news_Text.text = items[indexPath.row/2].3
-            cell.news_Image.image = items[indexPath.row/2].4
+            cell.getImage(path: items[indexPath.row/2].4)
             
             //Resize TextView Height
             let contentSize = cell.news_Text.sizeThatFits(cell.news_Text.bounds.size)
@@ -128,23 +123,33 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    //Change Height of Cell
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        tableView_News.estimatedRowHeight = 700
+        
+        cell.animate()
+    }
+    
+    /*Change Height of Cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        //let cell = tableView_News.cellForRow(at: indexPath) as! TableViewCell_NewsTableViewCell
         
         if(indexPath.row % 2 == 0) {
             
-            //Resize ImageView Height
-            let imageWidth = items[indexPath.row/2].4.size.width
-            let imageHeight = items[indexPath.row/2].4.size.height
+            /*Resize ImageView Height
+            let imageWidth = cell.news_Image.image!.size.width
+            let imageHeight = cell.news_Image.image!.size.height
             let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth
             
             let currentString = items[indexPath.row/2].3
             
-            return tableView_News.rowHeight + newHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + (20 * tableView_News.frame.width)/414 ///20
+            return tableView_News.rowHeight + newHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + (20 * tableView_News.frame.width)/414 ///20*/
+            return 500
         } else {
             return 10
         }
-    }
+    }*/
     
     //Remove Rows from TableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -172,7 +177,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //Go to imageViewer
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         let tempView = tapGestureRecognizer.view as! UIImageView
-        imageToPass = "Images/3-29-2017_001.png"
+        imageToPass = tempView.image
+        imageSizeToPass = tempView.image!.size
         
         performSegue(withIdentifier: "NewsToImageViewer", sender: self)
     }
@@ -202,6 +208,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if(segue.identifier == "NewsToImageViewer") {
             let destinationVC = segue.destination as! ZoomedPhotoUIViewController
             destinationVC.currImage = imageToPass
+            destinationVC.currImageSize = imageSizeToPass
             destinationVC.senderString = "News"
             destinationVC.user = self.user
         } else if(segue.identifier == "NewsToGallery") {
@@ -217,6 +224,21 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let destinationVC = segue.destination as! CreateNewsViewController
             destinationVC.user = self.user
         }
+    }
+}
+
+extension UITableViewCell {
+    func animate() {
+        let view = self.contentView
+        view.layer.opacity = 0.1
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: { () -> Void in view.layer.opacity = 1 }, completion: nil)
+    }
+}
+
+extension UIImageView {
+    func animate() {
+        self.layer.opacity = 0.1
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: { () -> Void in self.layer.opacity = 1 }, completion: nil)
     }
 }
 
