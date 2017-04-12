@@ -43,8 +43,7 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             DispatchQueue.main.async() { () -> Void in
-                print("HERE")
-                
+               
                 self.image = image
                 newsCell.imageSize = image.size
                 
