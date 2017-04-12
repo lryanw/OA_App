@@ -53,6 +53,8 @@ class NewsRecieveModel: NSObject, URLSessionDataDelegate {
                             news.profileImage = profileImage
                             news.newsText = newsText
                             news.imagePath = imagePath
+                            
+                            news.getImage()
                                                             
                             newsArray.add(news)
                         }

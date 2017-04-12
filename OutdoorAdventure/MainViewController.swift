@@ -30,7 +30,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var imageSizeToPass : CGSize!
     
     //Profile Name, Post Date, ProfileImage, News Text, News Image
-    var items: [(String, String, Int, String, String)] = []
+    var items: [(String, String, Int, String, String, Bool, UIImage)] = []
+    var itemsImage: [UIImage] = []
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -66,6 +67,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    func setRowToReload(index: IndexPath, image: UIImage) {
+        items[index.row/2].5 = true
+        items[index.row/2].6 = image
+    }
+    
     func itemsDownloaded(newsItems userItems: NSArray) {
         let feedItems : NSArray = userItems
         
@@ -78,7 +84,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let userName = news.firstName! + " " + news.lastName!
             
             //Get Image from Image Path
-            items.append((userName, news.date!, news.profileImage!, news.newsText!, news.imagePath!))
+            items.append((userName, news.date!, news.profileImage!, news.newsText!, news.imagePath!, false, ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2))))
         }
         
         tableView_News.reloadData()
@@ -95,6 +101,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell_NewsTableViewCell
             
             //Set Cell Up
+            cell.cellIndex = indexPath
+            
             cell.news_Profile.text = items[indexPath.row/2].0
             cell.news_Date.text = items[indexPath.row/2].1
             cell.news_ProfileImage.image = UIImage(named: "\(items[indexPath.row/2].2).jpg")
@@ -104,7 +112,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             }
             
             cell.news_Text.text = items[indexPath.row/2].3
-            cell.getImage(path: items[indexPath.row/2].4)
+            cell.tableView = tableView_News
+            cell.source = self
+            
+            if(items[indexPath.row/2].5 == false) { cell.getImage(path: items[indexPath.row/2].4) }
+            if(items[indexPath.row/2].5 == true) {
+                cell.news_Image.image = items[indexPath.row/2].6
+            }
             
             //Resize TextView Height
             let contentSize = cell.news_Text.sizeThatFits(cell.news_Text.bounds.size)
@@ -125,31 +139,37 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        tableView_News.estimatedRowHeight = 700
-        
         cell.animate()
     }
     
-    /*Change Height of Cell
+    //Change Height of Cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        //let cell = tableView_News.cellForRow(at: indexPath) as! TableViewCell_NewsTableViewCell
-        
-        if(indexPath.row % 2 == 0) {
+
+        if (indexPath.row % 2 == 0 && items[indexPath.row/2].5 == false) {
             
-            /*Resize ImageView Height
-            let imageWidth = cell.news_Image.image!.size.width
-            let imageHeight = cell.news_Image.image!.size.height
+            let removeHeight = (50 * tableView_News.frame.width)/tableView_News.frame.height
+            
+            let currentString = items[indexPath.row/2].3
+            
+            return (tableView_News.rowHeight - removeHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + (20 * tableView_News.frame.width)/414 - (60 * tableView_News.frame.width)/tableView_News.frame.height)
+            
+        } else if(indexPath.row % 2 == 0 && items[indexPath.row/2].5 == true) {
+            
+            //Resize ImageView Height
+            
+            let imageWidth = items[indexPath.row/2].6.size.width
+            let imageHeight = items[indexPath.row/2].6.size.height
             let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth
             
             let currentString = items[indexPath.row/2].3
             
-            return tableView_News.rowHeight + newHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + (20 * tableView_News.frame.width)/414 ///20*/
-            return 500
+            return (tableView_News.rowHeight  + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + newHeight - (78 * tableView_News.frame.width)/tableView_News.frame.height)
+                //+ (20 * tableView_News.frame.width)/414)
+            
         } else {
             return 10
         }
-    }*/
+    }
     
     //Remove Rows from TableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -167,7 +187,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if(user[0].4) {
+        if(user[0].4 && indexPath.row % 2 == 0) {
             return true
         } else {
             return false

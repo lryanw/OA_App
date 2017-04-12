@@ -8,21 +8,20 @@
 
 import Foundation
 
-protocol NewsAddModelProtocol: class {
-    func itemsDownloaded(newsItems: NSArray)
-}
-
-class NewsAddModel: NSObject, URLSessionDataDelegate {
-    
-    weak var delegate : NewsAddModelProtocol!
-    
-    var data : NSMutableData = NSMutableData()
+class NewsAddRequest: NSObject, URLSessionDataDelegate {
+        
+    var listData : [[String: AnyObject]]!
     
     //This points to the PHP service
-    var urlPath : String = ""
+    var urlPath : String = "https://dasnr58.dasnr.okstate.edu/NewsAddRequest.php"
     
-    init(email: String, newsDate: String, newsText: String, imagePath: String) {
-        urlPath = urlPath + "?FirstName=" + email + "&NewsDate=" + newsDate + "&NewsText=" + newsText + "&ImagePath=" + imagePath
+    var imagePath : String!
+    
+    init(email: String, newsDate: String, newsText: String) {
+        
+        let newsTextTemp = newsText.replacingOccurrences(of: " ", with: "_")
+        
+        urlPath = urlPath + "?Email=" + email + "&NewsDate=" + newsDate + "&NewsText=" + newsTextTemp + "&ImagePath="
     }
     
     func downloadItems() {
@@ -36,24 +35,58 @@ class NewsAddModel: NSObject, URLSessionDataDelegate {
         task.resume()
     }
     
-    func urlSession(_ session: URLSession, didCompleteWithError error: Error?) {
-        if error != nil {
-            print("Failed To Download Data")
-        } else {
-            print("Data Downloaded")
-            self.parseJSON()
-        }
-    }
-    
-    func parseJSON() {
-
-        let newsArray : NSMutableArray = NSMutableArray()
+    func getLastImagePath() {
+        let urlRequest = URL(string: urlPath)
         
-        //This may be wrong
-        DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(newsItems: newsArray)
+        URLSession.shared.dataTask(with: urlRequest!, completionHandler: {
+            (data, response, error) in
+            if(error != nil) {
+                print(error.debugDescription)
+            } else {
+                let imageArray : NSMutableArray = NSMutableArray()
+                
+                do {
+                    self.listData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [[String: AnyObject]]
+                    OperationQueue.main.addOperation {
+                        for i in 0 ..< self.listData.count {
+                            
+                            let image = ImageModel()
+                            
+                            let jsonElement = self.listData[i]
+                            
+                            let imagePath = jsonElement["ImagePath"] as! String
+
+                            image.imagePath = imagePath
+                            
+                            imageArray.add(image)
+                        }
+                    }
+                    
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        DispatchQueue.main.async {
+                            let image = imageArray[0] as! ImageModel
+                            self.imagePath = image.imagePath
+                            
+                            //Gets the name of the last image (Which should be numbered) and increases the number by one
+                            var imageName : Int!
+                            
+                            //Removes the file type
+                            if(self.imagePath.contains(".jpg")) {
+                                self.imagePath = self.imagePath.replacingOccurrences(of: ".jpg", with: "")
+                            } else if(self.imagePath.contains(".png")) {
+                                self.imagePath = self.imagePath.replacingOccurrences(of: ".jpg", with: "")
+                            }
+                            imageName = Int(self.imagePath)! + 1
+                            self.urlPath = self.urlPath + "\(imageName)"
+                            
+                            //Now the path has been created, add it to sql
+                            self.downloadItems()
+                        }
+                    }
+                } catch let error as NSError {
+                    print(error)
+                }
             }
-        }
+        }).resume()
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate, NewsAddModelProtocol  {
+class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate  {
 
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -40,15 +40,29 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         let postDate = "\(month)/\(day)"
         
         //DATABASE SEND
-        //let newsModel = NewsAddRequest(email: user[0].2, newsDate: postDate, newsText: textView.text, imagePath: )
-        //newsModel.delegate = self
-        //newsModel.downloadItems()
+        uploadImage()
+        
+        //Gets the name of the last image in the server
+        let newsModel = NewsAddRequest(email: user[0].2, newsDate: postDate, newsText: textView.text)
+        newsModel.getLastImagePath()
         
         performSegue(withIdentifier: "CreateNewsToNews", sender: sender)
     }
     
-    func itemsDownloaded(newsItems: NSArray) {
-        //
+    func uploadImage() {
+        
+        //If an image has not been picked
+        if(imageView.image == nil) {
+            let alertController = UIAlertController(title: "NO IMAGE SELECTED", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+            
+            return
+        }
+        
+        let imageData = UIImageJPEGRepresentation(imageView.image!, 1)
+        
+        if(imageData == nil) { return }
     }
     
     @IBAction func cancel(sender: UIButton) {

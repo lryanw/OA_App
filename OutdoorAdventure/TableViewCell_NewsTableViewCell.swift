@@ -18,24 +18,22 @@ class TableViewCell_NewsTableViewCell: UITableViewCell {
     
     var imageSize : CGSize!
     
+    var cellIndex : IndexPath!
+    
+    var tableView : UITableView!
+    var source : MainViewController!
+    
     override func awakeFromNib() {
         news_ProfileImage = ImageTransformer.roundImageView(imageView: news_ProfileImage)
     }
     
     func getImage(path: String) {
-        news_Image.downloadedFrom(url: URL(string: "http://dasnr58.dasnr.okstate.edu/Images/" + path)!, newsCell: self)
+        news_Image.downloadedFrom(url: URL(string: "http://dasnr58.dasnr.okstate.edu/Images/" + path)!, newsCell: self, source: self.source)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
 
 extension UIImageView {
-    func downloadedFrom(url: URL, newsCell: TableViewCell_NewsTableViewCell, contentMode mode: UIViewContentMode = .scaleAspectFit) {
+    func downloadedFrom(url: URL, newsCell: TableViewCell_NewsTableViewCell, source: MainViewController, contentMode mode: UIViewContentMode = .scaleAspectFit) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             guard
@@ -45,8 +43,15 @@ extension UIImageView {
                 let image = UIImage(data: data)
                 else { return }
             DispatchQueue.main.async() { () -> Void in
+                print("HERE")
+                
                 self.image = image
                 newsCell.imageSize = image.size
+                
+                //newsCell.news_Image.frame.size = CGSize(width: newsCell.tableView.frame.width, height: ((image.size.height *  newsCell.tableView.frame.width)/image.size.width))
+                
+                newsCell.source.setRowToReload(index: newsCell.cellIndex, image: image)
+                newsCell.tableView.reloadRows(at: [newsCell.cellIndex], with: .none)
             }
         }.resume()
     }
