@@ -105,9 +105,11 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         
         //Passes the image in a segue
         let cell = collectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
+       
+        if(cell.cellImage.image == nil) { return }
+        
         imageToPass = cell.cellImage.image
         imageSizeToPass = cell.imageSize
-        print(imageSizeToPass)
         
         performSegue(withIdentifier: "GallaryToImageViewer", sender: collectionView)
     }
@@ -119,6 +121,10 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         let size = CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.width / 2))
         
         return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        cell.animate()
     }
     
     //--------------------------------------Gets image from gallery-------------------------------------------------
@@ -187,5 +193,13 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
             destinationVC.user = self.user
         }
 
+    }
+}
+
+extension UICollectionViewCell {
+    func animate() {
+        let view = self.contentView
+        view.layer.opacity = 0.1
+        UIView.animate(withDuration: 0.5, delay: 0, options: [.allowUserInteraction, .curveEaseInOut], animations: { () -> Void in view.layer.opacity = 1 }, completion: nil)
     }
 }

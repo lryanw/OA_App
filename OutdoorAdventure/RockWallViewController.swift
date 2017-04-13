@@ -133,8 +133,6 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             else if(route.rope?.caseInsensitiveCompare("W") == .orderedSame) { ropeNum = 12 }
             else { ropeNum = Int(route.rope!)! }
             
-            print(ropeNum)
-            
             itemsAll.append((route.name!, route.setter!, route.rating!, routeColor, route.overlay!, ropeNum))
         }
         
@@ -190,6 +188,10 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.animate()
     }
     
     //Change Height of Cell

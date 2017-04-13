@@ -32,6 +32,7 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
     
     //Adds new post to database
     @IBAction func createPost(sender: UIButton) {
+        
         //Get Date
         let date = Date()
         let calendar = Calendar.current
@@ -40,25 +41,29 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         let postDate = "\(month)/\(day)"
         
         //DATABASE SEND
-        uploadImage()
         
-        //Gets the name of the last image in the server
-        let newsModel = NewsAddRequest(email: user[0].2, newsDate: postDate, newsText: textView.text)
-        newsModel.getLastImagePath()
+        let tempText = textView.text.replacingOccurrences(of: " ", with: "_")
+        
+        //If there is an image picked
+        if(imageView.image != nil) {
+            
+            //Gets the name of the last image in the server
+            let newsModel = NewsAddRequestWithImage(email: user[0].2, newsDate: postDate, newsText: tempText)
+            newsModel.getLastNewsID()
+            
+            //Upload image to server
+            uploadImage()
+            
+        //If no image is picked
+        } else {
+            let newsModel = NewsAddRequestNoImage(email: user[0].2, newsDate: postDate, newsText: tempText)
+            newsModel.getLastNewsID()
+        }
         
         performSegue(withIdentifier: "CreateNewsToNews", sender: sender)
     }
     
     func uploadImage() {
-        
-        //If an image has not been picked
-        if(imageView.image == nil) {
-            let alertController = UIAlertController(title: "NO IMAGE SELECTED", message: "", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
-            
-            return
-        }
         
         let imageData = UIImageJPEGRepresentation(imageView.image!, 1)
         

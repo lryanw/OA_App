@@ -84,7 +84,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let userName = news.firstName! + " " + news.lastName!
             
             //Get Image from Image Path
-            items.append((userName, news.date!, news.profileImage!, news.newsText!, news.imagePath!, false, ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2))))
+            items.append((userName, news.date!, news.profileImage!, news.newsText!.replacingOccurrences(of: "_", with: " "), news.imagePath!, false, ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2))))
         }
         
         tableView_News.reloadData()
@@ -151,7 +151,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             let currentString = items[indexPath.row/2].3
             
-            return (tableView_News.rowHeight - removeHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + (20 * tableView_News.frame.width)/414 - (60 * tableView_News.frame.width)/tableView_News.frame.height)
+            return (tableView_News.rowHeight - removeHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + (20 * tableView_News.frame.width)/414 - (55 * tableView_News.frame.width)/tableView_News.frame.height)
             
         } else if(indexPath.row % 2 == 0 && items[indexPath.row/2].5 == true) {
             
@@ -175,15 +175,27 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == UITableViewCellEditingStyle.delete && user[0].4 == true) {
             
-            //DATABASE SEND
+            let cell = tableView_News.cellForRow(at: indexPath) as! TableViewCell_NewsTableViewCell
             
-            //Refresh
-            let newsModel = NewsRecieveModel()
-            newsModel.delegate = self
-            //newsModel.downloadItems()
-            
-            tableView.reloadData()
+            let alertController = UIAlertController(title: "Delete Post?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { action in self.removeFromDB(cell: cell) }))
+            alertController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
         }
+    }
+    
+    //Rremove selected cell from DB
+    func removeFromDB(cell: TableViewCell_NewsTableViewCell) {
+        //DATABASE SEND
+        let newsRemoveModel = NewsRemoveRequest(newsDate: cell.news_Date.text!, newsText: cell.news_Text.text!)
+        newsRemoveModel.downloadItems()
+        
+        //Refresh
+        let newsModel = NewsRecieveModel()
+        newsModel.delegate = self
+        newsModel.downloadItems()
+        
+        tableView_News.reloadData()
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

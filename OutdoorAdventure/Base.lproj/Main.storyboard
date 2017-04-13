@@ -1289,7 +1289,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="207" height="207"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew8-9j-Ujo">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew8-9j-Ujo">
                                                             <rect key="frame" x="0.0" y="0.0" width="207" height="207"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </imageView>
@@ -1664,10 +1664,10 @@
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Th-Ao-Evw"/>
-        <segue reference="08Q-K0-Z8e"/>
-        <segue reference="YSC-na-DVT"/>
         <segue reference="fwe-mC-dHa"/>
+        <segue reference="08Q-K0-Z8e"/>
         <segue reference="83p-zm-uqW"/>
+        <segue reference="YSC-na-DVT"/>
+        <segue reference="7Th-Ao-Evw"/>
     </inferredMetricsTieBreakers>
 </document>

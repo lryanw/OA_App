@@ -33,6 +33,8 @@ extension UIImageView {
             DispatchQueue.main.async() { () -> Void in
                 self.image = image
                 sourceCell.imageSize = image.size
+                sourceCell.cellImage.contentMode = .scaleAspectFill
+                self.animate()
             }
         }.resume()
     }
