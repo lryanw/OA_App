@@ -33,8 +33,6 @@ class NewsModel: NSObject {
     }
     
     func getImage() {
-        //self.image = ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2))
-        
         downloadImage(url: URL(string: "http://dasnr58.dasnr.okstate.edu/Images/" + imagePath!)!)
     }
     
@@ -46,11 +44,8 @@ class NewsModel: NSObject {
     }
     
     func downloadImage(url: URL) {
-        //print("Download Started")
         getDataFromUrl(url: url) { (data, response, error)  in
             guard let data = data, error == nil else { return }
-            //print(response?.suggestedFilename ?? url.lastPathComponent)
-            //print("Download Finished")
             DispatchQueue.main.async() { () -> Void in
                 self.image = UIImage(data: data)
             }

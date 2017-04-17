@@ -14,14 +14,16 @@ class NewsAddRequestNoImage: NSObject, URLSessionDataDelegate {
     var listData : [[String: AnyObject]]!
     
     //This points to the PHP service
-    var urlPath : String = "http://dasnr58.dasnr.okstate.edu/NewsAddRequest.php"
+    var urlAddPath : String = "http://dasnr58.dasnr.okstate.edu/NewsAddRequest.php"
     
     var imagePath : String!
     
     var email : String!
     var newsDate : String!
     var newsText : String!
-    var lastID : Int!
+    
+    //THIS VARIABLE DETERMINES HOW MANY POSTS ON NEWS ARE ALLOWED
+    var maxPostCount = 10
     
     init(email: String, newsDate: String, newsText: String) {
         self.email = email
@@ -31,10 +33,10 @@ class NewsAddRequestNoImage: NSObject, URLSessionDataDelegate {
     
     func downloadItems() {
         
-        urlPath = urlPath + "?ID=\(lastID!)&Email=" + email + "&NewsDate=" + newsDate + "&NewsText=" + newsText + "&ImagePath=0.jpg"
+        urlAddPath = urlAddPath + "?Email=" + email + "&NewsDate=" + newsDate + "&NewsText=" + newsText + "&ImagePath=0.jpg"
         
-        let url : URL = URL(string: urlPath)!
-                
+        let url : URL = URL(string: urlAddPath)!
+        
         var session : URLSession!
         let configuration = URLSessionConfiguration.default
         
@@ -43,46 +45,4 @@ class NewsAddRequestNoImage: NSObject, URLSessionDataDelegate {
         
         task.resume()
     }
-    
-    //Do this 1st
-    func getLastNewsID() {
-        let urlRequest = URL(string: "http://dasnr58.dasnr.okstate.edu/GetLastNewsID.php")
-        
-        URLSession.shared.dataTask(with: urlRequest!, completionHandler: {
-            (data, response, error) in
-            if(error != nil) {
-                print(error.debugDescription)
-            } else {
-                let idArray : NSMutableArray = NSMutableArray()
-                
-                do {
-                    self.listData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [[String: AnyObject]]
-                    OperationQueue.main.addOperation {
-                        for i in 0 ..< self.listData.count {
-                            
-                            let jsonElement = self.listData[i]
-                            
-                            let lastID = Int(jsonElement["ID"] as! String)
-                            idArray.add(lastID!)
-                        }
-                    }
-                    
-                    DispatchQueue.global(qos: .userInitiated).async {
-                        DispatchQueue.main.async {
-                            var id : Int!
-                            
-                            if(idArray.count > 0) { id = idArray[0] as! Int }
-                            else { id = 0 }
-                            
-                            self.lastID = id + 1
-                            self.downloadItems()
-                        }
-                    }
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-        }).resume()
-    }
-
 }

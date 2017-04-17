@@ -23,6 +23,7 @@ class ZoomedPhotoUIViewController: UIViewController {
     
     var currImage : UIImage!
     var currImageSize : CGSize!
+    var currImagePath : String!
     var senderString : String!
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
@@ -33,11 +34,10 @@ class ZoomedPhotoUIViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //Hides the delete button if not an employee
-        if(!user[0].4) {
+        if(!user[0].4 || senderString != "Gallary") {
             deleteButton.isHidden = true
         }
         
-        //imageView.downloadedFrom(url: URL(string: "http://dasnr58.dansr.okstate.edu/Images/" + currImage)!)
         imageView.image = currImage
         imageView.frame.size = (currImageSize)!
         
@@ -59,7 +59,9 @@ class ZoomedPhotoUIViewController: UIViewController {
     }
     
     func removeFromDB() {
-        print("HERE")
+        let imageRem = ImageRemoveRequest(imagePath: currImagePath)
+        imageRem.downloadItems()
+        imageRem.removeImageFromServer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +71,6 @@ class ZoomedPhotoUIViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        // 4
         updateMinZoomScaleForSize(view.bounds.size)
     }
     
@@ -77,20 +78,20 @@ class ZoomedPhotoUIViewController: UIViewController {
         let widthScale = size.width / (imageView.bounds.width)
         let heightScale = size.height / (imageView.bounds.height)
         let minScale = min(widthScale, heightScale)
-        // 2
+        
         scrollView.minimumZoomScale = minScale
-        // 3
+        
         scrollView.maximumZoomScale = max(widthScale+25, heightScale+25)
         scrollView.zoomScale = minScale
     }
 
     
     fileprivate func updateConstraintsForSize(_ size: CGSize) {
-        // 2
+        
         let yOffset = max(0, (size.height - imageView.frame.height) / 2)
         imageViewTopConstraint.constant = yOffset
         imageViewBottomConstraint.constant = yOffset
-        // 3
+        
         let xOffset = max(0, (size.width - imageView.frame.width) / 2)
         imageViewLeadingConstraint.constant = xOffset
         imageviewTrailingConstraint.constant = xOffset
@@ -98,7 +99,7 @@ class ZoomedPhotoUIViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
-    //Segues
+    //SEGUES
     @IBAction func toGallary(sender: UIButton) {
         if(senderString == "Gallary") {
             performSegue(withIdentifier: "ImageViewerToGallary", sender: sender)

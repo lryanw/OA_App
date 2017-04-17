@@ -15,6 +15,7 @@ class TableViewCell_NewsTableViewCell: UITableViewCell {
     @IBOutlet weak var news_Date: UILabel!
     @IBOutlet weak var news_Text: UILabel!
     @IBOutlet weak var news_Image: UIImageView!
+    var news_ImagePath : String!
     
     var imageSize : CGSize!
     

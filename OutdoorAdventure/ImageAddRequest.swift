@@ -20,7 +20,7 @@ class ImageAddRequest: NSObject, URLSessionDataDelegate {
     var data : NSMutableData = NSMutableData()
     
     //This points to the PHP service
-    var urlPath : String = ""
+    var urlPath : String = "http://dasnr58.dasnr.okstate.edu/ImageAddRequest.php"
     
     init(imagePath: String) {
         urlPath = urlPath + "?ImagePath=" + imagePath
@@ -35,26 +35,5 @@ class ImageAddRequest: NSObject, URLSessionDataDelegate {
         let task = session.dataTask(with: url)
         
         task.resume()
-    }
-    
-    func urlSession(_ session: URLSession, didCompleteWithError error: Error?) {
-        if error != nil {
-            print("Failed To Download Data")
-        } else {
-            print("Data Downloaded")
-            self.parseJSON()
-        }
-    }
-    
-    func parseJSON() {
-        
-        let userArray : NSMutableArray = NSMutableArray()
-        
-        //This may be wrong
-        DispatchQueue.global(qos: .userInitiated).async {
-            DispatchQueue.main.async {
-                self.delegate.itemsDownloaded(userItems: userArray)
-            }
-        }
     }
 }

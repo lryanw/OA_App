@@ -10,11 +10,13 @@
 		2D01A3381E241790009E2243 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D01A3371E241790009E2243 /* MainViewController.swift */; };
 		2D13EEA41E36EC5B008265FF /* OutdoorAdventureLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */; };
 		2D1A60121E87548F00F9A805 /* 0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2D1A60111E87548F00F9A805 /* 0.jpg */; };
+		2D244D951EA12E6300BE687C /* ImageRemoveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D244D941EA12E6300BE687C /* ImageRemoveRequest.swift */; };
 		2D25FFBB1E908D0B00136DEC /* NewsAddRequestWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFBA1E908D0B00136DEC /* NewsAddRequestWithImage.swift */; };
 		2D25FFBD1E90917500136DEC /* UserAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFBC1E90917500136DEC /* UserAddRequest.swift */; };
 		2D25FFC11E90936C00136DEC /* UserClimbingAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFC01E90936C00136DEC /* UserClimbingAddRequest.swift */; };
 		2D25FFC31E90959600136DEC /* RouteAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFC21E90959600136DEC /* RouteAddRequest.swift */; };
 		2D25FFC51E909A3F00136DEC /* ImageAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D25FFC41E909A3F00136DEC /* ImageAddRequest.swift */; };
+		2D2C93F61EA43487007E3ECC /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D2C93F51EA43487007E3ECC /* home.png */; };
 		2D3FF8821E9ED0B40005CC33 /* NewsAddRequestNoImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3FF8811E9ED0B40005CC33 /* NewsAddRequestNoImage.swift */; };
 		2D3FF8841E9F0D5C0005CC33 /* NewsRemoveRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3FF8831E9F0D5C0005CC33 /* NewsRemoveRequest.swift */; };
 		2D42AEC21E3991A50082EF50 /* OA_Climbing_Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D42AEC11E3991A50082EF50 /* OA_Climbing_Edit.png */; };
@@ -113,11 +115,13 @@
 		2D01A3371E241790009E2243 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OutdoorAdventureLogo.png; sourceTree = "<group>"; };
 		2D1A60111E87548F00F9A805 /* 0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 0.jpg; sourceTree = "<group>"; };
+		2D244D941EA12E6300BE687C /* ImageRemoveRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRemoveRequest.swift; sourceTree = "<group>"; };
 		2D25FFBA1E908D0B00136DEC /* NewsAddRequestWithImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsAddRequestWithImage.swift; sourceTree = "<group>"; };
 		2D25FFBC1E90917500136DEC /* UserAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAddRequest.swift; sourceTree = "<group>"; };
 		2D25FFC01E90936C00136DEC /* UserClimbingAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserClimbingAddRequest.swift; sourceTree = "<group>"; };
 		2D25FFC21E90959600136DEC /* RouteAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouteAddRequest.swift; sourceTree = "<group>"; };
 		2D25FFC41E909A3F00136DEC /* ImageAddRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAddRequest.swift; sourceTree = "<group>"; };
+		2D2C93F51EA43487007E3ECC /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		2D3FF8811E9ED0B40005CC33 /* NewsAddRequestNoImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsAddRequestNoImage.swift; sourceTree = "<group>"; };
 		2D3FF8831E9F0D5C0005CC33 /* NewsRemoveRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsRemoveRequest.swift; sourceTree = "<group>"; };
 		2D42AEC11E3991A50082EF50 /* OA_Climbing_Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = OA_Climbing_Edit.png; sourceTree = "<group>"; };
@@ -230,6 +234,7 @@
 		2D4BF08B1E255042001710AD /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				2D2C93F51EA43487007E3ECC /* home.png */,
 				2D63AFB31E81EF8A00AAE4F8 /* delete.png */,
 				2D5BF3C91E4D3726009856BE /* CarabinerLogo.png */,
 				2D9C42F81E6242750096BF29 /* download.png */,
@@ -368,6 +373,7 @@
 			children = (
 				2D6175DE1E78764F0062E6A1 /* ProfileImages */,
 				2D66E38D1E3D123A00AF7D61 /* TapeDesigns */,
+				2D4BF08B1E255042001710AD /* Icons */,
 				2D5444A01E80B8E900367EAF /* MountainBackground_2_Edit.jpg */,
 				2D58ABCC1E4010DC00924259 /* OutdoorAdventureWebBanner.jpg */,
 				2D13EEA31E36EC5B008265FF /* OutdoorAdventureLogo.png */,
@@ -378,7 +384,6 @@
 				2D42AEC11E3991A50082EF50 /* OA_Climbing_Edit.png */,
 				2D5CC60E1E3AA8A000196AD8 /* fadeImage.png */,
 				2DA2CAB21E231018003F0462 /* OA_App_Background_Temp.jpg */,
-				2D4BF08B1E255042001710AD /* Icons */,
 			);
 			name = Pictures;
 			sourceTree = "<group>";
@@ -405,6 +410,7 @@
 				2D7475321E8DFBE10037A3EE /* ImageModel.swift */,
 				2D7475341E8DFC400037A3EE /* ImageRecieveModel.swift */,
 				2D25FFC41E909A3F00136DEC /* ImageAddRequest.swift */,
+				2D244D941EA12E6300BE687C /* ImageRemoveRequest.swift */,
 			);
 			name = Database;
 			sourceTree = "<group>";
@@ -545,6 +551,7 @@
 				2DA2CA8D1E22D928003F0462 /* LaunchScreen.storyboard in Resources */,
 				2D525C011E27299000A06B25 /* background_2.jpg in Resources */,
 				2D66E3991E3D81A000AF7D61 /* Camo_Overlay_Circle.png in Resources */,
+				2D2C93F61EA43487007E3ECC /* home.png in Resources */,
 				2D6175EA1E78769E0062E6A1 /* 4.jpg in Resources */,
 				2D58ABCB1E400FF900924259 /* OutdoorAdventure.jpg in Resources */,
 				2D67EBD51E6F8B9D0014FC36 /* Celtic_Knot_Edit_2.png in Resources */,
@@ -659,6 +666,7 @@
 				2D4C8A9A1E29879C0004EE11 /* RockWallViewController.swift in Sources */,
 				2D01A3381E241790009E2243 /* MainViewController.swift in Sources */,
 				2D98D8371E35892A00E525A7 /* ImageCollectionViewCell.swift in Sources */,
+				2D244D951EA12E6300BE687C /* ImageRemoveRequest.swift in Sources */,
 				2DA2CA851E22D928003F0462 /* ViewController.swift in Sources */,
 				2D7475351E8DFC400037A3EE /* ImageRecieveModel.swift in Sources */,
 				2D74752C1E8DF8380037A3EE /* UserClimbingRecieveModel.swift in Sources */,

@@ -16,14 +16,15 @@ class NewsAddRequestWithImage: NSObject, URLSessionDataDelegate {
     var urlPath : String = "http://dasnr58.dasnr.okstate.edu/NewsAddRequest.php"
     
     var imagePath : String!
-    
-    var lastID : Int!
+        
+    //THIS VARIABLE DETERMINES HOW MANY POSTS ON NEWS ARE ALLOWED
+    var maxPostCount = 10
     
     init(email: String, newsDate: String, newsText: String) {
         
         let newsTextTemp = newsText.replacingOccurrences(of: " ", with: "_")
         
-        urlPath = urlPath + "?ID=\(lastID)&Email=" + email + "&NewsDate=" + newsDate + "&NewsText=" + newsTextTemp + "&ImagePath="
+        urlPath = urlPath + "?Email=" + email + "&NewsDate=" + newsDate + "&NewsText=" + newsTextTemp + "&ImagePath="
     }
     
     func downloadItems() {
@@ -37,7 +38,34 @@ class NewsAddRequestWithImage: NSObject, URLSessionDataDelegate {
         task.resume()
     }
     
-    //Do this 2nd
+    //Deletes old news posts, only allows 10
+    func deleteOldPosts() {
+        
+        let url : URL = URL(string: "http://dasnr58.dasnr.okstate.edu/DeleteOldNews.php")!
+        
+        var session : URLSession!
+        let configuration = URLSessionConfiguration.default
+        
+        session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        let task = session.dataTask(with: url)
+        
+        task.resume()
+    }
+    
+    //Deletes old images, when old posts are deleted
+    func deleteOldImage(imageName: String) {
+        
+        let url : URL = URL(string: "http://dasnr58.dasnr.okstate.edu/DeleteFile.php?FileName=" + imageName)!
+        
+        var session : URLSession!
+        let configuration = URLSessionConfiguration.default
+        
+        session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        let task = session.dataTask(with: url)
+        
+        task.resume()
+    }
+    
     func getLastImagePath() {
         let urlRequest = URL(string: "http://dasnr58.dasnr.okstate.edu/GetLastImageName.php")
         
@@ -82,51 +110,11 @@ class NewsAddRequestWithImage: NSObject, URLSessionDataDelegate {
                             imageName = Int(self.imagePath)! + 1
                             self.urlPath = self.urlPath + "\(imageName)"
                             
+                            //Delete old image
+                            self.deleteOldImage(imageName: image.imagePath!)
+                            
                             //Now the path has been created, add it to sql
                             self.downloadItems()
-                        }
-                    }
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-        }).resume()
-    }
-    
-    //Do this 1st
-    func getLastNewsID() {
-        let urlRequest = URL(string: "http://dasnr58.dasnr.okstate.edu/GetLastNewsID.php")
-        
-        URLSession.shared.dataTask(with: urlRequest!, completionHandler: {
-            (data, response, error) in
-            if(error != nil) {
-                print(error.debugDescription)
-            } else {
-                let idArray : NSMutableArray = NSMutableArray()
-                
-                do {
-                    self.listData = try JSONSerialization.jsonObject(with: data!, options: .allowFragments) as! [[String: AnyObject]]
-                    OperationQueue.main.addOperation {
-                        for i in 0 ..< self.listData.count {
-                            
-                            let jsonElement = self.listData[i]
-                            
-                            let lastID = Int(jsonElement["ID"] as! String)
-                            
-                            idArray.add(lastID!)
-                        }
-                    }
-                    
-                    DispatchQueue.global(qos: .userInitiated).async {
-                        DispatchQueue.main.async {
-                            
-                            var id : Int!
-                            
-                            if(idArray.count > 0) { id = idArray[0] as! Int }
-                            else { id = 0 }
-                            self.lastID = id + 1
-                            
-                            self.getLastImagePath()
                         }
                     }
                 } catch let error as NSError {

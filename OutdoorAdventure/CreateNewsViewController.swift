@@ -49,7 +49,8 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
             
             //Gets the name of the last image in the server
             let newsModel = NewsAddRequestWithImage(email: user[0].2, newsDate: postDate, newsText: tempText)
-            newsModel.getLastNewsID()
+            //Gets new image name then calls downloadItems()
+            newsModel.getLastImagePath()
             
             //Upload image to server
             uploadImage()
@@ -57,7 +58,7 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         //If no image is picked
         } else {
             let newsModel = NewsAddRequestNoImage(email: user[0].2, newsDate: postDate, newsText: tempText)
-            newsModel.getLastNewsID()
+            newsModel.downloadItems()
         }
         
         performSegue(withIdentifier: "CreateNewsToNews", sender: sender)

@@ -25,13 +25,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var button_RockWall: UIBarButtonItem!
     @IBOutlet weak var button_Info: UIBarButtonItem!
     
+    //Max number of posts in database
+    //Will be 1 more than this
+    var maxPosts : Int = 9
+    
     //For image viewer
     var imageToPass : UIImage!
     var imageSizeToPass : CGSize!
     
-    //Profile Name, Post Date, ProfileImage, News Text, News Image
-    var items: [(String, String, Int, String, String, Bool, UIImage)] = []
-    var itemsImage: [UIImage] = []
+    //Profile Name, Post Date, ProfileImage, News Text, News Image, News Image Path
+    var items: [(String, String, Int, String, String, Bool, UIImage, String)] = []
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
@@ -81,14 +84,27 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         for i in 0 ..< feedItems.count {
             let news = feedItems[i] as! NewsModel
             
+            //DELETE OLD POSTS
+            if(i > maxPosts) {
+                let newsRem = NewsRemoveRequest()
+                newsRem.deleteOldPosts()
+                //DELETE IMAGE FROM SERVER
+                if(news.imagePath! != "0.jpg") {
+                    newsRem.removeImageFromServer(fileName: news.imagePath!)
+                }
+                continue;
+            }
+            
             let userName = news.firstName! + " " + news.lastName!
             
             //Get Image from Image Path
-            items.append((userName, news.date!, news.profileImage!, news.newsText!.replacingOccurrences(of: "_", with: " "), news.imagePath!, false, ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2))))
+            items.append((userName, news.date!, news.profileImage!, news.newsText!.replacingOccurrences(of: "_", with: " "), news.imagePath!, false, ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2)), news.imagePath!))
         }
         
         tableView_News.reloadData()
     }
+    
+    //==========SET UP TABLE VIEW===========
     
     //Number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,8 +130,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell.news_Text.text = items[indexPath.row/2].3
             cell.tableView = tableView_News
             cell.source = self
+            cell.news_ImagePath = items[indexPath.row/2].7
             
-            if(items[indexPath.row/2].5 == false) { cell.getImage(path: items[indexPath.row/2].4) }
+            //If has not loaded image
+            if(items[indexPath.row/2].5 == false) { cell.getImage(path: items[indexPath.row/2].4)
+            }
+            //If has loaded image
             if(items[indexPath.row/2].5 == true) {
                 cell.news_Image.image = items[indexPath.row/2].6
             }
@@ -137,14 +157,15 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    //Animate cell on load
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        
         cell.animate()
     }
     
     //Change Height of Cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 
+        //If the image has not loaded yet
         if (indexPath.row % 2 == 0 && items[indexPath.row/2].5 == false) {
             
             let removeHeight = (50 * tableView_News.frame.width)/tableView_News.frame.height
@@ -152,11 +173,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let currentString = items[indexPath.row/2].3
             
             return (tableView_News.rowHeight - removeHeight + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + (20 * tableView_News.frame.width)/414 - (55 * tableView_News.frame.width)/tableView_News.frame.height)
-            
+        
+        //If the image has loaded
         } else if(indexPath.row % 2 == 0 && items[indexPath.row/2].5 == true) {
             
             //Resize ImageView Height
-            
             let imageWidth = items[indexPath.row/2].6.size.width
             let imageHeight = items[indexPath.row/2].6.size.height
             let newHeight = (tableView_News.frame.width * imageHeight)/imageWidth
@@ -164,7 +185,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let currentString = items[indexPath.row/2].3
             
             return (tableView_News.rowHeight  + currentString.heightWithConstrainedWidth(width: 380, font: UIFont.systemFont(ofSize: 17)) + newHeight - (78 * tableView_News.frame.width)/tableView_News.frame.height)
-                //+ (20 * tableView_News.frame.width)/414)
             
         } else {
             return 10
@@ -184,11 +204,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    //Rremove selected cell from DB
+    //==========REMOVE FROM DATABASE===========
     func removeFromDB(cell: TableViewCell_NewsTableViewCell) {
         //DATABASE SEND
         let newsRemoveModel = NewsRemoveRequest(newsDate: cell.news_Date.text!, newsText: cell.news_Text.text!)
         newsRemoveModel.downloadItems()
+        
+        //If row has an image
+        if(cell.news_Image.image != nil) {
+            newsRemoveModel.imagePath = cell.news_ImagePath
+            newsRemoveModel.removeImageFromServer()
+        }
         
         //Refresh
         let newsModel = NewsRecieveModel()
@@ -215,7 +241,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         performSegue(withIdentifier: "NewsToImageViewer", sender: self)
     }
     
-    //Segues
+    //==========SEGUES===========
     @IBAction func toGallery(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "NewsToGallery", sender: sender)
     }

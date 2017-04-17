@@ -22,9 +22,56 @@ class NewsRemoveRequest: NSObject, URLSessionDataDelegate {
         urlPath = "http://dasnr58.dasnr.okstate.edu/NewsRemoveRequest.php?NewsDate=" + newsDate + "&NewsText=" + newsText.replacingOccurrences(of: " ", with: "_")
     }
     
+    override init() { }
+    
     func downloadItems() {
         
         let url : URL = URL(string: urlPath)!
+        
+        var session : URLSession!
+        let configuration = URLSessionConfiguration.default
+        
+        session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        let task = session.dataTask(with: url)
+        
+        task.resume()
+    }
+    
+    func removeImageFromServer() {
+        
+        //Dont delete this file
+        if(imagePath == "0.jpg") { return }
+        
+        let url : URL = URL(string: "http://dasnr58.dasnr.okstate.edu/DeleteFile.php?FileName=" + imagePath)!
+        var session : URLSession!
+        let configuration = URLSessionConfiguration.default
+        
+        session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        let task = session.dataTask(with: url)
+        
+        task.resume()
+        
+    }
+    
+    func removeImageFromServer(fileName: String) {
+        
+        //Dont delete this file
+        if(fileName == "0.jpg") { return }
+        
+        let url : URL = URL(string: "http://dasnr58.dasnr.okstate.edu/DeleteFile.php?FileName=" + fileName)!
+        var session : URLSession!
+        let configuration = URLSessionConfiguration.default
+        
+        session = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        let task = session.dataTask(with: url)
+        
+        task.resume()
+        
+    }
+    
+    func deleteOldPosts() {
+        
+        let url : URL = URL(string: "http://dasnr58.dasnr.okstate.edu/DeleteOldNews.php")!
         
         var session : URLSession!
         let configuration = URLSessionConfiguration.default

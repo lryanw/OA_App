@@ -37,7 +37,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
         circleBackground.layer.shadowColor = UIColor.black.cgColor
         
-        //REMOVE OLD TIMES FROM DATABASE
+        //REMOVE OLD POSTS FROM DATABASE
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)

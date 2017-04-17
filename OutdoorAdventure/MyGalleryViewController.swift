@@ -30,6 +30,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     var itemsPath : [String] = []
     
     var imageToPass : UIImage!
+    var imagePathToPass : String!
     var imageSizeToPass : CGSize!
     
     //First Name, Last Name, Email, ProfileImage, IsEmployee
@@ -82,7 +83,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.reloadData()
     }
 
-    //-----------------------------------------Set up CollectionView------------------------------------------------
+    //Set up CollectionView
     
     //Number of items in the CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -94,7 +95,6 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "imageCell", for: indexPath) as! ImageCollectionViewCell
         
         //Sets the image in the CollectionView cell
-        //cell.cellImage.image = self.items[indexPath.item]
         cell.getImage(path: self.itemsPath[indexPath.item])
         
         return cell
@@ -109,6 +109,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         if(cell.cellImage.image == nil) { return }
         
         imageToPass = cell.cellImage.image
+        imagePathToPass = itemsPath[indexPath.item]
         imageSizeToPass = cell.imageSize
         
         performSegue(withIdentifier: "GallaryToImageViewer", sender: collectionView)
@@ -127,7 +128,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.animate()
     }
     
-    //--------------------------------------Gets image from gallery-------------------------------------------------
+    //Gets image from gallery
     
     @IBAction func pickImage(sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
@@ -157,7 +158,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         self.dismiss(animated: true, completion: nil)
     }
     
-    //----------------------------------------------SEGUE----------------------------------------------------------
+    //SEGUES
     
     @IBAction func toRockWall(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "GallaryToRockWall", sender: sender)
@@ -180,6 +181,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
             let destinationVC = segue.destination as! ZoomedPhotoUIViewController
             destinationVC.currImage = imageToPass
             destinationVC.currImageSize = imageSizeToPass
+            destinationVC.currImagePath = imagePathToPass
             destinationVC.senderString = "Gallary"
             destinationVC.user = self.user
         } else if(segue.identifier == "GallaryToRockWall") {
