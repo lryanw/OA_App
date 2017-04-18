@@ -128,13 +128,13 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         cell.animate()
     }
     
-    //Gets image from gallery
+    //==========UPLOAD IMAGE===========
     
     @IBAction func pickImage(sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
             
             imagePicker.delegate = self
-            imagePicker.sourceType = UIImagePickerControllerSourceType.savedPhotosAlbum;
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
             imagePicker.allowsEditing = false
             
             self.present(imagePicker, animated: true, completion: nil)
@@ -149,6 +149,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
             //DATABASE SEND
+            //myImageUploadRequest(imageToUpload: image)
             
             collectionView.reloadData()
         } else{
@@ -158,7 +159,11 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         self.dismiss(animated: true, completion: nil)
     }
     
-    //SEGUES
+    func myImageUploadRequest(imageToUpload: UIImage) {
+        
+    }
+    
+    //==========SEGUES===========
     
     @IBAction func toRockWall(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "GallaryToRockWall", sender: sender)
@@ -195,6 +200,14 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
             destinationVC.user = self.user
         }
 
+    }
+}
+
+extension NSMutableData {
+    
+    func appendString(string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
     }
 }
 

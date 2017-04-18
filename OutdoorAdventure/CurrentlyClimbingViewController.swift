@@ -42,7 +42,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
         let min = calendar.component(.minute, from: date)
-        
+                
         let userClimbingDeleteModel = UserClimbingRemoveRequest(endHour: hour, endMin: min)
         userClimbingDeleteModel.downloadItems()
         

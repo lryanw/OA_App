@@ -39,7 +39,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     var itemsRope: [(String, String, String, UIColor, String, Int)] = []
     
     //11 and 12 are E and 12 respectively
-    var ropes = ["1","2","3","4","5","6","7","8","9","10","11","12"]
+    var ropes = ["1","2","3","4","5","6","7","8","9","10","E","W"]
     
     //Red, Pink, Orange, Yellow, Green, Light Blue, Blue, Purple, Gray, Brown, Black, White
     var colorArray : [UIColor] = [UIColor.red, UIColor.init(red: 255/255, green: 105/255, blue: 180/255, alpha: 1), UIColor.orange, UIColor.yellow, UIColor.green, UIColor.init(red: 173/255, green: 216/255, blue: 230/255, alpha: 1), UIColor.blue, UIColor.purple, UIColor.lightGray, UIColor.brown, UIColor.black, UIColor.white]

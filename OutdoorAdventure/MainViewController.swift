@@ -97,8 +97,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             
             let userName = news.firstName! + " " + news.lastName!
             
+            for _ in 0 ..< 5 {
+                news.date!.remove(at: news.date!.startIndex)
+            }
+            
             //Get Image from Image Path
-            items.append((userName, news.date!, news.profileImage!, news.newsText!.replacingOccurrences(of: "_", with: " "), news.imagePath!, false, ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2)), news.imagePath!))
+            items.append((userName, news.date!.replacingOccurrences(of: "-", with: "/"), news.profileImage!, news.newsText!.replacingOccurrences(of: "_", with: " "), news.imagePath!, false, ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2)), news.imagePath!))
         }
         
         tableView_News.reloadData()
