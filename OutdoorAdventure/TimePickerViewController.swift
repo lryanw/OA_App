@@ -43,7 +43,6 @@ class TimePickerViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         } else {
-            print("Heere")
             //DATABASE SEND
             let userClimbingModel = UserClimbingAddRequest(email: user[0].2, startHour: startHour, startMin: startMin, endHour: endHour, endMin: endMin)
             userClimbingModel.downloadItems()

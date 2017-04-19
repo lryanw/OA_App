@@ -34,9 +34,8 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //Route Name, Setter, Difficulty, Color, Symbol, Rope #
     var feedItems : NSArray!
-    var itemsAll: [(String, String, String, UIColor, String, Int)] = []
-    
-    var itemsRope: [(String, String, String, UIColor, String, Int)] = []
+    var itemsAll: [(String, String, String, UIColor, String, String)] = []
+    var itemsRope: [(String, String, String, UIColor, String, String)] = []
     
     //11 and 12 are E and 12 respectively
     var ropes = ["1","2","3","4","5","6","7","8","9","10","E","W"]
@@ -96,7 +95,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func itemsDownloaded(routeItems: NSArray) {
         feedItems = routeItems
-        itemsAll = [(String, String, String, UIColor, String, Int)]()
+        itemsAll.removeAll()
         
         for i in 0 ..< feedItems.count {
             let route = feedItems[i] as! RouteModel
@@ -128,17 +127,14 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
                 routeColor = colorArray[11]
             }
             
-            var ropeNum = 0
-            if(route.rope?.caseInsensitiveCompare("E") == .orderedSame) { ropeNum = 11 }
-            else if(route.rope?.caseInsensitiveCompare("W") == .orderedSame) { ropeNum = 12 }
-            else { ropeNum = Int(route.rope!)! }
-            
-            itemsAll.append((route.name!, route.setter!, route.rating!, routeColor, route.overlay!, ropeNum))
+            itemsAll.append((route.name!, route.setter!, route.rating!, routeColor, route.overlay!, route.rope!))
         }
         
         getItemsForCurrentRope()
         routeTableView.reloadData()
     }
+    
+    //==========SET UP TABLE VIEW==========
     
     //Number of rows in the TableView
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -207,7 +203,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == UITableViewCellEditingStyle.delete && user[0].4 == true) {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell
+            let cell = routeTableView.cellForRow(at: indexPath) as! routeTableViewCell
             
             //DATABASE SEND
             let alertController = UIAlertController(title: "Delete Route?", message: "", preferredStyle: UIAlertControllerStyle.alert)
@@ -225,6 +221,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func removeFromDB(rN: String) {
+        
         let routeRemoveModel = RouteRemoveRequest(name: rN)
         routeRemoveModel.downloadItems()
         
@@ -248,6 +245,8 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func addRoute(sender: UIButton) {
         performSegue(withIdentifier: "RockWallToCreateRoute", sender: self)
     }
+    
+    //=========SETS UP BUTTONS AND ROUTE CHANGES==========
     
     //Change Rope
     @IBAction func leftButton(sender: UIButton) {
@@ -276,14 +275,14 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         var i = 0;
         
         while(i < itemsAll.count) {
-            if(itemsAll[i].5 == Int(ropes[currentRoute])) {
+            if(itemsAll[i].5 == ropes[currentRoute]) {
                 itemsRope.append(itemsAll[i]);
             }
             i += 1
         }
     }
     
-    //Segues
+    //=========SEGUES==========
     @IBAction func toGallary(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "RockWallToGallary", sender: sender)
     }

@@ -34,6 +34,7 @@ class ImageRemoveRequest: NSObject, URLSessionDataDelegate {
     
     func removeImageFromServer() {
         let url : URL = URL(string: "http://dasnr58.dasnr.okstate.edu/DeleteFile.php?FileName=" + imagePath)!
+        print(url)
         var session : URLSession!
         let configuration = URLSessionConfiguration.default
         
