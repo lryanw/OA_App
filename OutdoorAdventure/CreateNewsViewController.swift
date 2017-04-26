@@ -10,6 +10,8 @@ import UIKit
 
 class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextViewDelegate  {
 
+    //=========GLOBAL VARIABLES=========
+    
     //First Name, Last Name, Email, ProfileImage, IsEmployee
     var user: [(String, String, String, Int, Bool)]!
     
@@ -30,7 +32,8 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         // Dispose of any resources that can be recreated.
     }
     
-    //Adds new post to database
+    //==========CREATE NEWS FOR DB==========
+    
     @IBAction func createPost(sender: UIButton) {
         
         //Get Date
@@ -75,7 +78,8 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         performSegue(withIdentifier: "CreateNewsToNews", sender: sender)
     }
     
-    //Get Image from gallery
+    //=========GET IMGE FROM GALLARY=========
+    
     @IBAction func pickImage(sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.savedPhotosAlbum) {
             
@@ -101,7 +105,8 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
         self.dismiss(animated: true, completion: nil)
     }
     
-    //Segue
+    //==========SEGUES=========
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "CreateNewsToNews") {
             let destinationVC = segue.destination as! MainViewController
@@ -110,7 +115,7 @@ class CreateNewsViewController: UIViewController, UIImagePickerControllerDelegat
     }
 }
 
-// Put this piece of code anywhere you like
+//Hide Keyboard on tap
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))

@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CreateProfileViewController: UIViewController, UITextFieldDelegate, UserAddModelProtocol {
+class CreateProfileViewController: UIViewController, UITextFieldDelegate {
 
+    //==========GLOBAL VARIABLES==========
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -18,6 +20,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate, UserAd
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var profileImageButton: UIButton!
     
+    //Profile image choices
     var images : [UIImage] = [UIImage(named: "1.jpg")!, UIImage(named: "2.jpg")!, UIImage(named: "3.jpg")!, UIImage(named: "4.jpg")!, UIImage(named: "5.jpg")!, UIImage(named: "6.jpg")!, UIImage(named: "7.jpg")!, UIImage(named: "8.jpg")!]
     
     var currImage = 0
@@ -64,6 +67,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate, UserAd
             let alertController = UIAlertController(title: "ALERT", message: "Missing Field", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
             self.present(alertController, animated: true, completion: nil)
+        
         //If all the textfields are filled out
         } else {
             //If the email doesn't contain @
@@ -75,7 +79,6 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate, UserAd
             
             //DATABASE SEND
             let userModel = UserAddRequest(firstName: firstNameTextField.text!, lastName: lastNameTextField.text!, email: emailTextField.text!, password: passwordTextField.text!, profileImage: (currImage + 1), isEmployee: false)
-            userModel.delegate = self
             userModel.downloadItems()
             
             let alertController = UIAlertController(title: "PROFILE CREATED", message: "", preferredStyle: UIAlertControllerStyle.alert)
@@ -86,9 +89,7 @@ class CreateProfileViewController: UIViewController, UITextFieldDelegate, UserAd
         }
     }
     
-    func itemsDownloaded(userItems: NSArray) {
-        //
-    }
+    //==========SEGUES===========
     
     @IBAction func toLogin(sender: UIButton) {
         performSegue(withIdentifier: "CreateProfileToLogin", sender: sender)

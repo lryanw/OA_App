@@ -10,6 +10,8 @@ import UIKit
 
 class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIGestureRecognizerDelegate, ImageModelProtocol {
 
+    //==========GLOBAL VARIABLES==========
+    
     @IBOutlet weak var button_Add: UIButton!
     
     //Toolbars for shadows
@@ -68,7 +70,8 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         // Dispose of any resources that can be recreated.
     }
     
-
+    //==========GET IMAGE PATHS FROM DB==========
+    
     func itemsDownloaded(imageItems: NSArray) {
         feedItems = imageItems
         
@@ -83,7 +86,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.reloadData()
     }
 
-    //Set up CollectionView
+    //==========SET UP COLLECTIONVIEW===========
     
     //Number of items in the CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -108,6 +111,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
        
         if(cell.cellImage.image == nil) { return }
         
+        //Variables sent to the ZoomedPhoto View Controller
         imageToPass = cell.cellImage.image
         imagePathToPass = itemsPath[indexPath.item]
         imageSizeToPass = cell.imageSize
@@ -119,11 +123,13 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     //Sets the size of the size of the CollectionView cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         
+        //Size width and height is half the size of the screen width
         let size = CGSize(width: (collectionView.frame.width / 2), height: (collectionView.frame.width / 2))
         
         return size
     }
     
+    //Animate cell on creation
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         cell.animate()
     }
@@ -146,6 +152,7 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        //Selected image from ImagePicker
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
             //DATABASE SEND
@@ -159,9 +166,13 @@ class MyGalleryViewController: UIViewController, UICollectionViewDataSource, UIC
         self.dismiss(animated: true, completion: nil)
     }
     
+    /*
+    Since Swift 3.0 many methods to upload images to a server do not work
+     
     func myImageUploadRequest(imageToUpload: UIImage) {
         
     }
+    */
     
     //==========SEGUES===========
     

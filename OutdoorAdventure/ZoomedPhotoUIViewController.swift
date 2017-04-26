@@ -10,6 +10,8 @@ import UIKit
 
 class ZoomedPhotoUIViewController: UIViewController {
     
+    //==========GLOBAL VARIABLES===========
+    
     @IBOutlet weak var deleteButton: UIButton!
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -51,6 +53,8 @@ class ZoomedPhotoUIViewController: UIViewController {
         picMenu.isHidden = !picMenu.isHidden;
     }
     
+    //===========REMOVE PIC FROM DB===========
+    
     @IBAction func deletePic() {
         let alertController = UIAlertController(title: "Delete Picture?", message: "", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { action in self.removeFromDB() }))
@@ -73,6 +77,8 @@ class ZoomedPhotoUIViewController: UIViewController {
         super.viewDidLayoutSubviews()
         updateMinZoomScaleForSize(view.bounds.size)
     }
+    
+    //==========SET UP SCROLLVIEW FOR IMAGE==========
     
     fileprivate func updateMinZoomScaleForSize(_ size: CGSize) {
         let widthScale = size.width / (imageView.bounds.width)
@@ -99,7 +105,8 @@ class ZoomedPhotoUIViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
-    //SEGUES
+    //==========SEGUES==========
+    
     @IBAction func toGallary(sender: UIButton) {
         if(senderString == "Gallary") {
             performSegue(withIdentifier: "ImageViewerToGallary", sender: sender)

@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
     
+    //==========GLOBAL VARIABLES==========
+    
     @IBOutlet weak var textField_Username: UITextField!
     @IBOutlet weak var textField_Password: UITextField!
     @IBOutlet weak var button_SignIn: UIButton!
@@ -30,6 +32,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //==========GET USER FROM DB=========
     
     func itemsDownloaded(userItems: NSArray) {
         let feedItems : NSArray = userItems
@@ -60,7 +64,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
 
     //On Sign In button click
     @IBAction func signIn(sender: UIButton) {
-        
+        //Make sure the fields are filled out
         if(textField_Username.text == "" || textField_Password.text == "") {
             let alertController = UIAlertController(title: "ENTER PROFILE INFO", message: "", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
@@ -80,7 +84,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UserModelProtocol {
         return false
     }
     
-    //Segues
+    //==========SEGUES==========
+    
     @IBAction func guestSignIn(sender: UIButton) {
         performSegue(withIdentifier: "LoginToMain", sender: sender)
     }

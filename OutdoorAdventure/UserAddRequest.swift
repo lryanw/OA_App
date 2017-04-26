@@ -8,14 +8,8 @@
 
 import Foundation
 
-protocol UserAddModelProtocol: class {
-    func itemsDownloaded(userItems: NSArray)
-}
-
 class UserAddRequest: NSObject, URLSessionDataDelegate {
-    
-    weak var delegate : UserAddModelProtocol!
-    
+        
     var data : NSMutableData = NSMutableData()
     
     //This points to the PHP service

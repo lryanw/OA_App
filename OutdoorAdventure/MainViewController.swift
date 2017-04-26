@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NewsModelProtocol {
 
+    //==========GLOBAL VARIABLES==========
+    
     //To add new news
     @IBOutlet weak var button_Add: UIButton!
     
@@ -70,10 +72,13 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    //This is called from the cell once the image is downloaded from the server
     func setRowToReload(index: IndexPath, image: UIImage) {
         items[index.row/2].5 = true
         items[index.row/2].6 = image
     }
+    
+    //==========GET NEWS FROM DB==========
     
     func itemsDownloaded(newsItems userItems: NSArray) {
         let feedItems : NSArray = userItems
@@ -87,21 +92,23 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //DELETE OLD POSTS
             if(i > maxPosts) {
                 let newsRem = NewsRemoveRequest()
+                //Deletes old post from DB
                 newsRem.deleteOldPosts()
-                //DELETE IMAGE FROM SERVER
+                //Deletes image from server
                 if(news.imagePath! != "0.jpg") {
                     newsRem.removeImageFromServer(fileName: news.imagePath!)
                 }
                 continue;
             }
             
+            //Combine First and Last name
             let userName = news.firstName! + " " + news.lastName!
             
+            //Cleans up date string
             for _ in 0 ..< 5 {
                 news.date!.remove(at: news.date!.startIndex)
             }
             
-            //Get Image from Image Path
             items.append((userName, news.date!.replacingOccurrences(of: "-", with: "/"), news.profileImage!, news.newsText!.replacingOccurrences(of: "_", with: " "), news.imagePath!, false, ImageTransformer.getImageWithColor(color: UIColor.clear, size: CGSize(width: 2, height: 2)), news.imagePath!))
         }
         
@@ -150,6 +157,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             frame.size.height = contentSize.height
             cell.news_Text.frame = frame
             
+            //Allows image to be viewed in gallary
             let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
             cell.news_Image.isUserInteractionEnabled = true
             cell.news_Image.addGestureRecognizer(tapGestureRecognizer)
@@ -197,6 +205,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //Remove Rows from TableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //Checks if employee
         if(editingStyle == UITableViewCellEditingStyle.delete && user[0].4 == true) {
             
             let cell = tableView_News.cellForRow(at: indexPath) as! TableViewCell_NewsTableViewCell
@@ -209,6 +218,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     //==========REMOVE FROM DATABASE===========
+    
     func removeFromDB(cell: TableViewCell_NewsTableViewCell) {
         //DATABASE SEND
         let newsRemoveModel = NewsRemoveRequest(newsDate: cell.news_Date.text!, newsText: cell.news_Text.text!)
@@ -246,6 +256,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     //==========SEGUES===========
+    
     @IBAction func toGallery(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "NewsToGallery", sender: sender)
     }
@@ -255,7 +266,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure") as! URL, options: [:], completionHandler: nil)
+        UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure")! as URL, options: [:], completionHandler: nil)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {
@@ -289,6 +300,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
 }
 
+//Animates cell
 extension UITableViewCell {
     func animate() {
         let view = self.contentView
@@ -297,6 +309,7 @@ extension UITableViewCell {
     }
 }
 
+//Animates UImageView
 extension UIImageView {
     func animate() {
         self.layer.opacity = 0.1

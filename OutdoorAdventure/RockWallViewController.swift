@@ -11,6 +11,8 @@ import QuartzCore
 
 class RockWallViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, RouteModelProtocol {
     
+    //==========GLOBAL VARIABLES==========
+    
     @IBOutlet weak var button_Add: UIButton!
     
     //Toolbars for shadows
@@ -93,6 +95,8 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dispose of any resources that can be recreated.
     }
     
+    //==========GET ROUTES FROM DB===========
+    
     func itemsDownloaded(routeItems: NSArray) {
         feedItems = routeItems
         itemsAll.removeAll()
@@ -144,6 +148,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     //Sets up the cell in the TableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        //Cells with route info
         if(indexPath.row % 2 == 0) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "routeCell", for: indexPath) as! routeTableViewCell
             
@@ -155,13 +160,14 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
             
             cell.routeImage.image = ImageTransformer.maskRoundedImage(image: colorImage, radius: Float(CGFloat(cell.routeImage.frame.width/2)))
             
-            //Choose Overlay
+            //Choose route overlay
             if(!setOrigionalSize) {
                 origionalSize = cell.routeOverlay.frame.size
                 origionalPoint = cell.routeOverlay.frame.origin
                 setOrigionalSize = true
             }
             
+            //Saves origional point and size, since Camo changes it
             cell.routeOverlay.frame.size = origionalSize
             cell.routeOverlay.frame.origin = origionalPoint
             
@@ -180,12 +186,15 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
                 cell.routeOverlay.image = ImageTransformer.maskRoundedImage(image: UIImage(named: "Camo_Overlay_Circle.png")!, radius: Float(cell.routeOverlay.frame.width/2))
             }
             return cell
+        
+        //Cell as empty space
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "calendarSpace", for: indexPath) as! spaceTableViewCell
             return cell
         }
     }
     
+    //Animate cell on creation
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.animate()
     }
@@ -201,6 +210,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //Remove Rows from TableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //Delete if user is employee
         if(editingStyle == UITableViewCellEditingStyle.delete && user[0].4 == true) {
             
             let cell = routeTableView.cellForRow(at: indexPath) as! routeTableViewCell
@@ -220,6 +230,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    //Remove route from DB with name
     func removeFromDB(rN: String) {
         
         let routeRemoveModel = RouteRemoveRequest(name: rN)
@@ -248,7 +259,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     
     //=========SETS UP BUTTONS AND ROUTE CHANGES==========
     
-    //Change Rope
+    //Change Rope left button
     @IBAction func leftButton(sender: UIButton) {
         if(currentRoute > 0) {
             currentRoute -= 1
@@ -258,6 +269,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+    //Chagne Rope right button
     @IBAction func rightButton(sender: UIButton) {
         if(currentRoute < ropes.count - 1) {
             currentRoute += 1
@@ -283,6 +295,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     //=========SEGUES==========
+    
     @IBAction func toGallary(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "RockWallToGallary", sender: sender)
     }
@@ -292,7 +305,7 @@ class RockWallViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     @IBAction func toInfo(sender: UIBarButtonItem) {
-        UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure") as! URL, options: [:], completionHandler: nil)
+        UIApplication.shared.open(NSURL(string: "https://wellness.okstate.edu/programs/outdoor-adventure")! as URL, options: [:], completionHandler: nil)
     }
     
     @IBAction func toCurrentlyClimbing(sender: UIBarButtonItem) {

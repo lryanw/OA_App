@@ -8,13 +8,8 @@
 
 import Foundation
 
-protocol RouteAddProtocol: class {
-    func itemsDownloaded(routeItems: NSArray)
-}
-
 class RouteAddRequest: NSObject, URLSessionDataDelegate {
     
-    weak var delegate : RouteAddProtocol!
     
     //This points to the PHP service
     var urlPath : String = "http://dasnr58.dasnr.okstate.edu/RouteAddRequest.php"

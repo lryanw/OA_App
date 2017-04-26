@@ -8,8 +8,10 @@
 
 import UIKit
 
-class CreateRouteViewController: UIViewController, UITextFieldDelegate, RouteAddProtocol {
+class CreateRouteViewController: UIViewController, UITextFieldDelegate {
 
+    //==========GLOBAL VARIABLES==========
+    
     @IBOutlet weak var routeName: UITextField!
     @IBOutlet weak var setterName: UITextField!
     
@@ -67,11 +69,8 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate, RouteAdd
         colorImage.image = ImageTransformer.getImageWithColor(color: colorArray[currColor], size: colorImage.frame.size)
         colorImage = ImageTransformer.roundImageView(imageView: colorImage)
     }
-    
-    func itemsDownloaded(routeItems: NSArray) {
-        //
-    }
 
+    //Close keyboard on click
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
@@ -102,13 +101,13 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate, RouteAdd
         
         //DATABASE SEND
         let routeModel = RouteAddRequest(color: colorNameArray[currColor], overlay: overlayNameArray[currOverlay], name: routeName.text!, rating: routeArray[currRoute], setter: setterName.text!, rope: ropes[currRope])
-        routeModel.delegate = self
         routeModel.downloadItems()
         
         performSegue(withIdentifier: "CreateRouteToRockWall", sender: self)
     }
     
-    //For setting up rope
+    //==========SET UP ROPE INFO==========
+    
     @IBAction func changeRope(sender: UIButton) {
         if(currRope == ropes.count - 1) { currRope = 0 }
         else { currRope += 1 }
@@ -137,7 +136,8 @@ class CreateRouteViewController: UIViewController, UITextFieldDelegate, RouteAdd
         button_Rating.setTitle(routeArray[currRoute], for: UIControlState.normal)
     }
     
-    //Segues
+    //=========SEGUES=========
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "CreateRouteToRockWall") {
             let destinationVC = segue.destination as! RockWallViewController

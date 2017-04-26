@@ -10,6 +10,8 @@ import UIKit
 
 class TimePickerViewController: UIViewController {
 
+    //==========GLOBAL VARIABLES=========
+    
     //DatePickers
     @IBOutlet weak var startTime: UIDatePicker!
     @IBOutlet weak var endTime: UIDatePicker!
@@ -28,6 +30,8 @@ class TimePickerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //==========ADD NEW USER CLIMBING TO DB==========
+    
     @IBAction func startClimbing(sender: UIButton) {
         
         //Get times from DatePicker
@@ -38,6 +42,7 @@ class TimePickerViewController: UIViewController {
         let endHour = calendar.component(.hour, from: endTime.date)
         let endMin = calendar.component(.minute, from: endTime.date)
         
+        //Incorrect time input
         if((endHour < startHour) || (endHour == startHour && endMin <= startMin)) {
             let alertController = UIAlertController(title: "ALERT", message: "INVALID TIME", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: nil))
@@ -50,6 +55,8 @@ class TimePickerViewController: UIViewController {
             performSegue(withIdentifier: "TimePickerToCurrentlyClimbing", sender: sender)
         }
     }
+    
+    //=========SEGUES=========
     
     @IBAction func cancel(sender: UIButton) {
         performSegue(withIdentifier: "TimePickerToCurrentlyClimbing", sender: sender)

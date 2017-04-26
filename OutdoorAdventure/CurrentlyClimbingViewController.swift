@@ -10,6 +10,8 @@ import UIKit
 
 class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UserClimbingModelProtocol {
 
+    //===========GLOBAL VARIABLES===========
+    
     //Button to start climbing
     @IBOutlet weak var climbingButton: UIButton!
     @IBOutlet weak var circleBackground: UIImageView!
@@ -37,7 +39,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         circleBackground.image = ImageTransformer.maskRoundedImage(image: ImageTransformer.getImageWithColor(color: UIColor.lightGray, size: circleBackground.frame.size), radius: Float(circleBackground.frame.size.width/2))
         circleBackground.layer.shadowColor = UIColor.black.cgColor
         
-        //REMOVE OLD POSTS FROM DATABASE
+        //Remove old users climbing from DB
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
@@ -72,6 +74,8 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //==========GET USERS CLIMBING FROM DB==========
     
     func itemsDownloaded(userClimbingItems: NSArray) {
         feedItems = userClimbingItems
@@ -127,6 +131,8 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         }
     }
     
+    //==========SET UP COLLECTION VIEW===========
+    
     //Number of items in the CollectionView
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.items.count
@@ -155,7 +161,8 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         return size
     }
     
-    //Select a time to climb at
+    //==========CLIMBING BUTTON CLICKED===========
+    
     @IBAction func startClimbing(sender: UIButton) {
         
         //If not a guest the button can be pressed
@@ -180,7 +187,8 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
         }
     }
     
-    //Segues
+    //==========SEGUES==========
+    
     @IBAction func toGallery(sender: UIBarButtonItem) {
         performSegue(withIdentifier: "CurrentlyClimbingToGallery", sender: sender)
     }
@@ -214,6 +222,7 @@ class CurrentlyClimbingViewController: UIViewController, UICollectionViewDataSou
     }
 }
 
+//Circle mask imageview
 extension UIImage {
     var isPortrait:  Bool    { return size.height > size.width }
     var isLandscape: Bool    { return size.width > size.height }
