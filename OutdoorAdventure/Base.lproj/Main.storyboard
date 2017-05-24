@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -499,7 +499,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cMU-Gf-as5"/>
                                     <barButtonItem style="plain" id="tfm-zh-V7Y">
                                         <view key="customView" contentMode="scaleToFill" id="RYs-iu-apw">
-                                            <rect key="frame" x="125" y="6" width="164" height="33"/>
+                                            <rect key="frame" x="125" y="5.6666666666666679" width="164" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BOw-dC-KLC">
@@ -779,7 +779,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="9d1-rn-4D5"/>
                                     <barButtonItem style="plain" id="jLn-ml-Rw3">
                                         <view key="customView" contentMode="scaleToFill" id="nbP-85-ZET">
-                                            <rect key="frame" x="87" y="6" width="240" height="33"/>
+                                            <rect key="frame" x="87" y="5.6666666666666679" width="240" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNn-RC-b67">
@@ -1301,7 +1301,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="207" height="207"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ew8-9j-Ujo">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loadGif.gif" translatesAutoresizingMaskIntoConstraints="NO" id="ew8-9j-Ujo">
                                                             <rect key="frame" x="0.0" y="0.0" width="207" height="207"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </imageView>
@@ -1371,7 +1371,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="nd6-IA-bQd"/>
                                     <barButtonItem style="plain" id="U8l-N8-aaT">
                                         <view key="customView" contentMode="scaleToFill" id="6P8-kF-pS3">
-                                            <rect key="frame" x="125" y="6" width="164" height="33"/>
+                                            <rect key="frame" x="125" y="5.6666666666666679" width="164" height="33"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Outdoor Adventure" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6k8-KQ-Pfh">
@@ -1686,14 +1686,15 @@
         <image name="ic_photo_library.png" width="24" height="24"/>
         <image name="information.png" width="24" height="24"/>
         <image name="keyboard-backspace.png" width="24" height="24"/>
+        <image name="loadGif.gif" width="256" height="256"/>
         <image name="newspaper.png" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xGw-S6-QZ3"/>
-        <segue reference="fwe-mC-dHa"/>
-        <segue reference="1zQ-XG-Wt5"/>
-        <segue reference="YxE-ke-1mW"/>
+        <segue reference="Hyn-MK-lm4"/>
         <segue reference="are-xu-43T"/>
-        <segue reference="83p-zm-uqW"/>
+        <segue reference="1on-5Z-1Tp"/>
+        <segue reference="5qi-ZR-Bea"/>
+        <segue reference="aKj-HW-IUl"/>
+        <segue reference="aHN-BI-BGh"/>
     </inferredMetricsTieBreakers>
 </document>

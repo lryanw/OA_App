@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftGifOrigin
 
 class ImageCollectionViewCell: UICollectionViewCell {
     
@@ -17,6 +18,10 @@ class ImageCollectionViewCell: UICollectionViewCell {
     func getImage(path: String) {
         cellImage.downloadedFrom(url: URL(string: "http://dasnr58.dasnr.okstate.edu/Images/" + path)!, sourceCell: self)
         cellImage.contentMode = .scaleToFill
+    }
+    
+    override func awakeFromNib() {
+        cellImage.image = UIImage.gif(name: "loadGif")
     }
 }
 

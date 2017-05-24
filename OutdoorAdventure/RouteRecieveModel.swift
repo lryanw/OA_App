@@ -43,12 +43,14 @@ class RouteRecieveModel: NSObject, URLSessionDataDelegate {
                             var name = jsonElement["Name"] as! String
                             var setter = jsonElement["Setter"] as! String
                             let color = jsonElement["Color"] as! String
-                            let rating = jsonElement["Rating"] as! String
+                            var rating = jsonElement["Rating"] as! String
                             let overlay = jsonElement["Overlay"] as! String
                             let rope = jsonElement["Rope"] as! String
                             
+                            //Fix unusable characters
                             name = name.replacingOccurrences(of: "_", with: " ")
                             setter = setter.replacingOccurrences(of: "_", with: " ")
+                            rating = rating.replacingOccurrences(of: "_2", with: "+")
                             
                             route.name = name
                             route.setter = setter
@@ -74,3 +76,12 @@ class RouteRecieveModel: NSObject, URLSessionDataDelegate {
     }
         
 }
+
+/*
+ 
+ CHARACTER REPLACEMENT CHART
+ 
+ ' -> _1
+ + -> _2
+ 
+ */

@@ -19,8 +19,9 @@ class RouteAddRequest: NSObject, URLSessionDataDelegate {
         //Fixes Issues with Naming
         let tempSetter = setter.replacingOccurrences(of: " ", with: "_")
         let tempName = name.replacingOccurrences(of: " ", with: "_")
+        let tempRating = rating.replacingOccurrences(of: "+", with: "_2")
         
-        urlPath = urlPath + "?Color=" + color + "&Overlay=" + overlay + "&Name=" + tempName + "&Rating=" + rating + "&Setter=" + tempSetter + "&Rope=" + rope
+        urlPath = urlPath + "?Color=" + color + "&Overlay=" + overlay + "&Name=" + tempName + "&Rating=" + tempRating + "&Setter=" + tempSetter + "&Rope=" + rope
     }
     
     func downloadItems() {
@@ -34,3 +35,12 @@ class RouteAddRequest: NSObject, URLSessionDataDelegate {
         task.resume()
     }
 }
+
+/*
+ 
+ CHARACTER REPLACEMENT CHART
+ 
+ ' -> _1
+ + -> _2
+
+ */
